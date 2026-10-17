@@ -1,4 +1,4 @@
-# Maison Jay (Mrs. Jay) — Luxury Dessert Catering & Outdoor Carts 🍰✨
+# Mrs Jay (Mrs. Jay) — Luxury Dessert Catering & Outdoor Carts 🍰✨
 
 An ultra-premium, boutique dessert catering and mobile dessert booth booking platform built with **Next.js 16 (App Router)**, **Turbopack**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
 
