@@ -1,5 +1,5 @@
 {
-  "name": "Mrs-jay-desserts",
+  "name": "mrs-jay-desserts",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@next/swc-win32-x64-msvc": "^16.4.2",
     "clsx": "^2.1.1",
     "framer-motion": "^14.3.0",
     "lucide-react": "^1.59.0",

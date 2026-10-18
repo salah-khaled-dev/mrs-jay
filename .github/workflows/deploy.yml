@@ -33,7 +33,7 @@ jobs:
           static_site_generator: next
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build with Next.js
         run: npx next build
@@ -44,9 +44,6 @@ jobs:
           path: ./out
 
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
