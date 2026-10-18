@@ -234,7 +234,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           </div>
           <Link
             href={`/book?service=${service.slug}`}
-            className="px-7 py-3.5 rounded-full bg-white text-primary hover:bg-[#FFF8F2] text-xs uppercase tracking-wider font-semibold shadow-md shrink-0 transition-colors"
+            className="px-7 py-3.5 rounded-full bg-[#0B0B0D] text-[#E8D5A8] hover:text-white hover:bg-[#1C1C1E] text-xs uppercase tracking-wider font-semibold shadow-md shrink-0 transition-colors border border-[#C9A86A]/40"
           >
             Request Custom Quote
           </Link>

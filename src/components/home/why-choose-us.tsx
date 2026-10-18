@@ -48,7 +48,7 @@ export function WhyChooseUs() {
             Our Brand Philosophy
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground tracking-tight">
-            Why Discerning Hosts Choose Maison Jay
+            Why Discerning Hosts Choose Mrs Jay
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             Crafting memorable dessert hospitality requires both pastry mastery and meticulous event coordination. Here is what sets our sweet experiences apart.

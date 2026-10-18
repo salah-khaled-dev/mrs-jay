@@ -120,7 +120,7 @@ export default function GalleryPage() {
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-blush transition-colors">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-primary transition-colors">
                       {item.title}
                     </h3>
 

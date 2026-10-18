@@ -5,7 +5,7 @@ import { BRAND_INFO } from "@/lib/data";
 import { Sparkles, ArrowRight, Heart, Award, ShieldCheck, Utensils } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Maison Jay | Luxury Dessert Catering & Carts",
+  title: "About Mrs Jay | Luxury Dessert Catering & Carts",
   description:
     "Learn about our culinary heritage, bespoke mobile cart craftsmanship, and our philosophy of elevating dessert into an interactive art form.",
 };
@@ -21,7 +21,7 @@ export default function AboutPage() {
             <span>Our Heritage & Vision</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight">
-            The Story of Maison Jay
+            The Story of Mrs Jay
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
             Founded on the belief that celebratory desserts should be as visually captivating as they are gastronomically sublime.
@@ -58,7 +58,7 @@ export default function AboutPage() {
               Transforming the Traditional Dessert Table Into a Living Work of Art
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Maison Jay was envisioned to bridge the gap between high-end French patisserie and modern event hospitality. Traditional catering often relegated sweets to stationary buffets with tired plastic platters. We imagined something far more spirited: handcrafted European mobile carts that glide into your reception, styled with botanical garlands, fine china, and warm lighting.
+              Mrs Jay was envisioned to bridge the gap between high-end French patisserie and modern event hospitality. Traditional catering often relegated sweets to stationary buffets with tired plastic platters. We imagined something far more spirited: handcrafted European mobile carts that glide into your reception, styled with botanical garlands, fine china, and warm lighting.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Our mobile carts are built by boutique craftsmen using solid hardwoods, brass fittings, and interchangeable designer canopies. Whether your celebration is a sun-drenched vineyard wedding or a black-tie ballroom gala, our carts complement your decor with effortless elegance.
@@ -66,7 +66,7 @@ export default function AboutPage() {
 
             {/* Note on Brand History */}
             <div className="p-4 rounded-xl bg-secondary/80 border border-border/80 text-xs text-muted-foreground italic">
-              Note: Brand narrative and historical milestones are curated to reflect Maison Jay’s design standards and will be tailored as further archives are confirmed.
+              Note: Brand narrative and historical milestones are curated to reflect Mrs Jay’s design standards and will be tailored as further archives are confirmed.
             </div>
 
             <div className="pt-2">
@@ -106,7 +106,7 @@ export default function AboutPage() {
             </div>
 
             <div className="p-7 rounded-2xl bg-card border border-border space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-sage/30 text-foreground flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-primary/20 text-primary flex items-center justify-center">
                 <Heart className="w-5 h-5 text-primary" />
               </div>
               <h4 className="font-serif text-lg font-bold text-foreground">

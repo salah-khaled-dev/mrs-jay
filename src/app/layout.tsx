@@ -7,7 +7,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: {
     default: "Mrs Jay | Luxury Dessert Catering & Outdoor Carts",
-    template: "%s | Maison Jay Luxury Dessert Catering",
+    template: "%s | Mrs Jay Luxury Dessert Catering",
   },
   description:
     "Elevated artisan dessert carts and beautifully curated sweet experiences for luxury weddings, private celebrations, and corporate galas across the United States.",
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Mrs Jay Dessert Experiences" }],
   openGraph: {
-    title: "Maison Jay | Luxury Dessert Catering & Outdoor Carts",
+    title: "Mrs Jay | Luxury Dessert Catering & Outdoor Carts",
     description:
       "Elevated artisan dessert carts and beautifully curated sweet experiences for luxury weddings, private celebrations, and corporate galas.",
-    siteName: "Maison Jay",
+    siteName: "Mrs Jay",
     locale: "en_US",
     type: "website",
   },
@@ -39,10 +39,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" dir="ltr" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body className="font-sans antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-accent selection:text-foreground">
+      <body className="font-sans antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-primary/30 selection:text-foreground">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

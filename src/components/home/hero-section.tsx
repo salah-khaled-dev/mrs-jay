@@ -11,7 +11,7 @@ export function HeroSection() {
         aria-hidden="true"
       />
       <div
-        className="absolute top-48 right-0 w-[400px] h-[400px] bg-sage/15 dark:bg-sage/5 rounded-full blur-3xl pointer-events-none -z-10"
+        className="absolute top-48 right-0 w-[400px] h-[400px] bg-primary/10 dark:bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10"
         aria-hidden="true"
       />
 
@@ -104,7 +104,7 @@ export function HeroSection() {
 
               {/* Floating Floating Accent Badge: Service Area */}
               <div className="absolute -top-4 -right-4 sm:top-6 sm:-right-6 bg-card/95 backdrop-blur-md px-4 py-3 rounded-2xl border border-border shadow-xl hidden sm:flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-sage/30 flex items-center justify-center text-foreground">
+                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
                   <Calendar className="w-4 h-4 text-primary" />
                 </div>
                 <div className="text-left">

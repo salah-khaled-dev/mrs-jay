@@ -63,7 +63,7 @@ export function IntroSection() {
             </div>
 
             <p className="text-base text-muted-foreground leading-relaxed">
-              At Maison Jay, we believe the dessert table is never just an afterthought—it is the ceremonial finale of your celebration, an interactive gathering point where conversations flourish and memories are savored.
+              At Mrs Jay, we believe the dessert table is never just an afterthought—it is the ceremonial finale of your celebration, an interactive gathering point where conversations flourish and memories are savored.
             </p>
 
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -87,7 +87,7 @@ export function IntroSection() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-sage/30 text-foreground flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">
                   <Palette className="w-4 h-4 text-primary" />
                 </div>
                 <div>

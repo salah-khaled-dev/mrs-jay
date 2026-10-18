@@ -3,52 +3,72 @@
 
 @layer base {
   :root {
-    --background: #FFF8F2;
-    --foreground: #4B352F;
-    --card: #FFFFFF;
-    --card-foreground: #4B352F;
+    /* Luxury Light Mode Identity */
+    --background: #F7F5F0;          /* Luxury Ivory Main Background */
+    --foreground: #1C1C1E;          /* Charcoal Body Text */
+    --card: #FFFFFF;                /* Card background */
+    --card-foreground: #1C1C1E;
     --popover: #FFFFFF;
-    --popover-foreground: #4B352F;
-    --primary: #A85D6E;
-    --primary-foreground: #FFF8F2;
-    --primary-hover: #934c5c;
-    --secondary: #F7EAE5;
-    --secondary-foreground: #4B352F;
-    --muted: #F2E3DF;
-    --muted-foreground: #6B554F;
-    --accent: #EFC9C5;
-    --accent-foreground: #4B352F;
-    --blush: #EFC9C5;
-    --sage: #A8B89A;
-    --chocolate: #4B352F;
-    --border: #EADBDA;
-    --input: #EADBDA;
-    --ring: #A85D6E;
+    --popover-foreground: #1C1C1E;
+    --heading: #0B0B0D;             /* Luxury Black Headings */
+    --primary: #8A682C;             /* Deep Gold for accessible contrast on light */
+    --primary-foreground: #FFFFFF;   /* Clear crisp white on Deep Gold */
+    --primary-hover: #735522;
+    --secondary: #EFECE6;           /* Soft Ivory tone */
+    --secondary-foreground: #0B0B0D;
+    --muted: #E8E4DA;
+    --muted-foreground: #6B6862;
+    --accent: #E8D5A8;              /* Light Champagne */
+    --accent-foreground: #0B0B0D;
+    --gold: #C9A86A;                /* Champagne Gold */
+    --gold-light: #E8D5A8;          /* Light Champagne */
+    --gold-deep: #8A682C;           /* Deep Gold */
+    --luxury-black: #0B0B0D;
+    --charcoal: #1C1C1E;
+    --ivory: #F7F5F0;
+    --border: #E2DDD5;              /* Subtle ivory border */
+    --input: #E2DDD5;
+    --ring: #8A682C;
     --radius: 0.875rem;
+
+    /* Backward compatibility mappings for legacy tokens */
+    --blush: #E8D5A8;
+    --sage: #C9A86A;
+    --chocolate: #1C1C1E;
   }
 
   .dark {
-    --background: #1C1719;
-    --foreground: #FFF0E9;
-    --card: #30262A;
-    --card-foreground: #FFF0E9;
-    --popover: #30262A;
-    --popover-foreground: #FFF0E9;
-    --primary: #E3A9B8;
-    --primary-foreground: #1C1719;
-    --primary-hover: #F0BDCA;
-    --secondary: #3A2E33;
-    --secondary-foreground: #FFF0E9;
-    --muted: #33282C;
-    --muted-foreground: #D8BEBA;
-    --accent: #514049;
-    --accent-foreground: #FFF0E9;
-    --blush: #EFC9C5;
-    --sage: #B9C4AC;
-    --chocolate: #FFF0E9;
-    --border: #514049;
-    --input: #514049;
-    --ring: #E3A9B8;
+    /* Signature Luxury Dark Mode Identity */
+    --background: #0B0B0D;          /* Luxury Black Main Background */
+    --foreground: #F7F5F0;          /* Luxury Ivory Primary Text */
+    --card: #1C1C1E;                /* Charcoal Card Background */
+    --card-foreground: #F7F5F0;
+    --popover: #1C1C1E;
+    --popover-foreground: #F7F5F0;
+    --heading: #F7F5F0;             /* Luxury Ivory Headings */
+    --primary: #C9A86A;             /* Champagne Gold Signature Accent */
+    --primary-foreground: #0B0B0D;   /* Very dark text for high-contrast gold buttons */
+    --primary-hover: #D8BA7D;        /* Light champagne hover */
+    --secondary: #242428;           /* Subtle dark charcoal */
+    --secondary-foreground: #F7F5F0;
+    --muted: #242428;
+    --muted-foreground: #9E9C96;
+    --accent: #2A261F;              /* Subtle warm dark gold tint */
+    --accent-foreground: #E8D5A8;    /* Light Champagne */
+    --gold: #C9A86A;                /* Champagne Gold */
+    --gold-light: #E8D5A8;          /* Light Champagne */
+    --gold-deep: #8A682C;           /* Deep Gold */
+    --luxury-black: #0B0B0D;
+    --charcoal: #1C1C1E;
+    --ivory: #F7F5F0;
+    --border: #2C2C30;              /* Subtle dark charcoal borders */
+    --input: #2C2C30;
+    --ring: #C9A86A;
+
+    /* Backward compatibility mappings for legacy tokens */
+    --blush: #C9A86A;
+    --sage: #C9A86A;
+    --chocolate: #F7F5F0;
   }
 }
 
@@ -59,6 +79,7 @@
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+  --color-heading: var(--heading);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-hover: var(--primary-hover);
@@ -68,6 +89,12 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-deep: var(--gold-deep);
+  --color-luxury-black: var(--luxury-black);
+  --color-charcoal: var(--charcoal);
+  --color-ivory: var(--ivory);
   --color-blush: var(--blush);
   --color-sage: var(--sage);
   --color-chocolate: var(--chocolate);
@@ -94,4 +121,22 @@ body {
 
 h1, h2, h3, h4, .font-serif {
   font-family: var(--font-serif);
+}
+
+h1, h2, h3, h4 {
+  color: var(--heading);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }

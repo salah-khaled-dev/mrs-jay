@@ -90,10 +90,10 @@ const DESSERT_OPTIONS = [
 ];
 
 const CART_STYLES = [
-  { id: "vintage-cream", name: "Vintage Cream & Gold", desc: "Classic ivory cart with brass accents and warm parasol." },
-  { id: "blush-botanical", name: "Blush Rose Botanical", desc: "Soft blush canopy with cascading eucalyptus and garden roses." },
-  { id: "sage-marketplace", name: "Sage Green Al Fresco", desc: "European farmer market look with light timber and sage linens." },
-  { id: "modern-noir", name: "Modern Espresso Noir", desc: "Dark chocolate wood and minimalist linear brass frame." },
+  { id: "grand-noir", name: "Grand Noir & Champagne Gold", desc: "Sleek matte black cart with champagne gold trim and warm parasol." },
+  { id: "vintage-cream", name: "Vintage Ivory & Gold", desc: "Classic luxury ivory cart with brushed gold accents and linen canopy." },
+  { id: "charcoal-brass", name: "Charcoal & Polished Gold", desc: "Architectural charcoal finish with ambient vitrine lighting." },
+  { id: "haute-botanical", name: "Haute Botanique Noir", desc: "Matte black cart with trailing emerald greenery and gold accents." },
 ];
 
 const OPTIONAL_EXTRAS = [
@@ -137,9 +137,9 @@ export function BookingWizard() {
     locationType: "indoor",
     selectedPackage: preselectedPackage || "the-signature-experience",
     dessertCategories: ["Parisian French Macarons", "Petite Fruit & Berry Tarts"],
-    boothStyle: "vintage-cream",
+    boothStyle: "grand-noir",
     eventTheme: "",
-    colorPalette: "Blush, Cream & Gold",
+    colorPalette: "Luxury Black, Champagne Gold & Ivory",
     additionalNotes: "",
     optionalExtras: [],
     fullName: "",
@@ -241,7 +241,7 @@ export function BookingWizard() {
   if (isDemoSubmitted) {
     return (
       <div className="p-8 sm:p-12 rounded-3xl bg-card border border-border shadow-xl space-y-8 text-center animate-in zoom-in-95 duration-250">
-        <div className="w-20 h-20 rounded-full bg-sage/20 text-foreground mx-auto flex items-center justify-center">
+        <div className="w-20 h-20 rounded-full bg-primary/20 text-primary mx-auto flex items-center justify-center">
           <CheckCircle2 className="w-10 h-10 text-primary" />
         </div>
 
@@ -322,7 +322,7 @@ export function BookingWizard() {
                   s.id === currentStep
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : s.id < currentStep
-                    ? "bg-sage/40 text-foreground"
+                    ? "bg-primary/25 text-primary"
                     : "bg-muted text-muted-foreground"
                 )}
               >
@@ -812,7 +812,7 @@ export function BookingWizard() {
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Sage Green, Terracotta & Ivory"
+                  placeholder="e.g. Luxury Black, Champagne Gold & Ivory"
                   value={formData.colorPalette}
                   onChange={(e) =>
                     setFormData({ ...formData, colorPalette: e.target.value })

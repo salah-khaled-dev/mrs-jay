@@ -26,7 +26,7 @@ export default function WeddingsPage() {
             </h1>
 
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-              From romantic vineyard ceremonies to grand metropolitan ballroom receptions, Maison Jay delivers handcrafted French pastries presented from breathtaking vintage-inspired mobile carts.
+              From romantic vineyard ceremonies to grand metropolitan ballroom receptions, Mrs Jay delivers handcrafted French pastries presented from breathtaking vintage-inspired mobile carts.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">

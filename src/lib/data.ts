@@ -7,7 +7,7 @@ import {
 } from "@/types";
 
 export const BRAND_INFO = {
-  name: " Mrs-Jay",
+  name: "Mrs Jay",
   tagline: "Artisan Dessert Carts & Outdoor Sweets",
   phone: "(800) 555-0198",
   email: "hello@mrs-jaydesserts.com",
@@ -155,7 +155,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription:
       "Professional dessert catering featuring corporate branding, clean lines, seamless logistics, and high-volume attendee throughput.",
     longDescription:
-      "Elevate your corporate hospitality with an experiential dessert activation. Whether hosting an annual gala for 500 VIPs, a client appreciation reception, or an international product launch, Maison Jay delivers flawless timing, branded edible delicacies, and polished staff.",
+      "Elevate your corporate hospitality with an experiential dessert activation. Whether hosting an annual gala for 500 VIPs, a client appreciation reception, or an international product launch, Mrs Jay delivers flawless timing, branded edible delicacies, and polished staff.",
     image:
       "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
     galleryImages: [
@@ -289,7 +289,7 @@ export const PACKAGES: PackageItem[] = [
       "Full delivery, styling setup, and removal within 25 miles",
     ],
     customizations: [
-      "Choice of cart canopy color (Cream, Blush, or Sage Green)",
+      "Choice of cart canopy styling (Noir Black, Champagne Linen, or Luxury Ivory)",
       "Choice of 4 dessert items from our artisan collection",
       "Custom framed menu card with event title",
     ],
@@ -305,7 +305,7 @@ export const PACKAGES: PackageItem[] = [
     tagline: "Our most popular, beautifully curated celebration package",
     guestCount: "50 to 120 Guests",
     description:
-      "The quintessential Maison Jay experience. Features our flagship artisan cart, expansive floral integration, custom color coordination, and an unforgettable 6-selection sweet menu.",
+      "The quintessential Mrs Jay experience. Features our flagship artisan cart, expansive floral integration, custom color coordination, and an unforgettable 6-selection sweet menu.",
     featured: true,
     idealFor: ["Weddings", "Milestone 30th/40th/50th Birthdays", "Corporate Galas", "Engagement Parties"],
     inclusions: [
@@ -484,7 +484,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
       "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
     location: "Napa Valley, CA",
     caption:
-      "A rustic-chic white dessert cart nestled beneath olive trees with macaron towers and blush berry accents.",
+      "An elegant ivory & champagne dessert cart nestled beneath olive trees with macaron towers and gold leaf accents.",
     guestCount: "160 Guests",
   },
   {
@@ -520,7 +520,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
       "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80",
     location: "Austin, TX",
     caption:
-      "Playful yet elevated birthday cart with botanical green canopy and multi-tiered berry pastries.",
+      "Sophisticated luxury celebration cart with champagne gold accents and multi-tiered artisan pastries.",
     guestCount: "65 Guests",
   },
   {
@@ -544,7 +544,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
       "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1200&q=80",
     location: "Charleston, SC",
     caption:
-      "Vintage cream-and-sage cart serving French macarons and iced shortbreads under illuminated market lights.",
+      "Vintage ivory & gold cart serving French macarons and iced shortbreads under illuminated market lights.",
     guestCount: "90 Guests",
   },
 ];
@@ -556,7 +556,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Bride & Groom",
     eventType: "Napa Valley Estate Wedding",
     quote:
-      "Maison Jay was unquestionably the highlight of our reception. Guests took hundreds of photos around the cart before even taking a bite! The lavender honey macarons and mini tarts were extraordinary.",
+      "Mrs Jay was unquestionably the highlight of our reception. Guests took hundreds of photos around the cart before even taking a bite! The lavender honey macarons and mini tarts were extraordinary.",
     date: "September 2025",
     location: "St. Helena, California",
   },
@@ -566,7 +566,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Director of Brand Partnerships, Vesper Media",
     eventType: "Annual Corporate Gala",
     quote:
-      "From seamless COI coordination to immaculate staff presentation, Maison Jay operated with utmost corporate professionalism. Our clients were stunned by the edible branded macarons.",
+      "From seamless COI coordination to immaculate staff presentation, Mrs Jay operated with utmost corporate professionalism. Our clients were stunned by the edible branded macarons.",
     date: "November 2025",
     location: "New York, New York",
   },
@@ -576,7 +576,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Host & Event Planner",
     eventType: "30th Birthday Garden Party",
     quote:
-      "The booking process was effortless and the on-site concierge made our guests feel like royalty. The cart aesthetic matched my blush and sage floral design flawlessly.",
+      "The booking process was effortless and the on-site concierge made our guests feel like royalty. The cart aesthetic matched our black tie and champagne gold design flawlessly.",
     date: "June 2025",
     location: "Atlanta, Georgia",
   },
