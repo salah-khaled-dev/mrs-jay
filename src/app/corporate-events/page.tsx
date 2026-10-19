@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, ArrowRight, ShieldCheck, FileCheck, Building2, Users, Check } from "lucide-react";
+import { ArrowRight, Building2, Check } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Corporate Event Dessert Catering & Brand Activations",

@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { BRAND_INFO, SERVICES } from "@/lib/data";
+import { BrandLogo } from "@/components/brand-logo";
 import { Mail, Phone, MapPin, Sparkles, ArrowRight } from "lucide-react";
 
 export function Footer() {
@@ -18,26 +19,21 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#0B0B0D] text-[#F7F5F0] border-t border-[#2C2C30] transition-colors">
-      {/* Decorative Champagne Gold Hairline Accent */}
-      <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-[#C9A86A] to-transparent opacity-80" />
+    <footer className="w-full bg-[#08080A] text-[#FAF8F5] border-t border-[#28241D] transition-colors">
+      {/* Decorative Metallic Gold Hairline Accent */}
+      <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-[#DCA548] to-transparent opacity-80" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-14">
           {/* Column 1: Brand & Bio */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-block group">
-              <span className="font-serif text-3xl font-bold tracking-wide text-[#F7F5F0] group-hover:text-primary transition-colors flex items-center gap-1.5">
-                <span>{BRAND_INFO.name}</span>
-                <span className="w-2 h-2 rounded-full bg-primary inline-block" />
-              </span>
-              <span className="text-[11px] uppercase tracking-[0.25em] text-[#E8D5A8] block mt-0.5">
-                Luxury Dessert Catering & Carts
-              </span>
-            </Link>
+            <BrandLogo variant="horizontal" height={42} />
+            <span className="text-[11px] uppercase tracking-[0.25em] text-[#E1C078] block">
+              Meal Prep + Catering
+            </span>
 
-            <p className="text-neutral-400 text-sm leading-relaxed max-w-sm pt-2">
-              Elevating weddings, milestone celebrations, and corporate galas across the United States with bespoke mobile dessert carts, handcrafted French pastries, and white-glove hospitality.
+            <p className="text-neutral-400 text-sm leading-relaxed max-w-sm pt-1">
+              Elevating weddings, private dining, milestone celebrations, and corporate galas across the United States with bespoke artisan meal prep, luxury event catering, and white-glove hospitality.
             </p>
 
             <div className="pt-2 flex flex-col space-y-2 text-xs text-neutral-400">
@@ -181,12 +177,12 @@ export function Footer() {
             )}
 
             <div className="pt-2">
-              <span className="text-xs text-[#E8D5A8] block mb-2 font-medium">Follow Our Journey</span>
+              <span className="text-xs text-[#E1C078] block mb-2 font-medium">Follow Our Journey</span>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2C2C30] text-xs text-neutral-300 hover:text-white hover:border-primary transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#28241D] text-xs text-neutral-300 hover:text-white hover:border-primary transition-colors"
               >
                 <svg className="w-3.5 h-3.5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
@@ -200,7 +196,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Terms */}
-        <div className="pt-8 border-t border-[#2C2C30] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+        <div className="pt-8 border-t border-[#28241D] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <div className="flex items-center gap-1">
             <span>© {new Date().getFullYear()} {BRAND_INFO.name}. All rights reserved.</span>
             <span className="hidden sm:inline">Handcrafted with care for memorable events.</span>

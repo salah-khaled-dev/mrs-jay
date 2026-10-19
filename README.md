@@ -1,25 +1,26 @@
-# Mrs Jay (Mrs. Jay) — Luxury Dessert Catering & Outdoor Carts 🍰✨
+# Divine & Delight (D&D) — Luxury Meal Prep & Bespoke Catering 👑✨
 
-An ultra-premium, boutique dessert catering and mobile dessert booth booking platform built with **Next.js 16 (App Router)**, **Turbopack**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
+An ultra-premium, luxury meal preparation and bespoke event catering platform built with **Next.js 16 (App Router)**, **Turbopack**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
 
-Designed specifically for luxury weddings, milestone celebrations, and high-profile corporate galas operating across the United States.
+Designed specifically for luxury weddings, private chef dining, milestone celebrations, and high-profile corporate galas operating across the United States.
 
 ---
 
 ## 🎨 Official Brand Identity & Palette
 
-Crafted with an editorial luxury aesthetic combining French patisserie elegance and warm American hospitality.
+Extracted directly from the official Divine & Delight crowned monogram logo:
 
-* **Cream (`#FFF8F2`):** Primary light background surface.
-* **Blush Pink (`#EFC9C5`):** Soft decorative backgrounds and accent elements.
-* **Berry Rose (`#A85D6E`):** Primary brand color, interactive CTAs, and focal accents.
-* **Sage Green (`#A8B89A`):** Botanical and organic decorative accents.
-* **Chocolate Brown (`#4B352F`):** Editorial headings, typography, and dark accents.
+* **Primary Metallic Gold (`#DCA548`):** Official logo core gold, primary accents, active states.
+* **Highlight Gold (`#F9D685` / `#FFE4A3`):** Radiant metallic reflections and subtle glows.
+* **Deep Gold / Bronze (`#99631B` / `#603807`):** High-contrast accessible gold for light surfaces and shadow depth.
+* **Champagne Accent (`#E1C078`):** Refined secondary metallic elements.
+* **Luxury Obsidian (`#08080A`):** Deep black matching the official logo backdrop.
+* **Ivory Warm White (`#FAF8F5`):** Clean, prestigious light-mode surface.
 
 ### 🌗 Light & Dark Mode
 Fully functional, hydration-safe theme switching via `next-themes`:
-* **Light Theme:** Cream surfaces (`#FFF8F2`), Berry Rose CTAs (`#A85D6E`), Chocolate typography (`#4B352F`).
-* **Dark Theme:** Decadent chocolate and berry dark mode (`#1C1719` background, `#30262A` card surface, `#E3A9B8` primary, `#FFF0E9` text).
+* **Dark Theme:** Deep obsidian background (`#08080A`), dark charcoal cards (`#121215`), radiant logo gold accents (`#DCA548`), high readability.
+* **Light Theme:** Refined warm ivory (`#FAF8F5`), pure white surfaces (`#FFFFFF`), deep metallic gold CTAs (`#99631B`, WCAG AA compliant).
 
 ---
 

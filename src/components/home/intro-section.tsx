@@ -63,7 +63,7 @@ export function IntroSection() {
             </div>
 
             <p className="text-base text-muted-foreground leading-relaxed">
-              At Mrs Jay, we believe the dessert table is never just an afterthought—it is the ceremonial finale of your celebration, an interactive gathering point where conversations flourish and memories are savored.
+              At Divine & Delight, we believe every culinary touchpoint is never just an afterthought—it is the centerpiece of your celebration, an interactive gathering point where conversations flourish and memories are savored.
             </p>
 
             <p className="text-sm text-muted-foreground leading-relaxed">

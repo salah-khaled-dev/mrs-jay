@@ -7,13 +7,15 @@ import {
 } from "@/types";
 
 export const BRAND_INFO = {
-  name: "Mrs Jay",
-  tagline: "Artisan Dessert Carts & Outdoor Sweets",
+  name: "Divine & Delight",
+  abbreviation: "D&D",
+  category: "Meal Prep + Catering",
+  tagline: "Luxury Meal Prep & Bespoke Event Catering",
   phone: "(800) 555-0198",
-  email: "hello@mrs-jaydesserts.com",
+  email: "concierge@divineanddelight.com",
   serviceArea: "Serving Metro Areas & Private Venues Nationwide, USA",
   headquarters: "Available for Travel Across the United States",
-  instagram: "@mrsjaydesserts",
+  instagram: "@divineanddelight",
   hours: "Mon – Sat: 9:00 AM – 7:00 PM EST",
 };
 
@@ -155,7 +157,7 @@ export const SERVICES: ServiceItem[] = [
     shortDescription:
       "Professional dessert catering featuring corporate branding, clean lines, seamless logistics, and high-volume attendee throughput.",
     longDescription:
-      "Elevate your corporate hospitality with an experiential dessert activation. Whether hosting an annual gala for 500 VIPs, a client appreciation reception, or an international product launch, Mrs Jay delivers flawless timing, branded edible delicacies, and polished staff.",
+      "Elevate your corporate hospitality with an experiential dessert activation. Whether hosting an annual gala for 500 VIPs, a client appreciation reception, or an international product launch, Divine & Delight delivers flawless timing, branded edible delicacies, and polished staff.",
     image:
       "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
     galleryImages: [
@@ -305,7 +307,7 @@ export const PACKAGES: PackageItem[] = [
     tagline: "Our most popular, beautifully curated celebration package",
     guestCount: "50 to 120 Guests",
     description:
-      "The quintessential Mrs Jay experience. Features our flagship artisan cart, expansive floral integration, custom color coordination, and an unforgettable 6-selection sweet menu.",
+      "The quintessential Divine & Delight experience. Features our flagship artisan cart, expansive floral integration, custom color coordination, and an unforgettable 6-selection sweet menu.",
     featured: true,
     idealFor: ["Weddings", "Milestone 30th/40th/50th Birthdays", "Corporate Galas", "Engagement Parties"],
     inclusions: [
@@ -556,7 +558,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Bride & Groom",
     eventType: "Napa Valley Estate Wedding",
     quote:
-      "Mrs Jay was unquestionably the highlight of our reception. Guests took hundreds of photos around the cart before even taking a bite! The lavender honey macarons and mini tarts were extraordinary.",
+      "Divine & Delight was unquestionably the highlight of our reception. Guests took hundreds of photos around the cart before even taking a bite! The lavender honey macarons and mini tarts were extraordinary.",
     date: "September 2025",
     location: "St. Helena, California",
   },
@@ -566,7 +568,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Director of Brand Partnerships, Vesper Media",
     eventType: "Annual Corporate Gala",
     quote:
-      "From seamless COI coordination to immaculate staff presentation, Mrs Jay operated with utmost corporate professionalism. Our clients were stunned by the edible branded macarons.",
+      "From seamless COI coordination to immaculate staff presentation, Divine & Delight operated with utmost corporate professionalism. Our clients were stunned by the edible branded macarons.",
     date: "November 2025",
     location: "New York, New York",
   },

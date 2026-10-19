@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { SERVICES } from "@/lib/data";
-import { Sparkles, ArrowRight, Check, Users, Clock, Calendar } from "lucide-react";
+import { Sparkles, ArrowRight, Check, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Catering Services & Dessert Experiences",

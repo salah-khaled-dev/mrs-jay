@@ -5,30 +5,51 @@ import { Footer } from "@/components/layout/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://divineanddelight.com"),
   title: {
-    default: "Mrs Jay | Luxury Dessert Catering & Outdoor Carts",
-    template: "%s | Mrs Jay Luxury Dessert Catering",
+    default: "Divine & Delight | Luxury Meal Prep & Bespoke Catering",
+    template: "%s | Divine & Delight Luxury Catering",
   },
   description:
-    "Elevated artisan dessert carts and beautifully curated sweet experiences for luxury weddings, private celebrations, and corporate galas across the United States.",
+    "Divine & Delight (D&D) delivers elevated artisan meal preparation and luxury bespoke catering for weddings, private celebrations, and corporate galas across the United States.",
   keywords: [
-    "dessert cart catering",
-    "wedding dessert station",
-    "luxury dessert cart",
-    "outdoor dessert booth",
-    "corporate dessert catering",
-    "bridal shower sweets",
-    "French macarons",
-    "event sweet catering",
+    "Divine & Delight",
+    "D&D catering",
+    "luxury meal prep",
+    "bespoke catering",
+    "wedding catering",
+    "corporate event catering",
+    "luxury dessert catering",
+    "private chef meal prep",
+    "artisan catering",
   ],
-  authors: [{ name: "Mrs Jay Dessert Experiences" }],
+  authors: [{ name: "Divine & Delight Culinary Group" }],
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
-    title: "Mrs Jay | Luxury Dessert Catering & Outdoor Carts",
+    title: "Divine & Delight | Luxury Meal Prep & Bespoke Catering",
     description:
-      "Elevated artisan dessert carts and beautifully curated sweet experiences for luxury weddings, private celebrations, and corporate galas.",
-    siteName: "Mrs Jay",
+      "Elevated artisan meal preparation and bespoke event catering with signature culinary excellence and white-glove hospitality.",
+    siteName: "Divine & Delight",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/brand/logo-original.png",
+        width: 1024,
+        height: 1024,
+        alt: "Divine & Delight Official Brand Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Divine & Delight | Luxury Meal Prep & Bespoke Catering",
+    description:
+      "Elevated artisan meal preparation and bespoke event catering with signature culinary excellence.",
+    images: ["/images/brand/logo-original.png"],
   },
 };
 

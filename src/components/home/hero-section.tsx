@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Sparkles, ArrowRight, Calendar, Star, ShieldCheck } from "lucide-react";
+import { Sparkles, ArrowRight, Calendar } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -22,18 +22,18 @@ export function HeroSection() {
             {/* Editorial Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/30 dark:bg-accent/15 border border-primary/20 text-foreground text-xs uppercase tracking-[0.2em] font-medium mx-auto lg:mx-0">
               <Sparkles className="w-3.5 h-3.5 text-primary" />
-              <span>Boutique Dessert Catering & Mobile Carts</span>
+              <span>Luxury Meal Prep & Bespoke Event Catering</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] leading-[1.12] font-semibold text-foreground tracking-tight">
-              Sweet Moments, <br />
-              <span className="italic font-normal text-primary">Beautifully Served.</span>
+              Divine Flavors, <br />
+              <span className="italic font-normal text-primary">Delightfully Served.</span>
             </h1>
 
             {/* Supporting Copy */}
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Elevated dessert carts and beautifully curated sweet experiences for weddings, celebrations, and unforgettable events across the United States.
+              Elevated culinary meal preparation and bespoke luxury catering for weddings, milestone celebrations, and prestigious events across the United States.
             </p>
 
             {/* Primary & Secondary CTAs */}
@@ -78,7 +78,7 @@ export function HeroSection() {
               <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-card/80">
                 <Image
                   src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1200&q=80"
-                  alt="Luxury Mrs Jay dessert cart presentation at a garden event"
+                  alt="Luxury Divine & Delight culinary and catering presentation"
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"

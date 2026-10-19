@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { DESSERT_ITEMS } from "@/lib/data";
-import { Sparkles, ArrowRight, Check, Heart, Info, Filter } from "lucide-react";
+import { Sparkles, ArrowRight, Check, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const CATEGORIES = [

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, ArrowRight, Heart, Check, Users, Calendar, ShieldCheck } from "lucide-react";
+import { ArrowRight, Heart } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Luxury Wedding Dessert Catering & Carts",
@@ -26,7 +26,7 @@ export default function WeddingsPage() {
             </h1>
 
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-              From romantic vineyard ceremonies to grand metropolitan ballroom receptions, Mrs Jay delivers handcrafted French pastries presented from breathtaking vintage-inspired mobile carts.
+              From romantic vineyard ceremonies to grand metropolitan ballroom receptions, Divine & Delight delivers handcrafted culinary masterworks presented from breathtaking bespoke setups and luxury carts.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">

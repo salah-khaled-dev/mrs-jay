@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { BrandLogo } from "@/components/brand-logo";
 import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -31,10 +32,12 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
-  React.useEffect(() => {
+  // Reset mobile menu during render if pathname changes (avoids cascading render warning)
+  const [prevPathname, setPrevPathname] = React.useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMobileMenuOpen(false);
-  }, [pathname]);
+  }
 
   // Lock scroll when mobile menu is open
   React.useEffect(() => {
@@ -61,18 +64,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
             {/* Brand Logo */}
-            <Link
-              href="/"
-              className="group flex flex-col items-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
-            >
-              <span className="font-serif text-2xl sm:text-3xl font-semibold tracking-wide text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
-                <span>Mrs Jay</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block mb-1" />
-              </span>
-              <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-medium -mt-1">
-                Luxury Dessert Catering
-              </span>
-            </Link>
+            <BrandLogo variant="horizontal" priority />
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
@@ -181,7 +173,7 @@ export function Navbar() {
               <Sparkles className="w-4 h-4" />
             </Link>
             <p className="text-center text-xs text-muted-foreground">
-              Artisan mobile dessert carts serving across the United States
+              Luxury meal prep & bespoke event catering across the United States
             </p>
           </div>
         </div>

@@ -3,72 +3,76 @@
 
 @layer base {
   :root {
-    /* Luxury Light Mode Identity */
-    --background: #F7F5F0;          /* Luxury Ivory Main Background */
-    --foreground: #1C1C1E;          /* Charcoal Body Text */
-    --card: #FFFFFF;                /* Card background */
-    --card-foreground: #1C1C1E;
+    /* Luxury Light Mode Identity - Divine & Delight */
+    --background: #FAF8F5;          /* Refined Warm Ivory Background */
+    --foreground: #141416;          /* Deep Obsidian Text */
+    --card: #FFFFFF;                /* Pure White Card */
+    --card-foreground: #141416;
     --popover: #FFFFFF;
-    --popover-foreground: #1C1C1E;
-    --heading: #0B0B0D;             /* Luxury Black Headings */
-    --primary: #8A682C;             /* Deep Gold for accessible contrast on light */
-    --primary-foreground: #FFFFFF;   /* Clear crisp white on Deep Gold */
-    --primary-hover: #735522;
-    --secondary: #EFECE6;           /* Soft Ivory tone */
-    --secondary-foreground: #0B0B0D;
-    --muted: #E8E4DA;
-    --muted-foreground: #6B6862;
-    --accent: #E8D5A8;              /* Light Champagne */
-    --accent-foreground: #0B0B0D;
-    --gold: #C9A86A;                /* Champagne Gold */
-    --gold-light: #E8D5A8;          /* Light Champagne */
-    --gold-deep: #8A682C;           /* Deep Gold */
-    --luxury-black: #0B0B0D;
-    --charcoal: #1C1C1E;
-    --ivory: #F7F5F0;
-    --border: #E2DDD5;              /* Subtle ivory border */
-    --input: #E2DDD5;
-    --ring: #8A682C;
+    --popover-foreground: #141416;
+    --heading: #08080A;             /* Rich Black Headings */
+    --primary: #99631B;             /* Deep Rich Metallic Gold (WCAG AA Compliant on Light) */
+    --primary-foreground: #FFFFFF;   /* Crisp White on Deep Gold */
+    --primary-hover: #7E5013;
+    --secondary: #F3EFE8;           /* Subtle warm ivory neutral */
+    --secondary-foreground: #08080A;
+    --muted: #EFE9DE;
+    --muted-foreground: #6B655B;
+    --accent: #E1C078;              /* Champagne Gold Accent */
+    --accent-foreground: #08080A;
+    --gold: #DCA548;                /* Official Logo Primary Metallic Gold */
+    --gold-light: #F9D685;          /* Logo Highlight Gold */
+    --gold-deep: #99631B;           /* Logo Deep Gold */
+    --gold-muted: #B89354;          /* Logo Muted Gold */
+    --gold-shadow: #603807;         /* Logo Shadow Gold */
+    --luxury-black: #08080A;
+    --charcoal: #141416;
+    --ivory: #FAF8F5;
+    --border: #E5DFD4;              /* Warm gold-undertone light border */
+    --input: #E5DFD4;
+    --ring: #99631B;
     --radius: 0.875rem;
 
-    /* Backward compatibility mappings for legacy tokens */
-    --blush: #E8D5A8;
-    --sage: #C9A86A;
-    --chocolate: #1C1C1E;
+    /* Backward compatibility mappings */
+    --blush: #E1C078;
+    --sage: #DCA548;
+    --chocolate: #141416;
   }
 
   .dark {
-    /* Signature Luxury Dark Mode Identity */
-    --background: #0B0B0D;          /* Luxury Black Main Background */
-    --foreground: #F7F5F0;          /* Luxury Ivory Primary Text */
-    --card: #1C1C1E;                /* Charcoal Card Background */
-    --card-foreground: #F7F5F0;
-    --popover: #1C1C1E;
-    --popover-foreground: #F7F5F0;
-    --heading: #F7F5F0;             /* Luxury Ivory Headings */
-    --primary: #C9A86A;             /* Champagne Gold Signature Accent */
-    --primary-foreground: #0B0B0D;   /* Very dark text for high-contrast gold buttons */
-    --primary-hover: #D8BA7D;        /* Light champagne hover */
-    --secondary: #242428;           /* Subtle dark charcoal */
-    --secondary-foreground: #F7F5F0;
-    --muted: #242428;
-    --muted-foreground: #9E9C96;
-    --accent: #2A261F;              /* Subtle warm dark gold tint */
-    --accent-foreground: #E8D5A8;    /* Light Champagne */
-    --gold: #C9A86A;                /* Champagne Gold */
-    --gold-light: #E8D5A8;          /* Light Champagne */
-    --gold-deep: #8A682C;           /* Deep Gold */
-    --luxury-black: #0B0B0D;
-    --charcoal: #1C1C1E;
-    --ivory: #F7F5F0;
-    --border: #2C2C30;              /* Subtle dark charcoal borders */
-    --input: #2C2C30;
-    --ring: #C9A86A;
+    /* Signature Luxury Dark Mode Identity - Divine & Delight */
+    --background: #08080A;          /* Deep Metallic Obsidian (Matching Logo Base) */
+    --foreground: #FAF8F5;          /* Warm Ivory Text */
+    --card: #121215;                /* Dark Charcoal Luxury Card */
+    --card-foreground: #FAF8F5;
+    --popover: #121215;
+    --popover-foreground: #FAF8F5;
+    --heading: #FAF8F5;             /* Crisp Ivory Headings */
+    --primary: #DCA548;             /* Official Logo Primary Metallic Gold */
+    --primary-foreground: #08080A;   /* Deep Obsidian text on Gold for supreme readability */
+    --primary-hover: #F9D685;        /* Radiant Highlight Gold */
+    --secondary: #1C1C22;           /* Charcoal Secondary */
+    --secondary-foreground: #FAF8F5;
+    --muted: #1A1A20;
+    --muted-foreground: #A19B91;
+    --accent: #231F17;              /* Deep Warm Gold Glow Surface */
+    --accent-foreground: #F9D685;    /* Logo Highlight Gold */
+    --gold: #DCA548;                /* Official Logo Primary Metallic Gold */
+    --gold-light: #F9D685;          /* Logo Highlight Gold */
+    --gold-deep: #99631B;           /* Logo Deep Gold */
+    --gold-muted: #B89354;          /* Logo Muted Gold */
+    --gold-shadow: #603807;         /* Logo Shadow Gold */
+    --luxury-black: #08080A;
+    --charcoal: #121215;
+    --ivory: #FAF8F5;
+    --border: #28241D;              /* Subtle Gold-infused Dark Border */
+    --input: #28241D;
+    --ring: #DCA548;
 
-    /* Backward compatibility mappings for legacy tokens */
-    --blush: #C9A86A;
-    --sage: #C9A86A;
-    --chocolate: #F7F5F0;
+    /* Backward compatibility mappings */
+    --blush: #DCA548;
+    --sage: #DCA548;
+    --chocolate: #FAF8F5;
   }
 }
 
@@ -92,6 +96,8 @@
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-gold-deep: var(--gold-deep);
+  --color-gold-muted: var(--gold-muted);
+  --color-gold-shadow: var(--gold-shadow);
   --color-luxury-black: var(--luxury-black);
   --color-charcoal: var(--charcoal);
   --color-ivory: var(--ivory);

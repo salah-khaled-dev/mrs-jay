@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { FAQS } from "@/lib/data";
-import { Sparkles, ChevronDown, HelpCircle, ArrowRight, Info } from "lucide-react";
+import { Sparkles, ChevronDown, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function FAQPage() {

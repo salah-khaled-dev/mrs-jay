@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { SERVICES } from "@/lib/data";
-import { Sparkles, ArrowRight, Check, Clock, Users, HelpCircle, ShieldCheck } from "lucide-react";
+import { Sparkles, ArrowRight, Check, Clock, Users, HelpCircle } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;

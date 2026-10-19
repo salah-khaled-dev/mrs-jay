@@ -1,13 +1,12 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { BRAND_INFO } from "@/lib/data";
 import { Sparkles, ArrowRight, Heart, Award, ShieldCheck, Utensils } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Mrs Jay | Luxury Dessert Catering & Carts",
+  title: "About Divine & Delight | Luxury Meal Prep & Bespoke Catering",
   description:
-    "Learn about our culinary heritage, bespoke mobile cart craftsmanship, and our philosophy of elevating dessert into an interactive art form.",
+    "Learn about our culinary heritage, bespoke meal prep excellence, and our philosophy of elevating dining into an interactive art form.",
 };
 
 export default function AboutPage() {
@@ -21,10 +20,10 @@ export default function AboutPage() {
             <span>Our Heritage & Vision</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight">
-            The Story of Mrs Jay
+            The Story of Divine & Delight
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Founded on the belief that celebratory desserts should be as visually captivating as they are gastronomically sublime.
+            Founded on the belief that culinary dining and celebratory events should be as visually captivating as they are gastronomically sublime.
           </p>
         </div>
 
@@ -34,7 +33,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-border">
               <Image
                 src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80"
-                alt="Artisan baker handcrafting desserts in patisserie kitchen"
+                alt="Artisan culinary preparation and chef artistry"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -42,10 +41,10 @@ export default function AboutPage() {
             </div>
             <div className="absolute -bottom-6 -right-6 bg-card p-6 rounded-2xl border border-border shadow-xl max-w-xs hidden sm:block">
               <span className="font-serif text-xl font-bold text-primary block mb-1">
-                Pure European Butter
+                Artisan Ingredients
               </span>
               <p className="text-xs text-muted-foreground leading-snug">
-                Every macaron shell, shortbread crumb, and fruit curd is made from scratch with authentic French technique.
+                Every meal prep curation, pastry layer, and bespoke recipe is prepared from scratch with meticulous culinary technique.
               </p>
             </div>
           </div>
@@ -55,18 +54,18 @@ export default function AboutPage() {
               Boutique Hospitality
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground leading-tight">
-              Transforming the Traditional Dessert Table Into a Living Work of Art
+              Transforming Fine Dining & Event Catering Into an Art Form
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Mrs Jay was envisioned to bridge the gap between high-end French patisserie and modern event hospitality. Traditional catering often relegated sweets to stationary buffets with tired plastic platters. We imagined something far more spirited: handcrafted European mobile carts that glide into your reception, styled with botanical garlands, fine china, and warm lighting.
+              Divine & Delight was envisioned to bridge the gap between high-end gastronomy, personalized meal preparation, and modern event hospitality. Traditional catering often relegated dining to stationary buffets with tired presentations. We imagined something far more spirited: handcrafted culinary activations, European mobile carts, and tailor-made meal services with white-glove hospitality.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Our mobile carts are built by boutique craftsmen using solid hardwoods, brass fittings, and interchangeable designer canopies. Whether your celebration is a sun-drenched vineyard wedding or a black-tie ballroom gala, our carts complement your decor with effortless elegance.
+              Our presentation fixtures are built by boutique craftsmen using solid hardwoods, brass fittings, and interchangeable designer canopies. Whether your celebration is a sun-drenched vineyard wedding or a black-tie ballroom gala, Divine & Delight complements your aesthetic with effortless elegance.
             </p>
 
             {/* Note on Brand History */}
             <div className="p-4 rounded-xl bg-secondary/80 border border-border/80 text-xs text-muted-foreground italic">
-              Note: Brand narrative and historical milestones are curated to reflect Mrs Jay’s design standards and will be tailored as further archives are confirmed.
+              Note: Brand narrative and culinary milestones are curated to reflect Divine & Delight’s design standards and will be tailored as further archives are confirmed.
             </div>
 
             <div className="pt-2">

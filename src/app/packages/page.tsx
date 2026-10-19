@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { PACKAGES } from "@/lib/data";
-import { Sparkles, Check, ArrowRight, PlusCircle, HelpCircle } from "lucide-react";
+import { Sparkles, Check, ArrowRight, PlusCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
