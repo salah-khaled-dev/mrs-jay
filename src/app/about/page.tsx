@@ -32,8 +32,8 @@ export default function AboutPage() {
           <div className="lg:col-span-6 relative">
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-border">
               <Image
-                src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80"
-                alt="Artisan culinary preparation and chef artistry"
+                src="/images/meals/hero-spread.jpg"
+                alt="Divine & Delight artisan meal preparation and culinary presentation"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

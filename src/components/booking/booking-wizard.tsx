@@ -25,82 +25,84 @@ import {
 import { cn } from "@/lib/utils";
 
 const STEPS = [
-  { id: 1, title: "Event Type" },
+  { id: 1, title: "Order Type" },
   { id: 2, title: "Schedule" },
   { id: 3, title: "Location" },
-  { id: 4, title: "Package & Sweets" },
+  { id: 4, title: "Package & Menu" },
   { id: 5, title: "Contact" },
   { id: 6, title: "Review" },
 ];
 
 const EVENT_TYPES = [
   {
-    id: "wedding",
-    title: "Wedding",
-    description: "Receptions, after-parties, and ceremony sweet stations.",
-    icon: Heart,
-  },
-  {
-    id: "bridal_shower",
-    title: "Bridal Shower",
-    description: "Intimate luncheons, champagne brunches, and teas.",
+    id: "weekly_meal_prep",
+    title: "Weekly Meal Prep (5 for $65)",
+    description: "Doorstep delivery of our 4 chef-prepared weekly specials.",
     icon: Sparkles,
   },
   {
-    id: "birthday",
-    title: "Birthday Party",
-    description: "Sweet 16s, 21st, 30th, 40th, 50th, and milestone celebrations.",
-    icon: Cake,
-  },
-  {
-    id: "baby_shower",
-    title: "Baby Shower",
-    description: "Pastel sweet carts welcoming new arrivals.",
-    icon: Baby,
-  },
-  {
     id: "corporate",
-    title: "Corporate Event",
-    description: "Brand galas, product launches, client appreciation, and retreats.",
+    title: "Corporate & Office Catering",
+    description: "Executive hot boxes, summits, all-hands, and client lunches.",
     icon: Building2,
   },
   {
-    id: "private_party",
-    title: "Private Soirée",
-    description: "Estate dinners, anniversaries, and garden gatherings.",
+    id: "wedding",
+    title: "Wedding Reception",
+    description: "Full-service hot chafing buffets, plated dinners, and rehearsals.",
+    icon: Heart,
+  },
+  {
+    id: "birthday",
+    title: "Milestone Celebration",
+    description: "21st, 30th, 40th, 50th birthdays, and anniversary galas.",
     icon: PartyPopper,
   },
   {
+    id: "private_dinner",
+    title: "Private Party & Estate Dinner",
+    description: "Intimate family gatherings, dinner parties, and celebrations.",
+    icon: Cake,
+  },
+  {
+    id: "athlete_prep",
+    title: "Custom Diet & Athletic Macros",
+    description: "Gram-measured high-protein and keto-tailored weekly meals.",
+    icon: Baby,
+  },
+  {
     id: "other",
-    title: "Other Occasion",
-    description: "Custom creative event concepts and festivals.",
+    title: "Custom Event Occasion",
+    description: "Festivals, community banquets, and unique gatherings.",
     icon: HelpCircle,
   },
 ];
 
 const DESSERT_OPTIONS = [
-  "Parisian French Macarons",
-  "Artisan Mini Cupcakes",
-  "Petite Fruit & Berry Tarts",
-  "Valrhona Truffle Brownies",
-  "Heirloom Sandwich Cookies",
-  "Artisan Cakesicles & Bonbons",
+  "Lasagna (With Vegetables Only) — Weekly Special",
+  "Chicken Kabobs (With Salad) — Weekly Special",
+  "Shrimp Cajun (With Rice & Vegetables) — Weekly Special",
+  "Meat Della Casa (With Rice & Vegetables) — Weekly Special",
+  "Half Pan Lasagna Della Casa (Buffet Tray)",
+  "Grilled Chicken Skewer Platter (Catering)",
+  "Cajun Jumbo Shrimp Party Tray (Catering)",
+  "Artisanal Mediterranean Greek Salad Bowl",
 ];
 
 const CART_STYLES = [
-  { id: "grand-noir", name: "Grand Noir & Champagne Gold", desc: "Sleek matte black cart with champagne gold trim and warm parasol." },
-  { id: "vintage-cream", name: "Vintage Ivory & Gold", desc: "Classic luxury ivory cart with brushed gold accents and linen canopy." },
-  { id: "charcoal-brass", name: "Charcoal & Polished Gold", desc: "Architectural charcoal finish with ambient vitrine lighting." },
-  { id: "haute-botanical", name: "Haute Botanique Noir", desc: "Matte black cart with trailing emerald greenery and gold accents." },
+  { id: "chilled-delivery", name: "Chilled Doorstep Delivery Tote", desc: "Airtight BPA-free black meal prep containers with gel ice thermal packs." },
+  { id: "luxury-chafing", name: "Polished Gold & Stainless Hot Chafing Buffet", desc: "Elegant hot chafing units with floral coordination for formal events." },
+  { id: "executive-boxes", name: "Executive Labeled Hot Meal Boxes", desc: "Individually packaged warm meals with clear allergen and dietary tagging." },
+  { id: "family-platters", name: "Family-Style Serving Trays", desc: "Generous half and full pans ready for self-serve or banquet tables." },
 ];
 
 const OPTIONAL_EXTRAS = [
-  "Artisan 6-Inch Ceremonial Cutting Cake",
-  "Custom Take-Home Favor Boxes with Wax Seals",
-  "Gourmet Espresso & Herbal Tea Cart",
-  "Live Chef Torching & Flambé Station",
-  "3D Laser-Cut Monogram Acrylic Signage",
-  "Additional Attended Service Hours",
+  "Cold-Pressed Immunity Wellness Juices",
+  "Fresh-Baked Garlic Herb Focaccia & Rolls",
+  "Uniformed On-Site Catering Attendant & Carver",
+  "House Dessert Bites Platter (Macarons & Brownies)",
+  "Luxury Disposable Gold Cutlery & Plateware",
+  "Additional Weekly Meal Add-Ons ($13 each)",
 ];
 
 const US_STATES = [
@@ -670,22 +672,22 @@ export function BookingWizard() {
           </div>
         )}
 
-        {/* ================= STEP 4: PACKAGE & DESSERTS ================= */}
+        {/* ================= STEP 4: PACKAGE & MENU ================= */}
         {currentStep === 4 && (
           <div className="space-y-8">
             <div className="space-y-1">
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground">
-                Package, Pastries & Aesthetic Styling
+                Package, Dishes & Catering Format
               </h2>
               <p className="text-xs text-muted-foreground">
-                Customize your cart visual style, desired pastry varieties, and optional add-ons.
+                Customize your meal plan or event package, entrée selections, and service enhancements.
               </p>
             </div>
 
             {/* Select Preferred Package */}
             <div className="space-y-3">
               <label className="text-xs font-bold uppercase tracking-wider text-primary block">
-                1. Select Preferred Base Package
+                1. Select Preferred Base Plan or Package
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {PACKAGES.map((pkg) => {
@@ -726,10 +728,10 @@ export function BookingWizard() {
               </div>
             </div>
 
-            {/* Dessert Varieties Selection */}
+            {/* Dish Selections */}
             <div className="space-y-3 pt-2">
               <label className="text-xs font-bold uppercase tracking-wider text-primary block">
-                2. Preferred Dessert Categories (Select all that entice you)
+                2. Preferred Dishes & Entrées (Select all that you would like)
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {DESSERT_OPTIONS.map((dessert) => {
@@ -768,10 +770,10 @@ export function BookingWizard() {
               )}
             </div>
 
-            {/* Cart Aesthetic Styling */}
+            {/* Service & Packaging Format */}
             <div className="space-y-3 pt-2">
               <label className="text-xs font-bold uppercase tracking-wider text-primary block">
-                3. Preferred Mobile Cart Canopy / Styling
+                3. Preferred Packaging or Catering Service Format
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {CART_STYLES.map((style) => {

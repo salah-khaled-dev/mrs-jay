@@ -97,18 +97,23 @@ export function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm text-neutral-400">
               <li>
-                <Link href="/packages" className="hover:text-primary transition-colors">
-                  Signature Packages
+                <Link href="/menu" className="hover:text-primary transition-colors font-medium text-amber-300">
+                  Meals of the Week (5 for $65)
                 </Link>
               </li>
               <li>
-                <Link href="/dessert-menu" className="hover:text-primary transition-colors">
-                  Artisan Dessert Menu
+                <Link href="/packages" className="hover:text-primary transition-colors">
+                  Meal Plans & Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-primary transition-colors">
+                  Catering & Services
                 </Link>
               </li>
               <li>
                 <Link href="/gallery" className="hover:text-primary transition-colors">
-                  Event Gallery
+                  Event & Prep Gallery
                 </Link>
               </li>
               <li>
@@ -118,7 +123,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/faq" className="hover:text-primary transition-colors">
-                  Booking FAQ & Guidelines
+                  Meal Prep FAQ & Delivery
                 </Link>
               </li>
               <li>
@@ -131,7 +136,7 @@ export function Footer() {
                   href="/book"
                   className="text-primary hover:underline font-medium flex items-center gap-1 pt-1"
                 >
-                  <span>Request Custom Quote</span>
+                  <span>Order or Book Catering</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </li>
@@ -141,10 +146,10 @@ export function Footer() {
           {/* Column 4: Newsletter & Inquiries */}
           <div className="space-y-4">
             <h3 className="font-serif text-base font-semibold text-[#F7F5F0] tracking-wider uppercase text-xs mb-1">
-              Sweet Inspirations
+              Weekly Menu Updates
             </h3>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Receive seasonal dessert menu previews, styling inspiration for luxury celebrations, and booking availability announcements.
+              Subscribe to receive weekly 5 for $65 menu drops, chef specials, reheating tips, and VIP catering announcements.
             </p>
 
             {subscribed ? (

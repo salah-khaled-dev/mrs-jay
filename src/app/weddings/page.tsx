@@ -65,8 +65,8 @@ export default function WeddingsPage() {
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-card">
               <Image
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80"
-                alt="Outdoor vineyard wedding reception dessert cart setup"
+                src="/images/meals/wedding-catering.jpg"
+                alt="Luxury wedding reception dinner and catering by Divine & Delight"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 40vw"

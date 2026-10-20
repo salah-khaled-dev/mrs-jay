@@ -17,44 +17,44 @@ export function FinalCTA() {
           />
 
           <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 backdrop-blur-md border border-primary/30 text-[#E8D5A8] text-xs uppercase tracking-widest font-semibold">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 backdrop-blur-md border border-primary/30 text-amber-300 text-xs uppercase tracking-widest font-semibold">
               <Sparkles className="w-3.5 h-3.5 text-primary" />
-              <span>Begin Your Custom Reservation</span>
+              <span>Healthy • Homemade • High Quality</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-              Let&apos;s Make Your Next Event Sweeter.
+              Ready for Chef-Prepared Dining at Home?
             </h2>
 
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl mx-auto">
-              Tell us about your celebration, and we&apos;ll help create a dessert experience worth remembering. Our catering concierge responds with customized availability and proposals within 24 hours.
+              Lock in your 5 for $65 weekly meal prep bundle today, or connect with our catering concierge to design an unforgettable hot buffet spread for your upcoming wedding or corporate gathering.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/book"
+                href="/menu"
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 group cursor-pointer"
               >
-                <span>Start Your Booking</span>
+                <span>Order 5 for $65 Meals</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
-                href="/contact"
+                href="/book"
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-[#F7F5F0] font-medium text-xs sm:text-sm uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Ask A Question First</span>
+                <span>Book Event Catering</span>
               </Link>
             </div>
 
             <div className="pt-8 border-t border-white/15 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-neutral-400">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-primary" />
-                <span>No Commitment Initial Inquiries</span>
+                <span>Zero Subscription Lock-In</span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-primary" />
-                <span>Nationwide Booking for 2025 – 2026</span>
+                <span>Weekly Drops: Sunday & Wednesday</span>
               </div>
             </div>
           </div>

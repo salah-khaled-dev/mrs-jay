@@ -5,41 +5,41 @@ import { Sparkles, Check, ArrowRight, PlusCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Catering Packages & Pricing Inquiries",
+  title: "Meal Plans & Catering Packages | Divine & Delight",
   description:
-    "Compare our Petite, Signature, and Grand dessert catering packages with inclusions, customizations, and bespoke enhancements.",
+    "Compare our weekly 5 for $65 meal prep routine, 10-meal family plans, and bespoke event catering packages with inclusions and customizations.",
 };
 
 const ENHANCEMENTS = [
   {
-    title: "Artisan 6-Inch Cutting Cake Centerpiece",
-    description: "A beautifully styled companion cake for ceremonial photos, flavor-paired to your dessert cart.",
-    category: "Bakery",
-  },
-  {
-    title: "Takeaway Favor Packaging with Wax Seals",
-    description: "Custom embossed ballotin boxes packed with 2 Parisian macarons for your guests to take home.",
-    category: "Guest Favors",
-  },
-  {
-    title: "Gourmet Espresso & Herbal Tea Cart",
-    description: "A companion beverage cart featuring European espresso, loose-leaf teas, and flavored syrups.",
+    title: "Cold-Pressed Immunity Wellness Juices",
+    description: "Chef-pressed celery, ginger-lemon, and green wellness elixirs delivered chilled with your weekly box.",
     category: "Beverage",
   },
   {
-    title: "Live Dessert Torching & Flambé Station",
-    description: "An interactive chef-attended moment caramelizing mini crème brûlées and artisan s'mores on-site.",
-    category: "Interactive",
+    title: "Fresh-Baked Garlic Herb Focaccia & Rolls",
+    description: "Warm artisan dinner rolls and herb focaccia loaves paired with sweet cream butter.",
+    category: "Bakery",
   },
   {
-    title: "Additional Attended Service Hours",
-    description: "Extend your dessert concierge service for late-night dance floor replenishment.",
+    title: "Uniformed On-Site Catering Attendant & Carver",
+    description: "Professional hospitality staff for hot buffet line management, carving stations, and replenishment.",
     category: "Hospitality",
   },
   {
-    title: "Bespoke Monogram Acrylic or Wood Signage",
-    description: "Laser-cut 3D signage featuring the couple's monogram or corporate brand crest mounted on the cart.",
-    category: "Styling",
+    title: "House Dessert Bites Platter",
+    description: "An elegant post-dinner sweet tray featuring Belgian chocolate brownies and Parisian macarons.",
+    category: "Dessert",
+  },
+  {
+    title: "Polished Gold Chafing Dish Styling",
+    description: "Deluxe stainless & gold chafing presentation units with matching gold serving tongs and floral accents.",
+    category: "Equipment",
+  },
+  {
+    title: "Gram-Measured Precision Macro Plan",
+    description: "Custom protein, carb, and fat portioning adjusted to your exact fitness coach instructions.",
+    category: "Nutrition",
   },
 ];
 
@@ -54,10 +54,10 @@ export default function PackagesPage() {
             <span>Tiered Experiences</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight">
-            Curated Catering Packages
+            Meal Prep Plans & Catering Packages
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Every package includes our handcrafted mobile cart or architectural display, artisan pastry curation, and white-glove on-site concierge service.
+            From our weekly 5 for $65 routine to grand celebration banquets, every package is crafted with healthy, homemade, and high-quality culinary standards.
           </p>
         </div>
 

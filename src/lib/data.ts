@@ -1,7 +1,7 @@
 import {
   ServiceItem,
   PackageItem,
-  DessertItem,
+  MealItem,
   GalleryItem,
   TestimonialItem,
 } from "@/types";
@@ -10,468 +10,472 @@ export const BRAND_INFO = {
   name: "Divine & Delight",
   abbreviation: "D&D",
   category: "Meal Prep + Catering",
-  tagline: "Luxury Meal Prep & Bespoke Event Catering",
+  tagline: "Healthy • Home Made • High Quality",
+  subTagline: "Luxury American Meal Preparation & Bespoke Event Catering",
+  promoBanner: "Meals of the Week — 5 for $65",
+  promoHighlight: "5 for $65",
   phone: "(800) 555-0198",
-  email: "concierge@divineanddelight.com",
-  serviceArea: "Serving Metro Areas & Private Venues Nationwide, USA",
-  headquarters: "Available for Travel Across the United States",
+  email: "orders@divineanddelight.com",
+  serviceArea: "Fresh Local Doorstep Delivery & Nationwide Event Catering",
+  headquarters: "Available for Travel & Delivery Across the United States",
   instagram: "@divineanddelight",
-  hours: "Mon – Sat: 9:00 AM – 7:00 PM EST",
+  hours: "Mon – Sun: 8:00 AM – 8:00 PM EST",
+  deliveryDays: "Weekly Drops every Sunday & Wednesday",
 };
+
+export const BRAND_PILLARS = [
+  {
+    icon: "leaf",
+    title: "Healthy",
+    description:
+      "Nutrient-dense, balanced macros with lean proteins, complex grains, and farm-fresh greens. Portion-controlled for peak wellness.",
+  },
+  {
+    icon: "home",
+    title: "Home Made",
+    description:
+      "Handcrafted from scratch every week with authentic culinary recipes, rich slow-simmered sauces, and homestyle love.",
+  },
+  {
+    icon: "chef-hat",
+    title: "High Quality",
+    description:
+      "Only choice beef cuts, wild-caught shrimp, cage-free poultry, and crisp organic produce. Zero artificial preservatives or filler.",
+  },
+];
+
+export const MEAL_ITEMS: MealItem[] = [
+  {
+    id: "lasagna-vegetables",
+    name: "Lasagna",
+    servingInfo: "With Vegetables Only",
+    category: "weekly-special",
+    categoryLabel: "Weekly Special • Italian Classic",
+    description:
+      "Generous portion of golden-baked homestyle lasagna layered with slow-simmered beef ragù, creamy ricotta, rich San Marzano marinara, and a bubbling browned mozzarella crust. Sprinkled with chopped herbs and served alongside freshly steamed vibrant broccoli florets.",
+    ingredients: [
+      "Semolina pasta sheets",
+      "Slow-simmered prime beef ragù",
+      "San Marzano tomato marinara",
+      "Whole milk ricotta & mozzarella",
+      "Fresh garden herbs & parsley",
+      "Fresh steamed tender broccoli florets",
+    ],
+    dietary: ["High Protein", "Comfort Classic", "Fresh Steamed Greens"],
+    image: "/images/meals/lasagna.jpg",
+    popular: true,
+    isWeeklySpecial: true,
+    macros: {
+      calories: 590,
+      protein: 42,
+      carbs: 48,
+      fat: 22,
+    },
+    heatingInstructions:
+      "Microwave: Vent corner of lid and heat on high for 2.5 minutes. Oven: Transfer to oven-safe container and bake at 350°F (175°C) for 15 minutes.",
+    allergens: ["Wheat / Gluten", "Dairy"],
+    containerType: "BPA-Free Microwave & Freezer Safe Black 2-Compartment Tray",
+  },
+  {
+    id: "chicken-kabobs-salad",
+    name: "Chicken Kabobs",
+    servingInfo: "With Salad",
+    category: "weekly-special",
+    categoryLabel: "Weekly Special • Mediterranean",
+    description:
+      "Flame-grilled chicken breast skewers marinated in lemon zest, extra virgin olive oil, garlic, and Mediterranean herbs, grilled with sweet peppers. Served over a bed of fluffy seasoned herb rice and paired with a crisp Greek garden salad featuring romaine, cherry tomatoes, cucumbers, kalamata olives, and crumbled feta cheese.",
+    ingredients: [
+      "Marinated grilled chicken breast",
+      "Charred sweet bell peppers",
+      "Fluffy seasoned herb rice",
+      "Crisp romaine lettuce",
+      "Vine-ripened cherry tomatoes",
+      "English cucumbers",
+      "Kalamata olives & feta cheese",
+      "House lemon-oregano vinaigrette",
+    ],
+    dietary: ["High Protein", "Low Calorie", "Mediterranean Diet", "Gluten-Conscious"],
+    image: "/images/meals/chicken-kabobs.jpg",
+    popular: true,
+    isWeeklySpecial: true,
+    macros: {
+      calories: 480,
+      protein: 46,
+      carbs: 36,
+      fat: 14,
+    },
+    heatingInstructions:
+      "Microwave: Lift cold salad compartment or enjoy cold salad on the side; heat chicken and rice for 2 minutes on high.",
+    allergens: ["Dairy (feta in salad)"],
+    containerType: "BPA-Free Microwave & Freezer Safe Black 2-Compartment Tray",
+  },
+  {
+    id: "shrimp-cajun-rice-veg",
+    name: "Shrimp Cajun",
+    servingInfo: "With Rice and Vegetables",
+    category: "weekly-special",
+    categoryLabel: "Weekly Special • Southern Gulf Flavors",
+    description:
+      "Plump, wild-caught jumbo shrimp seared in zesty Louisiana Cajun seasoning, smoked paprika, garlic herb butter, and scallions. Served alongside fluffy seasoned long-grain rice, steamed tender broccoli florets, and roasted sweet yellow squash & corn.",
+    ingredients: [
+      "Wild-caught jumbo shrimp",
+      "House Cajun Creole spice rub",
+      "Garlic herb butter sauce",
+      "Seasoned long-grain rice",
+      "Steamed broccoli florets",
+      "Roasted yellow summer squash",
+      "Charred sweet corn & red onion",
+    ],
+    dietary: ["High Protein", "Pescatarian", "Gluten-Conscious", "Omega-3 Rich"],
+    image: "/images/meals/shrimp-cajun.jpg",
+    popular: true,
+    isWeeklySpecial: true,
+    macros: {
+      calories: 440,
+      protein: 38,
+      carbs: 42,
+      fat: 12,
+    },
+    heatingInstructions:
+      "Microwave: Vent lid and heat gently on medium-high for 1.5 to 2 minutes until shrimp is hot and tender.",
+    allergens: ["Crustacean Shellfish", "Dairy (butter)"],
+    containerType: "BPA-Free Microwave & Freezer Safe Black 3-Compartment Tray",
+  },
+  {
+    id: "meat-della-casa-rice-veg",
+    name: "Meat Della Casa",
+    servingInfo: "With Rice and Vegetables",
+    category: "weekly-special",
+    categoryLabel: "Weekly Special • Chef's Signature Beef",
+    description:
+      "Chef's proprietary house specialty: succulent, tender strips of choice beef steak simmered in a rich, savory pan demi-glace with caramelized onions and sliced sweet red and green bell peppers. Served with fluffy seasoned rice and crisp steamed broccoli florets.",
+    ingredients: [
+      "Choice beef steak strips",
+      "House Della Casa savory pan demi-glace",
+      "Sweet red & green bell peppers",
+      "Caramelized yellow onions",
+      "Seasoned long-grain herb rice",
+      "Steamed fresh broccoli florets",
+    ],
+    dietary: ["High Protein", "Iron-Rich", "Chef Signature", "Hearty & Wholesome"],
+    image: "/images/meals/meat-della-casa.jpg",
+    popular: true,
+    isWeeklySpecial: true,
+    macros: {
+      calories: 520,
+      protein: 44,
+      carbs: 40,
+      fat: 18,
+    },
+    heatingInstructions:
+      "Microwave: Vent lid and heat on high for 2 to 2.5 minutes. Stir beef in gravy halfway through for maximum flavor.",
+    allergens: ["Soy", "Wheat (in demi-glace)"],
+    containerType: "BPA-Free Microwave & Freezer Safe Black 3-Compartment Tray",
+  },
+  {
+    id: "catering-buffet-spread",
+    name: "Divine & Delight Grand Catering Buffet",
+    servingInfo: "Buffet Style for 20+ Guests",
+    category: "catering-platter",
+    categoryLabel: "Event Catering • Full Buffet Setup",
+    description:
+      "Full luxury hot chafing spread including Meat Della Casa, Cajun Shrimp, Flame-Grilled Chicken Skewers, Baked Lasagna, Seasoned Herb Rice, and Farm-Fresh Vegetable Platters. Polished gold chafing units and complete styling included.",
+    ingredients: [
+      "Assortment of all 4 signature hot entrées",
+      "Two artisan side grain options",
+      "Two fresh market salad bowls",
+      "Warm garlic herb focaccia rolls",
+    ],
+    dietary: ["Gluten-Conscious Options", "Pescatarian Options", "High Protein"],
+    image: "/images/meals/catering-buffet.jpg",
+    popular: true,
+    macros: {
+      calories: 650,
+      protein: 52,
+      carbs: 55,
+      fat: 24,
+    },
+    allergens: ["Dairy", "Wheat", "Shellfish"],
+    containerType: "Stainless & Gold Chafing Warmers with Sterno heating",
+  },
+];
+
+// Backward-compatible alias for any residual imports
+export const DESSERT_ITEMS = MEAL_ITEMS;
+
+export const PACKAGES: PackageItem[] = [
+  {
+    id: "the-weekly-5-meal-prep",
+    title: "Weekly Meal Prep Routine",
+    price: "$65",
+    tagline: "Our #1 Signature Deal — 5 Chef-Prepared Fresh Meals for $65",
+    guestCount: "5 Complete Meals (5 for $65)",
+    description:
+      "The ultimate lifestyle upgrade. Five freshly cooked, nutrient-dense gourmet meals delivered to your doorstep. Choose any mix of our 4 weekly signature dishes.",
+    featured: true,
+    badge: "Most Popular • 5 for $65",
+    idealFor: [
+      "Busy Professionals",
+      "Fitness & Macro Tracking",
+      "Clean Healthy Living",
+      "Zero Cooking & Zero Dishes",
+    ],
+    inclusions: [
+      "5 Individual gourmet meals in BPA-free microwave & freezer-safe black containers",
+      "Your custom mix of Lasagna, Chicken Kabobs, Shrimp Cajun, and Meat Della Casa",
+      "Complete nutritional breakdown and macro tracking info on every meal",
+      "Chilled insulated tote delivery right to your door",
+      "Reheat in just 2 minutes for instant restaurant-quality dining",
+    ],
+    customizations: [
+      "Select any quantity combination of the 4 weekly confirmed dishes",
+      "Add extra protein or low-carb vegetable substitutions",
+      "Choice of Sunday or Wednesday delivery drops",
+    ],
+    addOns: [
+      "Extra 6th or 7th meal ($13 each)",
+      "Artisan cold-pressed immunity juices",
+      "Fresh family-style salad bowl",
+    ],
+  },
+  {
+    id: "the-family-performance-10",
+    title: "Family & Performance Plan",
+    price: "$125",
+    tagline: "Double your weekly convenience — 10 Meals with Free Split Delivery",
+    guestCount: "10 Complete Meals",
+    description:
+      "Designed for active couples, fitness enthusiasts, and busy families who want effortless gourmet dinners every weekday evening.",
+    featured: false,
+    idealFor: [
+      "Athletic Training & High Protein",
+      "Couples & Small Families",
+      "Full Mon-Fri Lunch & Dinner",
+    ],
+    inclusions: [
+      "10 Individual gourmet meals of your choice",
+      "Option for 2 fresh delivery drops (5 on Sunday, 5 on Wednesday) for maximum freshness",
+      "Complimentary chef's garden salad bowl or fresh-baked rolls",
+      "Priority delivery time slot selection",
+    ],
+    customizations: [
+      "Full flexibility across all weekly signature dishes",
+      "Dietary preference tagging (Keto, High Protein, Pescatarian)",
+    ],
+    addOns: [
+      "Pre-workout cold pressed shots",
+      "Family-style half pan lasagna upgrade",
+      "Healthy snack & fruit boxes",
+    ],
+  },
+  {
+    id: "luxury-event-catering",
+    title: "Bespoke Event & Corporate Catering",
+    price: "Custom Quote",
+    tagline: "Turn celebrations and corporate gatherings into unforgettable dining experiences",
+    guestCount: "20 to 300+ Guests",
+    description:
+      "Full-service hot chafing buffet, executive boxed meal programs, or plated luxury dining for weddings, corporate summits, milestone birthdays, and private galas.",
+    featured: false,
+    idealFor: [
+      "Corporate Luncheons & Executive Meetings",
+      "Weddings & Rehearsal Dinners",
+      "Milestone Birthdays & Anniversaries",
+      "Holiday Parties & Private Galas",
+    ],
+    inclusions: [
+      "Deluxe hot chafing dish presentation with polished gold/stainless accents",
+      "Buffet or individually packaged executive warm meal boxes",
+      "Generous protein spreads: Meat Della Casa, Cajun Shrimp, Chicken Skewers, Lasagna",
+      "Seasoned grain bars, fresh salads, dressings, and artisan breads",
+      "Full delivery, on-site setup, chafing fuel, and serving ware",
+      "Optional on-site professional uniform catering attendants",
+    ],
+    customizations: [
+      "Tailored menus matching specific dietary guidelines and attendee demographics",
+      "Custom branded packaging for corporate client impressions",
+      "Plated table service or elegant self-serve stations",
+    ],
+    addOns: [
+      "Live carving station or chef attendant",
+      "Gourmet dessert shooter & macaron display",
+      "Infused hydration & cold beverage stations",
+    ],
+  },
+];
 
 export const SERVICES: ServiceItem[] = [
   {
-    id: "dessert-cart-catering",
-    slug: "dessert-cart-catering",
-    title: "Luxury Dessert Cart Catering",
-    tagline: "A boutique mobile cart tailored to your celebration aesthetic",
+    id: "weekly-meal-prep",
+    slug: "weekly-meal-prep",
+    title: "Weekly Meal Prep Delivery",
+    tagline: "Chef-prepared, wholesome meals delivered fresh to your door every week",
     shortDescription:
-      "Handcrafted mobile dessert carts brought directly to your venue, fully styled with custom florals, signage, and an artisan dessert assortment.",
+      "Effortless clean eating with our signature 5 for $65 weekly meal bundle. Freshly prepared with lean meats, wild seafood, and fresh market produce.",
     longDescription:
-      "Our signature mobile dessert carts transform any venue into a high-fashion patisserie. Designed with vintage European accents, warm wood finishes, and bespoke botanical styling, our carts are staffed by professional dessert concierges who serve your guests with white-glove hospitality.",
-    image:
-      "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1200&q=80",
+      "Say goodbye to grocery shopping, prepping, and hours standing over a hot stove. Divine & Delight crafts scratch-made, macro-balanced meals packaged in premium microwave-safe black containers. Delivered chilled to your home or office on Sundays and Wednesdays, our meals give you time back while elevating your daily nutrition.",
+    image: "/images/meals/hero-spread.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=1200&q=80",
+      "/images/meals/lasagna.jpg",
+      "/images/meals/chicken-kabobs.jpg",
+      "/images/meals/shrimp-cajun.jpg",
+      "/images/meals/meat-della-casa.jpg",
     ],
-    startingGuests: "30+ guests",
-    setupTime: "2 hours prior to guest arrival",
-    idealFor: ["Weddings", "Garden parties", "Milestone birthdays", "Product launches"],
+    startingGuests: "1 to 4 People (5, 10, or 15+ Meals)",
+    setupTime: "Delivered Chilled & Ready to Heat in 2 Mins",
+    idealFor: [
+      "Busy Executives & Professionals",
+      "Fitness Enthusiasts & Macro Trackers",
+      "Health-Conscious Couples",
+      "College Students & Parents",
+    ],
     inclusions: [
-      "Signature handcrafted mobile cart with parasol or botanical canopy",
-      "Curated menu of 4 to 8 artisan dessert selections",
-      "On-site dessert concierge for up to 3 hours of active service",
-      "Custom framed menu with your event names or monogram",
-      "Luxury pedestals, vintage cloches, tongs, and compostable bamboo plates",
-      "Complete white-glove setup and post-event strike",
+      "5 for $65 weekly signature meal deals",
+      "BPA-free airtight recyclable meal prep containers",
+      "Detailed calorie, protein, carbohydrate, and fat counts on every dish",
+      "Insulated thermal delivery packaging with gel ice packs",
+      "Direct text message updates when your meals arrive",
     ],
     highlights: [
-      "Mobile & adaptable to indoor ballrooms and open-air lawns",
-      "Custom branded signage and floral integration",
-      "Temperature-controlled display cases for delicate pastries",
+      "5 for $65 unbeatable chef-quality value",
+      "Zero cooking, zero cleanup, ready in 120 seconds",
+      "Flexible weekly subscription or one-time orders",
     ],
     faqs: [
       {
-        question: "Can the cart fit through standard interior doorways?",
+        question: "How long do the meals stay fresh in my refrigerator?",
         answer:
-          "Yes! Our custom carts are engineered with modular widths to comfortably roll through standard 36-inch ADA doorway frames and commercial elevators.",
+          "Our meals are freshly cooked and vacuum-sealed or airtight-capped to stay restaurant-fresh for 5 to 7 days in your refrigerator. You can also freeze them for up to 60 days.",
       },
       {
-        question: "Do you require electrical access for the cart?",
+        question: "How do I reheat the meals?",
         answer:
-          "We offer both fully self-powered carts with silent lithium battery illumination and standard 110V plug-in options depending on your venue setup.",
+          "Simply loosen the container lid and microwave on high for 2 to 2.5 minutes. For oven reheating, transfer the food to an oven-safe dish and bake at 350°F for 12 to 15 minutes.",
       },
     ],
   },
   {
-    id: "weddings-bridal-showers",
-    slug: "weddings-bridal-showers",
-    title: "Weddings & Bridal Showers",
-    tagline: "Romantic, photo-worthy sweet stations that leave lasting impressions",
+    id: "corporate-office-catering",
+    slug: "corporate-office-catering",
+    title: "Corporate & Office Catering",
+    tagline: "Fuel high-performance teams with nourishing, restaurant-caliber catering",
     shortDescription:
-      "Elevated wedding sweet tables and bridal dessert carts customized to match your wedding color palette, florals, and personal love story.",
+      "Elevate your office lunches, board meetings, and corporate summits with individually sealed hot meal boxes or magnificent hot buffet spreads.",
     longDescription:
-      "Your wedding day deserves a dessert experience as unforgettable as your vows. We collaborate closely with your wedding planner and floral designer to craft a show-stopping sweet installation that doubles as an interactive conversation piece and late-night guest favorite.",
-    image:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+      "Boost team productivity and impress visiting clients with corporate catering that feels like a private chef experience. Divine & Delight provides punctual, beautifully labeled hot meal setups with clear dietary tagging (Gluten-Free, Dairy-Free, Low-Carb) so every employee feels valued.",
+    image: "/images/meals/corporate-catering.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80",
+      "/images/meals/corporate-catering.jpg",
+      "/images/meals/chicken-kabobs.jpg",
+      "/images/meals/meat-della-casa.jpg",
     ],
-    startingGuests: "50+ guests",
-    setupTime: "3 hours prior to guest arrival",
-    idealFor: ["Ceremony receptions", "Bridal luncheons", "Rehearsal dinners", "After-parties"],
+    startingGuests: "15 to 300+ Attendees",
+    setupTime: "Setup completed 30 minutes prior to scheduled lunch",
+    idealFor: [
+      "Executive Board Meetings",
+      "Company-Wide All Hands & Town Halls",
+      "Client Appreciation Luncheons",
+      "Conferences & Multi-Day Summits",
+    ],
     inclusions: [
-      "Coordinated styling matching your wedding color palette and stationery",
-      "Bespoke tiered dessert display or luxury bridal cart",
-      "Tasting consultation box delivered to the couple prior to selection",
-      "Personalized monogrammed dessert tags and allergen notices",
-      "Takeaway favor packaging with custom wax seals (optional add-on)",
-      "Late-night dessert replenishment service",
+      "Choice of individually labeled executive boxes or hot buffet line",
+      "Assortment of premium proteins: Beef Della Casa, Cajun Shrimp, Grilled Kabobs",
+      "Full complement of serving utensils, plates, napkins, and cutlery",
+      "Tax invoices and corporate invoicing options available",
     ],
     highlights: [
-      "Seamless coordination with wedding planners and venue coordinators",
-      "Gluten-free, vegan, and nut-conscious luxury pairings",
-      "Signature dessert cutting ceremony photo opportunities",
+      "Individual dietary labeling prevents cross-contamination",
+      "Always hot, on-time delivery guaranteed",
+      "Corporate accounts and recurring weekly contracts available",
+    ],
+    faqs: [
+      {
+        question: "Can you accommodate multiple dietary restrictions simultaneously?",
+        answer:
+          "Yes! We clearly label all boxed meals with full allergen disclosures and custom dietary badges (e.g. Gluten-Free, Dairy-Free, Nut-Free, Keto).",
+      },
+    ],
+  },
+  {
+    id: "wedding-celebration-catering",
+    slug: "wedding-celebration-catering",
+    title: "Weddings & Private Celebrations",
+    tagline: "Exquisite culinary hospitality tailored to your most meaningful moments",
+    shortDescription:
+      "From intimate garden rehearsal dinners to lavish 250-guest wedding receptions, we deliver unforgettable dining and polished hospitality.",
+    longDescription:
+      "Your wedding or milestone celebration should have food that guests rave about for years. Our culinary team brings together rich Italian baked favorites, vibrant Mediterranean skewers, succulent Cajun seafood, and house-marinated beef specialties served in glowing gold chafing displays.",
+    image: "/images/meals/wedding-catering.jpg",
+    galleryImages: [
+      "/images/meals/wedding-catering.jpg",
+      "/images/meals/catering-buffet.jpg",
+      "/images/meals/shrimp-cajun.jpg",
+      "/images/meals/lasagna.jpg",
+    ],
+    startingGuests: "30+ Guests",
+    setupTime: "2 to 3 hours prior to guest arrival",
+    idealFor: [
+      "Weddings & Receptions",
+      "Rehearsal Dinners & Bridal Brunches",
+      "Milestone 30th / 40th / 50th Birthdays",
+      "Anniversary Celebrations & Estate Dinners",
+    ],
+    inclusions: [
+      "Luxury buffet line or family-style table platters",
+      "Deluxe gold & stainless chafing units with floral styling coordination",
+      "Tasting consultation session prior to final menu selection",
+      "Dedicated on-site catering captain and serving staff",
+    ],
+    highlights: [
+      "Customizable menus tailored to the couple's favorite culinary traditions",
+      "Seamless coordination with event planners and venues",
+      "Late-night bite options and takeaway boxes for guests",
     ],
     faqs: [
       {
         question: "How far in advance should we reserve our wedding date?",
         answer:
-          "Due to high demand during peak wedding seasons (Spring and Autumn), we recommend inquiring 6 to 9 months in advance. We accept inquiries up to 14 months out.",
-      },
-      {
-        question: "Can we include a small cutting cake alongside the dessert cart?",
-        answer:
-          "Absolutely! Many couples select an intimate 6-inch artisan cutting cake centered gracefully amidst the dessert cart tiers.",
+          "We recommend booking 3 to 6 months in advance for peak wedding season, though we will do our best to accommodate dates with shorter notice when available.",
       },
     ],
   },
   {
-    id: "birthday-celebrations",
-    slug: "birthday-celebrations",
-    title: "Birthday & Milestone Celebrations",
-    tagline: "Vibrant, joyous dessert experiences designed for celebration",
+    id: "private-chef-custom-prep",
+    slug: "private-chef-custom-prep",
+    title: "Custom Diet & Athletic Meal Prep",
+    tagline: "Tailored macros and custom portioning engineered for your fitness goals",
     shortDescription:
-      "From sweet sixteens and golden jubilees to intimate birthday soirees, our carts add playful luxury and decadent sweets to your milestone.",
+      "High-protein, low-carb, keto, or bodybuilder macro-coached meal plans crafted with precision weighing and clean wholesome ingredients.",
     longDescription:
-      "Celebrate another year around the sun with unmatched panache. We design vibrant, customized dessert bars featuring personalized cake pops, edible gold-leaf macarons, gourmet cupcakes, and customized treats tailored to the guest of honor's personality.",
-    image:
-      "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80",
+      "Whether you are cutting for competition, building lean muscle, or managing a physician-recommended wellness program, Divine & Delight formulates your meals down to the gram without sacrificing an ounce of flavor.",
+    image: "/images/meals/hero-spread.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=1200&q=80",
+      "/images/meals/meat-della-casa.jpg",
+      "/images/meals/chicken-kabobs.jpg",
+      "/images/meals/shrimp-cajun.jpg",
     ],
-    startingGuests: "25+ guests",
-    setupTime: "1.5 hours prior to event start",
-    idealFor: ["21st / 30th / 40th / 50th Birthdays", "Quinceañeras & Sweet 16s", "Kids luxury parties"],
+    startingGuests: "Individual or Couple Subscriptions",
+    setupTime: "Delivered Weekly on Schedule",
+    idealFor: [
+      "Bodybuilders & Fitness Competitors",
+      "Marathon Runners & Endurance Athletes",
+      "Weight-Loss & Medical Wellness Journeys",
+    ],
     inclusions: [
-      "Handcrafted dessert booth or mobile cart with celebratory garland",
-      "Custom number/age accent decor and color-coordinated desserts",
-      "Full dessert assortment with 3 pieces per confirmed guest",
-      "Sparkler or candle presentation moment for the guest of honor",
-      "Self-serve or attended service options",
+      "Gram-accurate macro tracking on protein, carbohydrates, and fats",
+      "Custom substitutions (double broccoli instead of rice, extra 6oz protein)",
+      "Zero added refined sugars, zero artificial chemicals, healthy cooking oils",
     ],
     highlights: [
-      "Custom color matches for any party theme",
-      "Kid-friendly yet elevated gourmet flavor profiles",
-      "Interactive dessert styling with toppings and coulis drizzle bars",
+      "Precision nutrition designed for real results",
+      "Variety of bold seasonings so healthy food never tastes bland",
     ],
     faqs: [
       {
-        question: "Can we customize colors to match our birthday balloons and theme?",
+        question: "Can I customize the sides or request extra protein?",
         answer:
-          "Yes, we customize macaron shells, icing hues, and floral accents to match your event's exact hexadecimal or pantone palette.",
+          "Yes! We offer double-protein upgrades and customizable vegetable/grain pairings during checkout or via custom order.",
       },
-    ],
-  },
-  {
-    id: "corporate-events",
-    slug: "corporate-events",
-    title: "Corporate Events & Galas",
-    tagline: "Impeccable presentation for brand launches, conferences, and executive galas",
-    shortDescription:
-      "Professional dessert catering featuring corporate branding, clean lines, seamless logistics, and high-volume attendee throughput.",
-    longDescription:
-      "Elevate your corporate hospitality with an experiential dessert activation. Whether hosting an annual gala for 500 VIPs, a client appreciation reception, or an international product launch, Divine & Delight delivers flawless timing, branded edible delicacies, and polished staff.",
-    image:
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80",
-    ],
-    startingGuests: "50 to 1,000+ guests",
-    setupTime: "2 to 3 hours prior",
-    idealFor: ["Brand activations", "Annual corporate galas", "Holiday parties", "Executive retreats"],
-    inclusions: [
-      "Corporate brand color integration and edible logo prints",
-      "Rapid throughput service design for large attendee waves",
-      "Full COI (Certificate of Insurance) compliant documentation for premier venues",
-      "Uniformed, experienced event attendants",
-      "Itemized corporate invoicing and dedicated account manager",
-    ],
-    highlights: [
-      "Custom branded chocolate medallions and macaron prints",
-      "Scalable multi-cart setups for large convention halls",
-      "Allergen-conscious dietary options clearly signed",
-    ],
-    faqs: [
-      {
-        question: "Can you provide a Certificate of Insurance (COI) for our venue?",
-        answer:
-          "Yes, we provide standard $2M comprehensive general liability COIs naming your venue and organization as additional insureds.",
-      },
-      {
-        question: "Can we print our company logo directly on the desserts?",
-        answer:
-          "Yes! We use high-resolution FDA-approved edible ink to print sharp company logos onto French macarons, sugar cookies, and chocolate disks.",
-      },
-    ],
-  },
-  {
-    id: "custom-dessert-displays",
-    slug: "custom-dessert-displays",
-    title: "Custom Dessert Displays & Buffets",
-    tagline: "Architectural sweet tables tailored to your architecture and venue",
-    shortDescription:
-      "Lavish stationary dessert landscapes built on custom risers, marble platters, and botanical backdrops for high-impact visual drama.",
-    longDescription:
-      "For events where a stationary focal point is desired, our architectural dessert tables turn your venue's feature wall into an opulent sensory feast. We integrate multi-level glass cloches, brass pedestals, cascading floral garlands, and curated lighting.",
-    image:
-      "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=1200&q=80",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1200&q=80",
-    ],
-    startingGuests: "40+ guests",
-    setupTime: "2.5 hours prior",
-    idealFor: ["Museum galas", "Private estate dinners", "Engagement celebrations", "Luxury anniversaries"],
-    inclusions: [
-      "Custom-scaled table styling up to 16 feet in length",
-      "Multi-tiered pedestals, ceramic risers, and gold tableware",
-      "Artisan floral or greenery installations styled on-site",
-      "Artisan dessert curation with 5 to 10 unique mini-creations",
-      "Illuminated votives and discreet display accent lighting",
-    ],
-    highlights: [
-      "Bespoke prop styling matching your venue's interior design",
-      "High visual density and breathtaking photography angles",
-      "Flawless late-night refresh service",
-    ],
-    faqs: [
-      {
-        question: "Do you supply the physical table or do we provide it?",
-        answer:
-          "We can style directly upon the venue's banquet tables or bring our own specialized vintage timber or marble consoles.",
-      },
-    ],
-  },
-  {
-    id: "outdoor-sweet-stations",
-    slug: "outdoor-sweet-stations",
-    title: "Outdoor Dessert Booths & Canopies",
-    tagline: "Weather-resilient outdoor sweet pavilions for lawns, vineyards, and terraces",
-    shortDescription:
-      "Specially engineered outdoor dessert booths equipped with weather shielding, shade canopies, and chill displays for al fresco entertaining.",
-    longDescription:
-      "Hosting an al fresco celebration under the open sky? Our outdoor dessert booths are crafted specifically for open-air gardens, vineyard estates, rooftop terraces, and beachside lawns. Every element is shielded from the elements while preserving effortless luxury.",
-    image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80",
-    ],
-    startingGuests: "35+ guests",
-    setupTime: "2 hours prior",
-    idealFor: ["Vineyard weddings", "Summer garden parties", "Rooftop cocktail hours", "Estate barbecues"],
-    inclusions: [
-      "Weather-rated wooden booth structure with striped or cream linen canopy",
-      "Passive cooling inserts to protect delicate frostings and chocolate",
-      "Protective glass sneezeguards seamlessly integrated into wood framing",
-      "Battery-powered warm string lights for evening celebrations",
-      "Trained dessert host managing outdoor service",
-    ],
-    highlights: [
-      "Designed specifically for summer temperature resistance",
-      "Heavy-duty anchored stability for coastal breezes",
-      "Charming European marketplace aesthetic",
-    ],
-    faqs: [
-      {
-        question: "How do you handle outdoor heat with chocolate and buttercream?",
-        answer:
-          "Our outdoor booths feature discreet sub-counter cooling compartments and refrigerated presentation trays that keep all frostings and ganaches firm even in warm weather.",
-      },
-    ],
-  },
-];
-
-export const PACKAGES: PackageItem[] = [
-  {
-    id: "the-petite-experience",
-    title: "The Petite Experience",
-    tagline: "Designed for intimate gatherings and boutique celebrations",
-    guestCount: "Up to 40 Guests",
-    description:
-      "An exquisitely curated mini dessert cart setup perfect for intimate bridal showers, micro-weddings, baby welcomes, and private estate dinners.",
-    featured: false,
-    idealFor: ["Intimate Baby Showers", "Bridal Brunches", "Micro-Weddings", "Milestone Dinners"],
-    inclusions: [
-      "Signature Petite Mobile Cart or Vintage Sweet Console",
-      "Selection of 4 artisan dessert varieties (3 pieces per guest)",
-      "Up to 2 hours of attended concierge service",
-      "Classic dessert signage and premium bamboo serviceware",
-      "Full delivery, styling setup, and removal within 25 miles",
-    ],
-    customizations: [
-      "Choice of cart canopy styling (Noir Black, Champagne Linen, or Luxury Ivory)",
-      "Choice of 4 dessert items from our artisan collection",
-      "Custom framed menu card with event title",
-    ],
-    addOns: [
-      "Additional service hour",
-      "Gourmet coffee & tea pairing cart",
-      "Custom take-home dessert favor boxes with silk ribbons",
-    ],
-  },
-  {
-    id: "the-signature-experience",
-    title: "The Signature Experience",
-    tagline: "Our most popular, beautifully curated celebration package",
-    guestCount: "50 to 120 Guests",
-    description:
-      "The quintessential Divine & Delight experience. Features our flagship artisan cart, expansive floral integration, custom color coordination, and an unforgettable 6-selection sweet menu.",
-    featured: true,
-    idealFor: ["Weddings", "Milestone 30th/40th/50th Birthdays", "Corporate Galas", "Engagement Parties"],
-    inclusions: [
-      "Flagship Handcrafted Dessert Cart with custom botanical styling",
-      "Selection of 6 artisan dessert varieties (3 to 4 pieces per guest)",
-      "Up to 3 hours of professional uniformed dessert concierge service",
-      "Personalized menu calligraphy & color-coordinated floral accents",
-      "Bespoke pedestals, glass cloches, and luxury gold serving utensils",
-      "Complete white-glove setup and late-night strike",
-    ],
-    customizations: [
-      "Full color matching to your event's exact wedding or brand palette",
-      "Custom monogrammed macaron stamps or sugar cookie designs",
-      "Selection of 6 desserts across all categories including French macarons",
-      "Allergen-conscious dietary alternatives (Gluten-Free, Dairy-Free)",
-    ],
-    addOns: [
-      "Artisan 6-inch cutting cake centerpiece",
-      "Custom edible cocktail garnishes or dessert shot shooters",
-      "Personalized takeaway favor boxes with wax seals",
-      "Sparkler or champagne toast coordination",
-    ],
-  },
-  {
-    id: "the-grand-experience",
-    title: "The Grand Experience",
-    tagline: "The pinnacle of luxury sweet hospitality for grand occasions",
-    guestCount: "130 to 300+ Guests",
-    description:
-      "An awe-inspiring, high-capacity dessert extravaganza. Dual cart configuration or expansive 16ft architectural dessert table designed for grand galas, ballroom weddings, and high-profile brand activations.",
-    featured: false,
-    idealFor: ["Grand Weddings", "High-Volume Corporate Conferences", "Celebrity Galas", "Annual Banquets"],
-    inclusions: [
-      "Dual Dessert Cart setup OR full 16-foot architectural sweet installation",
-      "Selection of 8 artisan dessert varieties (4 pieces per guest)",
-      "Up to 4 hours of dedicated multi-attendant service (2 concierges)",
-      "Custom branded architectural backdrop or cascading floral arbor",
-      "Custom edible logo printing / gold-leaf detailing on premium treats",
-      "Complimentary couple/VIP tasting delivery box prior to event",
-      "Continuous late-night replenishment and takeaway packaging",
-    ],
-    customizations: [
-      "Unrestricted menu customization with seasonal signature items",
-      "Custom 3D acrylic or laser-cut wood brand signage",
-      "Full dietary menu breakdown with dedicated allergen stations",
-      "VIP lounge dessert cart migration for after-party hours",
-    ],
-    addOns: [
-      "Live dessert torching / flambe station with chef attendant",
-      "Bespoke artisan favor boxes with personalized thank-you notes",
-      "Late-night savory-sweet slider & dessert hybrid station",
-    ],
-  },
-];
-
-export const DESSERT_ITEMS: DessertItem[] = [
-  {
-    id: "macaron-tasting-flight",
-    name: "Parisian French Macarons",
-    category: "macarons",
-    categoryLabel: "French Macarons",
-    description:
-      "Crisp almond meringue shells with decadent French ganache, infused fruit curds, and delicate buttercream centers.",
-    dietary: ["Gluten-Free", "Vegetarian"],
-    image:
-      "https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=1200&q=80",
-    popular: true,
-    flavors: [
-      "Rose & Raspberry Ganache",
-      "Tahitian Vanilla Bean",
-      "Salted Caramel Fleur de Sel",
-      "Pistachio Praliné",
-      "Lavender Honey",
-      "Dark Chocolate 70%",
-    ],
-  },
-  {
-    id: "gourmet-mini-cupcakes",
-    name: "Artisan Mini Cupcakes",
-    category: "cupcakes",
-    categoryLabel: "Cupcakes",
-    description:
-      "Moist, two-bite sponge cakes crowned with whipped Swiss meringue buttercream, gold dust, and fresh edible blossoms.",
-    dietary: ["Vegetarian"],
-    image:
-      "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80",
-    popular: true,
-    flavors: [
-      "Champagne Strawberry",
-      "Earl Grey & Meyer Lemon",
-      "Red Velvet & Bourbon Cream Cheese",
-      "Belgian Chocolate Espresso",
-    ],
-  },
-  {
-    id: "mini-fruit-tarts",
-    name: "Petite Fruit & Curd Tarts",
-    category: "mini-desserts",
-    categoryLabel: "Mini Desserts",
-    description:
-      "Hand-rolled buttery sablé shells filled with silky Madagascar vanilla bean pastry cream and crowned with glistening seasonal berries.",
-    dietary: ["Vegetarian"],
-    image:
-      "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80",
-    popular: true,
-    flavors: [
-      "Fresh Blackberry & Mint",
-      "Passion Fruit Curd & Kiwi",
-      "Raspberry Rose Sablé",
-      "Meyer Lemon Meringue",
-    ],
-  },
-  {
-    id: "belgian-truffle-brownies",
-    name: "Gourmet Fudge Truffle Brownies",
-    category: "brownies",
-    categoryLabel: "Brownies",
-    description:
-      "Ultra-dense Valrhona dark chocolate squares drizzled with salted caramel, toasted hazelnuts, and flakes of Maldon sea salt.",
-    dietary: ["Vegetarian"],
-    image:
-      "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1200&q=80",
-    popular: false,
-    flavors: [
-      "Sea Salt & Caramel Drizzle",
-      "Espresso Hazelnut Praline",
-      "Raspberry Swirl Valrhona",
-      "Toasted Walnut Fudge",
-    ],
-  },
-  {
-    id: "signature-sandwich-cookies",
-    name: "Heirloom Sandwich Cookies",
-    category: "cookies",
-    categoryLabel: "Cookies",
-    description:
-      "Golden brown butter shortbreads and chewy spiced cookies sandwiched with velvety ganache and seasonal fruit compote.",
-    dietary: ["Vegetarian"],
-    image:
-      "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1200&q=80",
-    popular: true,
-    flavors: [
-      "Brown Butter Pecan Shortbread",
-      "Dark Chocolate Fleur de Sel",
-      "Iced Lemon Cardamom Shortbread",
-      "Vanilla Bean Crinkle",
-    ],
-  },
-  {
-    id: "custom-cakesicles-treats",
-    name: "Artisan Cakesicles & Bonbons",
-    category: "custom-treats",
-    categoryLabel: "Custom Treats",
-    description:
-      "Sculpted gourmet cake pops and lustrous hand-painted geometric bonbons crafted in your celebration’s exact colors.",
-    dietary: ["Vegetarian"],
-    image:
-      "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80",
-    popular: true,
-    flavors: [
-      "White Chocolate Almond Blossom",
-      "Rosemary Caramel Bonbon",
-      "Funfetti Birthday Cake Truffle",
-      "Ruby Chocolate Pistachio",
     ],
   },
 ];
@@ -479,173 +483,176 @@ export const DESSERT_ITEMS: DessertItem[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-1",
-    title: "Al Fresco Vineyard Wedding",
-    category: "weddings",
-    categoryLabel: "Weddings",
-    image:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
-    location: "Napa Valley, CA",
-    caption:
-      "An elegant ivory & champagne dessert cart nestled beneath olive trees with macaron towers and gold leaf accents.",
-    guestCount: "160 Guests",
+    title: "Lasagna with Steamed Vegetables",
+    category: "meal-prep",
+    categoryLabel: "Weekly Meal Prep",
+    image: "/images/meals/lasagna.jpg",
+    location: "Signature Prep Kitchen",
+    caption: "Golden bubbly cheese crust with rich beef ragù and fresh steamed broccoli.",
+    guestCount: "Individual Meal",
   },
   {
     id: "gal-2",
-    title: "Editorial Botanical Bridal Shower",
-    category: "weddings",
-    categoryLabel: "Weddings",
-    image:
-      "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=1200&q=80",
-    location: "Hamptons, NY",
-    caption:
-      "Petite cart styling adorned with garden roses, golden pedestals, and champagne-infused mini cupcakes.",
-    guestCount: "45 Guests",
+    title: "Flame-Grilled Chicken Kabobs & Greek Salad",
+    category: "meal-prep",
+    categoryLabel: "Weekly Meal Prep",
+    image: "/images/meals/chicken-kabobs.jpg",
+    location: "Doorstep Delivery Batch",
+    caption: "Juicy chicken skewers over seasoned herb rice with crisp feta salad.",
+    guestCount: "Individual Meal",
   },
   {
     id: "gal-3",
-    title: "Metropolitan Gala Reception",
-    category: "corporate",
-    categoryLabel: "Corporate Events",
-    image:
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
-    location: "Chicago, IL",
-    caption:
-      "Sleek architectural dessert installation featuring edible corporate brand crests and Valrhona truffle brownies.",
-    guestCount: "450 Guests",
+    title: "Spicy Cajun Shrimp & Herb Rice",
+    category: "meal-prep",
+    categoryLabel: "Weekly Meal Prep",
+    image: "/images/meals/shrimp-cajun.jpg",
+    location: "Chef Station",
+    caption: "Jumbo Gulf shrimp in Louisiana seasoning with broccoli & roasted squash.",
+    guestCount: "Individual Meal",
   },
   {
     id: "gal-4",
-    title: "Sunlit Garden 40th Birthday Soirée",
-    category: "birthdays",
-    categoryLabel: "Birthdays",
-    image:
-      "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80",
-    location: "Austin, TX",
-    caption:
-      "Sophisticated luxury celebration cart with champagne gold accents and multi-tiered artisan pastries.",
-    guestCount: "65 Guests",
+    title: "Meat Della Casa with Sautéed Peppers",
+    category: "meal-prep",
+    categoryLabel: "Weekly Meal Prep",
+    image: "/images/meals/meat-della-casa.jpg",
+    location: "Weekly Specials Batch",
+    caption: "Tender beef steak strips in savory demi-glace with peppers and rice.",
+    guestCount: "Individual Meal",
   },
   {
     id: "gal-5",
-    title: "Coastal Terrace Sweet Station",
-    category: "outdoor",
-    categoryLabel: "Outdoor Events",
-    image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80",
-    location: "Miami, FL",
-    caption:
-      "Weather-shielded sweet station keeping fresh berries and fruit tarts perfectly chilled overlooking the ocean.",
-    guestCount: "110 Guests",
+    title: "Complete 5 for $65 Meal Prep Spread",
+    category: "meal-prep",
+    categoryLabel: "Weekly Routine",
+    image: "/images/meals/hero-spread.jpg",
+    location: "Kitchen Studio",
+    caption: "Four confirmed signature recipes lined up in sleek black luxury containers.",
+    guestCount: "Weekly Bundle",
   },
   {
     id: "gal-6",
-    title: "Lawn Cocktail Party Dessert Booth",
-    category: "outdoor",
-    categoryLabel: "Outdoor Events",
-    image:
-      "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1200&q=80",
-    location: "Charleston, SC",
-    caption:
-      "Vintage ivory & gold cart serving French macarons and iced shortbreads under illuminated market lights.",
-    guestCount: "90 Guests",
+    title: "Luxury Hot Chafing Event Buffet",
+    category: "catering",
+    categoryLabel: "Event Catering",
+    image: "/images/meals/catering-buffet.jpg",
+    location: "Grand Ballroom Gala",
+    caption: "Gold chafing dish setup featuring Meat Della Casa, Cajun Shrimp, and Lasagna.",
+    guestCount: "150 Guests",
+  },
+  {
+    id: "gal-7",
+    title: "Executive Boardroom Luncheon Catering",
+    category: "corporate",
+    categoryLabel: "Corporate Catering",
+    image: "/images/meals/corporate-catering.jpg",
+    location: "High-Rise Executive Suite",
+    caption: "Individually sealed hot meal boxes and chafing buffet for board meetings and summits.",
+    guestCount: "35 Attendees",
+  },
+  {
+    id: "gal-8",
+    title: "Romantic Luxury Wedding Reception",
+    category: "events",
+    categoryLabel: "Wedding Catering",
+    image: "/images/meals/wedding-catering.jpg",
+    location: "Estate Tent Reception",
+    caption: "Candlelit plated dinner with prime steak, grilled cajun shrimp, and fine wine pairings.",
+    guestCount: "200 Guests",
   },
 ];
 
 export const TESTIMONIALS: TestimonialItem[] = [
   {
     id: "test-1",
-    clientName: "Claire & Julian Vance",
-    role: "Bride & Groom",
-    eventType: "Napa Valley Estate Wedding",
+    clientName: "Marcus Sterling",
+    role: "CrossFit Coach & Athlete",
+    eventType: "Weekly Meal Prep Customer",
     quote:
-      "Divine & Delight was unquestionably the highlight of our reception. Guests took hundreds of photos around the cart before even taking a bite! The lavender honey macarons and mini tarts were extraordinary.",
-    date: "September 2025",
-    location: "St. Helena, California",
+      "The 5 for $65 deal is an absolute steal for this quality. The Meat Della Casa and Cajun Shrimp taste like meals you'd order at a $40 steakhouse. My macros are on point and I haven't cooked in two months.",
+    date: "October 2026",
+    location: "Atlanta, GA",
+    rating: 5,
   },
   {
     id: "test-2",
-    clientName: "Eleanor Sterling",
-    role: "Director of Brand Partnerships, Vesper Media",
-    eventType: "Annual Corporate Gala",
+    clientName: "Elena Rostova",
+    role: "VP of People Operations",
+    eventType: "Corporate Luncheon Catering",
     quote:
-      "From seamless COI coordination to immaculate staff presentation, Divine & Delight operated with utmost corporate professionalism. Our clients were stunned by the edible branded macarons.",
-    date: "November 2025",
-    location: "New York, New York",
+      "Divine & Delight catered our 120-person quarterly summit. The hot chafing presentation was breathtaking, and having both the Lasagna and the Chicken Kabobs meant every dietary need was satisfied. Our CEO specifically asked for their contact info.",
+    date: "September 2026",
+    location: "Charlotte, NC",
+    rating: 5,
   },
   {
     id: "test-3",
-    clientName: "Sophia Montgomery",
-    role: "Host & Event Planner",
-    eventType: "30th Birthday Garden Party",
+    clientName: "David & Sarah Jenkins",
+    role: "Newlyweds",
+    eventType: "Wedding Reception Catering",
     quote:
-      "The booking process was effortless and the on-site concierge made our guests feel like royalty. The cart aesthetic matched our black tie and champagne gold design flawlessly.",
-    date: "June 2025",
-    location: "Atlanta, Georgia",
+      "We didn't want standard, bland wedding food. Divine & Delight brought their signature Southern & Mediterranean warmth with the Cajun Shrimp and Beef Della Casa. Guests were going back for seconds and thirds!",
+    date: "August 2026",
+    location: "Savannah, GA",
+    rating: 5,
+  },
+  {
+    id: "test-4",
+    clientName: "Dr. Amanda Chen",
+    role: "Pediatrician & Mother of Two",
+    eventType: "Family Meal Prep",
+    quote:
+      "As a working mom, dinner was my biggest stress. Having 5 nutritious, home-cooked meals ready in 2 minutes changed our family evenings. The kids devour the Lasagna with broccoli, and the Chicken Kabobs are so fresh.",
+    date: "October 2026",
+    location: "Nashville, TN",
+    rating: 5,
   },
 ];
 
-export const HOW_IT_WORKS_STEPS = [
+export interface FaqItem {
+  question: string;
+  answer: string;
+  category: string;
+}
+
+export const FAQS: FaqItem[] = [
   {
-    step: "01",
-    title: "Choose Your Experience",
-    description:
-      "Select your ideal format—from our mobile artisan carts to architectural sweet tables or outdoor booths—and explore our curated dessert collections.",
+    question: "How does the 'Meals of the Week — 5 for $65' special work?",
+    category: "Meal Prep & Pricing",
+    answer:
+      "Every week, our chefs prepare a curated menu of four confirmed signature meals: Lasagna (with vegetables), Chicken Kabobs (with salad), Shrimp Cajun (with rice and vegetables), and Meat Della Casa (with rice and vegetables). You can choose any combination of 5 meals for just $65 total ($13 per gourmet meal!).",
   },
   {
-    step: "02",
-    title: "Share Your Event Details",
-    description:
-      "Use our intuitive booking wizard to submit your date, venue location, guest count, aesthetic vision, and preferred dessert flavors.",
+    question: "When are meal prep orders placed and delivered?",
+    category: "Delivery & Schedule",
+    answer:
+      "Orders for the upcoming week should be placed by Friday at 11:59 PM EST. We offer fresh delivery drops twice a week: Sunday afternoon/evening (for Mon–Wed meals) and Wednesday afternoon/evening (for Thu–Sun meals). You can also receive all 5 meals in one insulated delivery on Sunday.",
   },
   {
-    step: "03",
-    title: "Receive Your Custom Quote",
-    description:
-      "Our catering concierge crafts an itemized design proposal and menu plan tailored precisely to your schedule, dietary preferences, and venue guidelines.",
+    question: "How are the meals packaged, and are the containers safe?",
+    category: "Packaging & Safety",
+    answer:
+      "All meals are individually portioned in heavy-duty, BPA-free, leak-resistant black containers. They are 100% microwave-safe, dishwasher-safe, freezer-safe, and recyclable. Each container features separate compartments so your proteins, grains, and greens stay perfectly separated.",
   },
   {
-    step: "04",
-    title: "Celebrate With Us",
-    description:
-      "Relax and savor your celebration. We arrive early, handle full white-glove setup and styling, and provide gracious on-site dessert hospitality.",
+    question: "How long do the meals last, and how do I reheat them?",
+    category: "Reheating & Freshness",
+    answer:
+      "Our meals stay peak-fresh in your refrigerator for 5 to 7 days. If you prefer to freeze them, they maintain quality for up to 60 days. To reheat, simply vent the corner of the lid and microwave for 2 to 2.5 minutes. (If having the Chicken Kabobs with cold salad, simply remove the salad portion first).",
+  },
+  {
+    question: "Do you offer full-service catering for weddings and corporate events?",
+    category: "Event Catering",
+    answer:
+      "Yes! Divine & Delight offers comprehensive event catering ranging from 20 to 300+ guests. We provide polished gold and stainless chafing equipment, hot buffet stations, individually boxed hot executive lunches, carving stations, and uniformed service staff.",
+  },
+  {
+    question: "Can I customize ingredients or accommodate specific allergies?",
+    category: "Dietary & Allergies",
+    answer:
+      "Absolutely. In our order and booking forms, you can note dietary restrictions such as gluten allergies, dairy-free requirements, or shellfish sensitivities. We cook in dedicated, sanitized batches to prevent cross-contamination.",
   },
 ];
 
-export const FAQS = [
-  {
-    category: "Booking & Availability",
-    question: "How far in advance should I book my dessert cart or booth?",
-    answer:
-      "We recommend reserving 3 to 6 months in advance for private celebrations, and 6 to 12 months for peak wedding and holiday seasons. However, we always welcome inquiries for upcoming dates when our calendar allows.",
-  },
-  {
-    category: "Booking & Availability",
-    question: "How does the quote and deposit process work?",
-    answer:
-      "After submitting your event details through our booking form, our catering director prepares a personalized proposal. To secure your date on our calendar, a 50% deposit and signed catering agreement are required, with the remaining balance due 14 days prior to your event.",
-  },
-  {
-    category: "Event Logistics",
-    question: "What are the venue requirements for the mobile cart?",
-    answer:
-      "Our carts require a flat, level surface and a minimum doorway clearance of 36 inches width. For outdoor setups, we require firm turf, paving, or decking. We provide our own silent battery lighting or can connect to standard 110V power.",
-  },
-  {
-    category: "Menu & Dietary",
-    question: "Can you accommodate gluten-free, vegan, or nut-free guests?",
-    answer:
-      "Yes, absolutely. Our French macarons are naturally gluten-free (almond flour based), and we offer dedicated vegan sponge cupcakes, nut-free shortbreads, and dairy-free fruit curds. All items are clearly labeled with allergen signage.",
-  },
-  {
-    category: "Service & Staffing",
-    question: "Do your packages include on-site staff during the event?",
-    answer:
-      "Yes! All of our packages include professional, uniformed dessert concierges who restock displays, assist guests with flavor selections, maintain pristine presentation, and oversee seamless cleanup.",
-  },
-  {
-    category: "Customization & Branding",
-    question: "Can you match our event colors or print corporate logos?",
-    answer:
-      "Yes. We specialize in custom color matching for macaron shells and frostings, as well as high-resolution FDA-approved edible logo printing on macarons and sugar cookies for corporate sponsors and monogrammed weddings.",
-  },
-];
+export const FAQ_ITEMS = FAQS;

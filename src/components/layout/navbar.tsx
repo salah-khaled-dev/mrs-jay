@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/packages", label: "Packages" },
-  { href: "/dessert-menu", label: "Dessert Menu" },
+  { href: "/menu", label: "Meals of the Week" },
+  { href: "/packages", label: "Meal Plans" },
+  { href: "/services", label: "Catering" },
   { href: "/gallery", label: "Gallery" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
@@ -92,10 +92,10 @@ export function Navbar() {
               <ThemeToggle />
 
               <Link
-                href="/book"
-                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-medium tracking-wide uppercase rounded-full bg-primary text-primary-foreground hover:bg-primary-hover active:scale-[0.98] transition-all shadow-xs hover:shadow-md cursor-pointer group"
+                href="/menu"
+                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-semibold tracking-wide uppercase rounded-full bg-primary text-primary-foreground hover:bg-primary-hover active:scale-[0.98] transition-all shadow-xs hover:shadow-md cursor-pointer group"
               >
-                <span>Book Your Event</span>
+                <span>Order 5 for $65</span>
                 <Sparkles className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform" />
               </Link>
 
@@ -165,15 +165,22 @@ export function Navbar() {
 
           <div className="pt-6 border-t border-border mt-8 flex flex-col gap-3">
             <Link
-              href="/book"
+              href="/menu"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 px-4 rounded-xl bg-primary text-primary-foreground text-center font-medium uppercase tracking-wider text-sm flex items-center justify-center gap-2 shadow-md"
+              className="w-full py-3.5 px-4 rounded-xl bg-primary text-primary-foreground text-center font-semibold uppercase tracking-wider text-sm flex items-center justify-center gap-2 shadow-md"
             >
-              <span>Book Your Event</span>
+              <span>Order Meals (5 for $65)</span>
               <Sparkles className="w-4 h-4" />
             </Link>
+            <Link
+              href="/book"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 px-4 rounded-xl border border-border bg-card text-foreground text-center font-medium uppercase tracking-wider text-xs flex items-center justify-center gap-2"
+            >
+              <span>Book Event Catering</span>
+            </Link>
             <p className="text-center text-xs text-muted-foreground">
-              Luxury meal prep & bespoke event catering across the United States
+              Healthy • Homemade • High Quality Meal Prep & Catering
             </p>
           </div>
         </div>

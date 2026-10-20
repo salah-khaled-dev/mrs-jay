@@ -5,9 +5,9 @@ import { SERVICES } from "@/lib/data";
 import { Sparkles, ArrowRight, Check, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Catering Services & Dessert Experiences",
+  title: "Meal Prep & Catering Services",
   description:
-    "Explore our full collection of luxury mobile dessert carts, sweet pavilions, wedding dessert stations, and custom celebration displays.",
+    "Explore our full collection of chef-prepared weekly meal prep, corporate office luncheons, wedding receptions, and private event catering.",
 };
 
 export default function ServicesPage() {
@@ -18,13 +18,13 @@ export default function ServicesPage() {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/30 dark:bg-accent/15 border border-primary/20 text-foreground text-xs uppercase tracking-widest font-semibold">
             <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span>Signature Catering Formats</span>
+            <span>Culinary & Catering Solutions</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight">
-            Curated Sweet Experiences
+            Meal Prep & Bespoke Catering
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Every celebration has a distinct rhythm and aesthetic. We tailor each dessert cart and sweet display to seamlessly integrate with your venue architecture and event vision.
+            From our famous 5 for $65 weekly meal prep delivery to lavish hot chafing buffets for corporate summits and weddings, Divine & Delight delivers culinary excellence.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export default function ServicesPage() {
                 >
                   <div className="space-y-2">
                     <span className="text-xs uppercase tracking-widest text-primary font-bold">
-                      Format {index + 1} of 6
+                      Service {index + 1} of {SERVICES.length}
                     </span>
                     <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground">
                       {service.title}

@@ -1,11 +1,41 @@
+export type OrderType = "meal_prep" | "catering" | "both";
+
 export type EventType =
+  | "weekly_meal_prep"
   | "wedding"
-  | "birthday"
-  | "baby_shower"
-  | "bridal_shower"
   | "corporate"
-  | "private_party"
+  | "birthday"
+  | "private_dinner"
+  | "athlete_prep"
   | "other";
+
+export interface MacroInfo {
+  calories: number;
+  protein: number;
+  carbs: number;
+  fat: number;
+}
+
+export interface MealItem {
+  id: string;
+  name: string;
+  servingInfo: string;
+  category: "weekly-special" | "poultry" | "seafood" | "beef" | "pasta" | "catering-platter";
+  categoryLabel: string;
+  description: string;
+  ingredients: string[];
+  dietary: string[];
+  image: string;
+  popular?: boolean;
+  isWeeklySpecial?: boolean;
+  macros: MacroInfo;
+  heatingInstructions?: string;
+  allergens?: string[];
+  containerType?: string;
+}
+
+// Backward-compatible alias
+export type DessertItem = MealItem;
 
 export interface ServiceItem {
   id: string;
@@ -28,31 +58,21 @@ export interface PackageItem {
   id: string;
   title: string;
   tagline: string;
+  price?: string;
   guestCount: string;
   description: string;
   featured?: boolean;
+  badge?: string;
   idealFor: string[];
   inclusions: string[];
   customizations: string[];
   addOns: string[];
 }
 
-export interface DessertItem {
-  id: string;
-  name: string;
-  category: "mini-desserts" | "cupcakes" | "cookies" | "brownies" | "macarons" | "custom-treats";
-  categoryLabel: string;
-  description: string;
-  dietary: string[];
-  image: string;
-  popular?: boolean;
-  flavors: string[];
-}
-
 export interface GalleryItem {
   id: string;
   title: string;
-  category: "weddings" | "birthdays" | "corporate" | "outdoor";
+  category: "meal-prep" | "catering" | "corporate" | "events";
   categoryLabel: string;
   image: string;
   location: string;
@@ -68,26 +88,32 @@ export interface TestimonialItem {
   quote: string;
   date: string;
   location: string;
+  rating?: number;
 }
 
 export interface BookingFormData {
+  orderType?: OrderType;
   eventType: EventType | "";
   otherEventType?: string;
   eventDate: string;
   startTime: string;
-  eventDuration: string;
+  eventDuration?: string;
   estimatedGuests: number | string;
+  mealCount?: string;
+  selectedMeals?: string[];
   state: string;
   city: string;
   zipCode: string;
-  venueName: string;
-  venueAddress: string;
-  locationType: "indoor" | "outdoor" | "both";
+  deliveryAddress?: string;
+  venueName?: string;
+  venueAddress?: string;
+  locationType?: "indoor" | "outdoor" | "both";
   selectedPackage: string;
   dessertCategories: string[];
-  boothStyle: string;
-  eventTheme: string;
-  colorPalette: string;
+  dietaryPreferences?: string[];
+  boothStyle?: string;
+  eventTheme?: string;
+  colorPalette?: string;
   additionalNotes: string;
   optionalExtras: string[];
   fullName: string;
@@ -95,3 +121,4 @@ export interface BookingFormData {
   phone: string;
   contactMethod: "email" | "phone" | "text";
 }
+

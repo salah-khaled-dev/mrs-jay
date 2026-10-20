@@ -30,7 +30,7 @@ export default function FAQPage() {
             Frequently Asked Questions
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Everything you need to know about booking our mobile dessert carts, dietary accommodations, venue requirements, and payment policies.
+            Everything you need to know about our weekly 5 for $65 meal prep delivery, reheating instructions, container safety, macro counts, and full-service event catering.
           </p>
 
           <div className="p-3.5 rounded-xl bg-secondary text-xs text-muted-foreground flex items-center justify-center gap-2 max-w-xl mx-auto">

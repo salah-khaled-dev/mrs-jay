@@ -5,23 +5,29 @@ import { Footer } from "@/components/layout/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://divineanddelight.com"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : undefined) ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://divineanddelight.com")
+  ),
   title: {
-    default: "Divine & Delight | Luxury Meal Prep & Bespoke Catering",
-    template: "%s | Divine & Delight Luxury Catering",
+    default: "Divine & Delight | Meal Prep + Catering (5 for $65)",
+    template: "%s | Divine & Delight Meal Prep + Catering",
   },
   description:
-    "Divine & Delight (D&D) delivers elevated artisan meal preparation and luxury bespoke catering for weddings, private celebrations, and corporate galas across the United States.",
+    "Healthy. Homemade. High Quality. Weekly Chef-Prepared Meals (5 for $65) delivered fresh to your door, and bespoke full-service event catering across the United States.",
   keywords: [
     "Divine & Delight",
-    "D&D catering",
-    "luxury meal prep",
-    "bespoke catering",
+    "D&D meal prep",
+    "5 for 65 meal prep",
+    "healthy meal prep",
+    "event catering",
     "wedding catering",
-    "corporate event catering",
-    "luxury dessert catering",
-    "private chef meal prep",
-    "artisan catering",
+    "corporate lunch catering",
+    "lasagna meal prep",
+    "cajun shrimp",
+    "chicken kabobs",
+    "meat della casa",
   ],
   authors: [{ name: "Divine & Delight Culinary Group" }],
   icons: {
@@ -29,13 +35,19 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Divine & Delight | Luxury Meal Prep & Bespoke Catering",
+    title: "Divine & Delight | Meal Prep + Catering (5 for $65)",
     description:
-      "Elevated artisan meal preparation and bespoke event catering with signature culinary excellence and white-glove hospitality.",
+      "Healthy • Homemade • High Quality. Savor our signature weekly 5 for $65 chef-prepared meals and bespoke luxury event catering.",
     siteName: "Divine & Delight",
     locale: "en_US",
     type: "website",
     images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Divine & Delight - Meal Prep + Catering - 5 for $65",
+      },
       {
         url: "/images/brand/logo-original.png",
         width: 1024,
@@ -46,10 +58,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Divine & Delight | Luxury Meal Prep & Bespoke Catering",
+    title: "Divine & Delight | Meal Prep + Catering (5 for $65)",
     description:
-      "Elevated artisan meal preparation and bespoke event catering with signature culinary excellence.",
-    images: ["/images/brand/logo-original.png"],
+      "Healthy • Homemade • High Quality. Weekly Chef-Prepared Meals (5 for $65) & Bespoke Event Catering.",
+    images: ["/og-image.jpg"],
   },
 };
 

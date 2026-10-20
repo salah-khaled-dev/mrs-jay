@@ -9,11 +9,11 @@ import { Sparkles, X, MapPin, Users, ZoomIn, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const FILTERS = [
-  { id: "all", label: "All Celebrations" },
-  { id: "weddings", label: "Weddings & Bridal" },
-  { id: "birthdays", label: "Birthdays & Milestones" },
-  { id: "corporate", label: "Corporate Galas" },
-  { id: "outdoor", label: "Outdoor Sweet Booths" },
+  { id: "all", label: "All Images" },
+  { id: "meal-prep", label: "Weekly Meal Prep (5 for $65)" },
+  { id: "catering", label: "Hot Buffet Catering" },
+  { id: "corporate", label: "Corporate Catering" },
+  { id: "events", label: "Weddings & Celebrations" },
 ];
 
 export default function GalleryPage() {
@@ -46,10 +46,10 @@ export default function GalleryPage() {
             <span>Visual Portfolio</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight">
-            Event Gallery & Installations
+            Meal Prep & Event Catering Gallery
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Browse our past bespoke dessert cart setups, vineyard celebrations, and architectural sweet tables across the United States. Click any photo to view full details.
+            Browse our signature meal prep dishes in sealed black containers, corporate boardroom lunch setups, and luxury wedding buffet banquets. Click any photo to view full details.
           </p>
         </div>
 
@@ -74,19 +74,14 @@ export default function GalleryPage() {
 
         {/* Masonry / Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item, index) => {
-            const isTall = index === 0 || index === 4;
-            return (
-              <div
-                key={item.id}
-                onClick={() => setSelectedImage(item)}
-                className="group relative rounded-3xl overflow-hidden bg-card border border-border shadow-xs hover:shadow-2xl transition-all duration-300 cursor-pointer"
-              >
-                <div
-                  className={`relative w-full overflow-hidden ${
-                    isTall ? "aspect-[4/5]" : "aspect-[16/11]"
-                  }`}
-                >
+          {filteredItems.map((item) => (
+            <div
+              key={item.id}
+              onClick={() => setSelectedImage(item)}
+              className="group rounded-3xl overflow-hidden bg-card border border-border shadow-xs hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-between hover:border-primary/50"
+            >
+              <div>
+                <div className="relative aspect-[16/11] w-full overflow-hidden bg-muted">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -94,44 +89,57 @@ export default function GalleryPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
 
                   {/* Top Zoom Cue */}
-                  <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
                     <ZoomIn className="w-4 h-4" />
                   </div>
 
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-md text-[11px] font-medium text-white tracking-wider border border-white/20">
+                    <span className="px-3 py-1 rounded-full bg-neutral-950/85 backdrop-blur-md text-[10px] sm:text-xs font-semibold text-amber-300 border border-amber-400/30">
                       {item.categoryLabel}
                     </span>
                   </div>
+                </div>
 
-                  {/* Bottom Content */}
-                  <div className="absolute bottom-0 inset-x-0 p-6 text-white space-y-2">
-                    <div className="flex items-center gap-4 text-[11px] text-white/80">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5 text-accent" />
-                        <span>{item.location}</span>
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Users className="w-3.5 h-3.5 text-accent" />
-                        <span>{item.guestCount}</span>
-                      </span>
-                    </div>
-
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-primary transition-colors">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-xs text-white/70 line-clamp-2 leading-relaxed">
-                      {item.caption}
-                    </p>
+                {/* Card Content */}
+                <div className="p-6 space-y-3">
+                  <div className="flex items-center gap-4 text-[11px] text-muted-foreground font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                      <span>{item.location}</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 border-l border-border pl-3">
+                      <Users className="w-3.5 h-3.5 text-primary shrink-0" />
+                      <span>{item.guestCount}</span>
+                    </span>
                   </div>
+
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                    {item.caption}
+                  </p>
                 </div>
               </div>
-            );
-          })}
+
+              {/* Card Bottom Click Action */}
+              <div className="p-6 pt-0 border-t border-border/40 mt-2">
+                <div className="pt-4 flex items-center justify-between text-xs">
+                  <span className="text-[10px] uppercase tracking-wider text-primary font-bold">
+                    Divine & Delight
+                  </span>
+                  <span className="text-primary flex items-center gap-1 font-semibold group-hover:translate-x-1 transition-transform">
+                    <span>Expand Photo</span>
+                    <ZoomIn className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Lightbox Modal */}

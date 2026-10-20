@@ -92,8 +92,8 @@ export default function CorporateEventsPage() {
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-card">
               <Image
-                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80"
-                alt="Corporate gala banquet dessert station"
+                src="/images/meals/corporate-catering.jpg"
+                alt="Corporate luncheon and executive boardroom catering"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 40vw"
