@@ -38,8 +38,8 @@ const CORPORATE_CAPABILITIES = [
 
 export default function CorporateEventsPage() {
   return (
-    <div className="py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+    <div className="py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
@@ -58,7 +58,7 @@ export default function CorporateEventsPage() {
 
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
               <Link
-                href="/book?eventType=corporate"
+                href="/contact"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold text-xs uppercase tracking-wider shadow-md flex items-center justify-center gap-2 transition-all"
               >
                 <span>Request Corporate Proposal</span>
@@ -196,7 +196,7 @@ export default function CorporateEventsPage() {
           </div>
 
           <Link
-            href="/book?eventType=corporate"
+            href="/contact"
             className="px-7 py-3.5 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground text-xs uppercase tracking-wider font-semibold shadow-md shrink-0 transition-colors"
           >
             Submit Corporate RFP

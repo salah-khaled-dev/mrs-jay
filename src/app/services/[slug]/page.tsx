@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { SERVICES } from "@/lib/data";
-import { Sparkles, ArrowRight, Check, Clock, Users, HelpCircle } from "lucide-react";
+import { CalendarDays, ArrowRight, Check, Clock, Users, HelpCircle } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -40,8 +40,8 @@ export default async function ServiceDetailPage({ params }: Props) {
   }
 
   return (
-    <div className="py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         {/* Breadcrumb & Navigation */}
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Link href="/" className="hover:text-foreground transition-colors">
@@ -59,7 +59,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/30 dark:bg-accent/15 border border-primary/20 text-foreground text-xs uppercase tracking-widest font-semibold">
-              <Sparkles className="w-3.5 h-3.5 text-primary" />
+              <CalendarDays className="w-3.5 h-3.5 text-primary" />
               <span>Boutique Catering Format</span>
             </div>
 
@@ -88,10 +88,10 @@ export default async function ServiceDetailPage({ params }: Props) {
 
             <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
               <Link
-                href={`/book?service=${service.slug}`}
+                href="/contact"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground text-xs uppercase tracking-wider font-semibold shadow-md flex items-center justify-center gap-2 transition-all"
               >
-                <span>Book This Experience</span>
+                <span>Inquire About This Service</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
@@ -233,7 +233,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             </p>
           </div>
           <Link
-            href={`/book?service=${service.slug}`}
+            href="/contact"
             className="px-7 py-3.5 rounded-full bg-[#0B0B0D] text-[#E8D5A8] hover:text-white hover:bg-[#1C1C1E] text-xs uppercase tracking-wider font-semibold shadow-md shrink-0 transition-colors border border-[#C9A86A]/40"
           >
             Request Custom Quote

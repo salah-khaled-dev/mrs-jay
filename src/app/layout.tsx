@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { MobileContactButton } from "@/components/mobile-contact-button";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,15 +12,14 @@ export const metadata: Metadata = {
     (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://divineanddelight.com")
   ),
   title: {
-    default: "Divine & Delight | Meal Prep + Catering (5 for $65)",
-    template: "%s | Divine & Delight Meal Prep + Catering",
+    default: "Divine & Delight | Premium Meal Prep & Catering",
+    template: "%s | Divine & Delight",
   },
   description:
-    "Healthy. Homemade. High Quality. Weekly Chef-Prepared Meals (5 for $65) delivered fresh to your door, and bespoke full-service event catering across the United States.",
+    "Exceptional chef-prepared meal preparation and bespoke event catering delivered fresh across the United States.",
   keywords: [
     "Divine & Delight",
     "D&D meal prep",
-    "5 for 65 meal prep",
     "healthy meal prep",
     "event catering",
     "wedding catering",
@@ -28,6 +28,8 @@ export const metadata: Metadata = {
     "cajun shrimp",
     "chicken kabobs",
     "meat della casa",
+    "carne mushroom",
+    "tilapia lemon",
   ],
   authors: [{ name: "Divine & Delight Culinary Group" }],
   icons: {
@@ -35,9 +37,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Divine & Delight | Meal Prep + Catering (5 for $65)",
+    title: "Divine & Delight | Premium Meal Prep & Catering",
     description:
-      "Healthy • Homemade • High Quality. Savor our signature weekly 5 for $65 chef-prepared meals and bespoke luxury event catering.",
+      "Exceptional chef-prepared meals and bespoke luxury event catering for everyday dining and special occasions.",
     siteName: "Divine & Delight",
     locale: "en_US",
     type: "website",
@@ -46,7 +48,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Divine & Delight - Meal Prep + Catering - 5 for $65",
+        alt: "Divine & Delight - Premium Meal Prep & Catering",
       },
       {
         url: "/images/brand/logo-original.png",
@@ -58,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Divine & Delight | Meal Prep + Catering (5 for $65)",
+    title: "Divine & Delight | Premium Meal Prep & Catering",
     description:
-      "Healthy • Homemade • High Quality. Weekly Chef-Prepared Meals (5 for $65) & Bespoke Event Catering.",
+      "Exceptional chef-prepared meals and bespoke luxury event catering for everyday dining and special occasions.",
     images: ["/og-image.jpg"],
   },
 };
@@ -82,6 +84,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1 w-full">{children}</main>
           <Footer />
+          <MobileContactButton />
         </ThemeProvider>
       </body>
     </html>

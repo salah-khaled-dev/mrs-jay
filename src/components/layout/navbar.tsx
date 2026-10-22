@@ -5,17 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { BrandLogo } from "@/components/brand-logo";
-import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/menu", label: "Meals of the Week" },
-  { href: "/packages", label: "Meal Plans" },
-  { href: "/services", label: "Catering" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/about", label: "About" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/meal-prep", label: "Meal Prep" },
+  { href: "/catering", label: "Catering" },
+  { href: "/desserts", label: "Desserts" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -32,7 +29,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Reset mobile menu during render if pathname changes (avoids cascading render warning)
+  // Reset mobile menu during render if pathname changes
   const [prevPathname, setPrevPathname] = React.useState(pathname);
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
@@ -55,19 +52,23 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300",
+          "sticky top-0 z-40 w-full transition-all duration-300",
           isScrolled
-            ? "bg-background/90 backdrop-blur-md border-b border-border shadow-xs py-3"
-            : "bg-background/70 backdrop-blur-xs border-b border-border/50 py-4.5"
+            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-xs py-2.5 sm:py-3"
+            : "bg-background/80 backdrop-blur-xs border-b border-border/50 py-3 sm:py-4"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4">
-            {/* Brand Logo */}
-            <BrandLogo variant="horizontal" priority />
+          <div className="flex items-center justify-between gap-3">
+            {/* Brand Logo: Compact on mobile, prevents overflow */}
+            <BrandLogo
+              variant="horizontal"
+              priority
+              imageClassName="h-8 sm:h-10 w-auto"
+            />
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+            <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -87,23 +88,24 @@ export function Navbar() {
               })}
             </nav>
 
-            {/* Right Actions: Theme Toggle & Book Event CTA */}
-            <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* Right Actions: Theme Toggle & Desktop CTA / Mobile Hamburger */}
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <ThemeToggle />
 
+              {/* Desktop CTA: VIEW MENU (Hidden on mobile/tablet) */}
               <Link
-                href="/menu"
-                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-semibold tracking-wide uppercase rounded-full bg-primary text-primary-foreground hover:bg-primary-hover active:scale-[0.98] transition-all shadow-xs hover:shadow-md cursor-pointer group"
+                href="/meal-prep"
+                className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-xs sm:text-sm font-semibold tracking-wide uppercase rounded-full bg-primary text-primary-foreground hover:bg-primary-hover active:scale-[0.98] transition-all shadow-xs hover:shadow cursor-pointer"
               >
-                <span>Order 5 for $65</span>
-                <Sparkles className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform" />
+                <span>View Menu</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
-              {/* Mobile Menu Trigger */}
+              {/* Mobile Menu Trigger: Touch-friendly 40x40 circle */}
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-full border border-border bg-card text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
+                className="md:hidden w-10 h-10 rounded-full border border-border bg-card text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary flex items-center justify-center transition-colors cursor-pointer"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
               >
@@ -118,11 +120,11 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Drawer Navigation (Optimized for QR Code Visitors) */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden flex flex-col justify-between bg-background/95 backdrop-blur-xl border-b border-border pt-24 pb-8 px-6 overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-250">
-          <div className="flex flex-col space-y-2">
-            <span className="text-xs uppercase tracking-widest text-muted-foreground font-semibold px-3 mb-2">
+        <div className="fixed inset-0 z-50 md:hidden flex flex-col justify-between bg-background/98 backdrop-blur-xl border-b border-border pt-20 pb-8 px-6 overflow-y-auto animate-in fade-in duration-200">
+          <div className="flex flex-col space-y-3">
+            <span className="text-[11px] uppercase tracking-widest text-muted-foreground font-semibold px-3 mb-1">
               Menu Navigation
             </span>
             {NAV_LINKS.map((link) => {
@@ -133,7 +135,7 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "flex items-center justify-between px-4 py-3 text-lg font-serif rounded-xl transition-colors",
+                    "flex items-center justify-between px-4 py-3.5 text-base font-serif rounded-xl transition-colors",
                     isActive
                       ? "text-primary bg-primary/10 font-semibold"
                       : "text-foreground hover:bg-card"
@@ -144,43 +146,19 @@ export function Navbar() {
                 </Link>
               );
             })}
-
-            <div className="pt-4 border-t border-border mt-4 flex flex-col gap-2">
-              <Link
-                href="/weddings"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground"
-              >
-                Weddings & Bridal
-              </Link>
-              <Link
-                href="/corporate-events"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground"
-              >
-                Corporate Catering & Galas
-              </Link>
-            </div>
           </div>
 
           <div className="pt-6 border-t border-border mt-8 flex flex-col gap-3">
             <Link
-              href="/menu"
+              href="/meal-prep"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 px-4 rounded-xl bg-primary text-primary-foreground text-center font-semibold uppercase tracking-wider text-sm flex items-center justify-center gap-2 shadow-md"
+              className="w-full py-3.5 px-4 rounded-xl bg-primary text-primary-foreground text-center font-semibold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-md cursor-pointer"
             >
-              <span>Order Meals (5 for $65)</span>
-              <Sparkles className="w-4 h-4" />
+              <span>View Menu</span>
+              <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="/book"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 px-4 rounded-xl border border-border bg-card text-foreground text-center font-medium uppercase tracking-wider text-xs flex items-center justify-center gap-2"
-            >
-              <span>Book Event Catering</span>
-            </Link>
-            <p className="text-center text-xs text-muted-foreground">
-              Healthy • Homemade • High Quality Meal Prep & Catering
+            <p className="text-center text-xs text-muted-foreground pt-1">
+              Divine & Delight • Premium Meal Prep & Catering
             </p>
           </div>
         </div>

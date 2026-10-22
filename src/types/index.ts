@@ -1,13 +1,3 @@
-export type OrderType = "meal_prep" | "catering" | "both";
-
-export type EventType =
-  | "weekly_meal_prep"
-  | "wedding"
-  | "corporate"
-  | "birthday"
-  | "private_dinner"
-  | "athlete_prep"
-  | "other";
 
 export interface MacroInfo {
   calories: number;
@@ -34,8 +24,18 @@ export interface MealItem {
   containerType?: string;
 }
 
+export interface DessertProduct {
+  id: string;
+  name: string;
+  slug: string;
+  shortDescription: string;
+  image: string;
+  alt: string;
+  category: "cups" | "pastries" | "bites";
+}
+
 // Backward-compatible alias
-export type DessertItem = MealItem;
+export type DessertItem = DessertProduct | MealItem;
 
 export interface ServiceItem {
   id: string;
@@ -89,36 +89,5 @@ export interface TestimonialItem {
   date: string;
   location: string;
   rating?: number;
-}
-
-export interface BookingFormData {
-  orderType?: OrderType;
-  eventType: EventType | "";
-  otherEventType?: string;
-  eventDate: string;
-  startTime: string;
-  eventDuration?: string;
-  estimatedGuests: number | string;
-  mealCount?: string;
-  selectedMeals?: string[];
-  state: string;
-  city: string;
-  zipCode: string;
-  deliveryAddress?: string;
-  venueName?: string;
-  venueAddress?: string;
-  locationType?: "indoor" | "outdoor" | "both";
-  selectedPackage: string;
-  dessertCategories: string[];
-  dietaryPreferences?: string[];
-  boothStyle?: string;
-  eventTheme?: string;
-  colorPalette?: string;
-  additionalNotes: string;
-  optionalExtras: string[];
-  fullName: string;
-  email: string;
-  phone: string;
-  contactMethod: "email" | "phone" | "text";
 }
 

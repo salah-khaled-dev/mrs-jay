@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, ArrowRight, Heart, Award, ShieldCheck, Utensils } from "lucide-react";
+import { Award, ArrowRight, Heart, ShieldCheck, Utensils } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Divine & Delight | Luxury Meal Prep & Bespoke Catering",
@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+    <div className="py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/30 dark:bg-accent/15 border border-primary/20 text-foreground text-xs uppercase tracking-widest font-semibold">
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <Award className="w-3.5 h-3.5 text-primary" />
             <span>Our Heritage & Vision</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight">
@@ -63,17 +63,12 @@ export default function AboutPage() {
               Our presentation fixtures are built by boutique craftsmen using solid hardwoods, brass fittings, and interchangeable designer canopies. Whether your celebration is a sun-drenched vineyard wedding or a black-tie ballroom gala, Divine & Delight complements your aesthetic with effortless elegance.
             </p>
 
-            {/* Note on Brand History */}
-            <div className="p-4 rounded-xl bg-secondary/80 border border-border/80 text-xs text-muted-foreground italic">
-              Note: Brand narrative and culinary milestones are curated to reflect Divine & Delight’s design standards and will be tailored as further archives are confirmed.
-            </div>
-
             <div className="pt-2">
               <Link
-                href="/services"
+                href="/catering"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground text-xs uppercase tracking-wider font-semibold shadow-xs transition-colors"
               >
-                <span>Explore Our Offerings</span>
+                <span>Explore Catering</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

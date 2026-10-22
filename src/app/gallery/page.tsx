@@ -5,12 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { GALLERY_ITEMS } from "@/lib/data";
 import { GalleryItem } from "@/types";
-import { Sparkles, X, MapPin, Users, ZoomIn, ArrowRight } from "lucide-react";
+import { X, MapPin, Users, ZoomIn, ArrowRight, UtensilsCrossed } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const FILTERS = [
   { id: "all", label: "All Images" },
-  { id: "meal-prep", label: "Weekly Meal Prep (5 for $65)" },
+  { id: "meal-prep", label: "Weekly Meal Prep" },
   { id: "catering", label: "Hot Buffet Catering" },
   { id: "corporate", label: "Corporate Catering" },
   { id: "events", label: "Weddings & Celebrations" },
@@ -37,12 +37,12 @@ export default function GalleryPage() {
   }, [activeFilter]);
 
   return (
-    <div className="py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/30 dark:bg-accent/15 border border-primary/20 text-foreground text-xs uppercase tracking-widest font-semibold">
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <UtensilsCrossed className="w-3.5 h-3.5 text-primary" />
             <span>Visual Portfolio</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight">
@@ -202,7 +202,7 @@ export default function GalleryPage() {
 
                   <div className="pt-4 border-t border-border">
                     <Link
-                      href="/book"
+                      href="/contact"
                       className="w-full py-3 px-4 rounded-xl bg-primary hover:bg-primary-hover text-primary-foreground text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-xs"
                     >
                       <span>Inquire About Similar Setup</span>

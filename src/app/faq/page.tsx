@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { FAQS } from "@/lib/data";
-import { Sparkles, ChevronDown, Info } from "lucide-react";
+import { HelpCircle, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function FAQPage() {
@@ -18,27 +18,20 @@ export default function FAQPage() {
   }, [activeCategory]);
 
   return (
-    <div className="py-12 sm:py-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="py-8 sm:py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         {/* Header */}
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/30 dark:bg-accent/15 border border-primary/20 text-foreground text-xs uppercase tracking-widest font-semibold">
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <HelpCircle className="w-3.5 h-3.5 text-primary" />
             <span>Questions & Guidance</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight">
             Frequently Asked Questions
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            Everything you need to know about our weekly 5 for $65 meal prep delivery, reheating instructions, container safety, macro counts, and full-service event catering.
+            Everything you need to know about our chef-prepared meal prep, delivery, reheating instructions, and bespoke event catering.
           </p>
-
-          <div className="p-3.5 rounded-xl bg-secondary text-xs text-muted-foreground flex items-center justify-center gap-2 max-w-xl mx-auto">
-            <Info className="w-4 h-4 text-primary shrink-0" />
-            <span>
-              Note: Operational and deposit policies reflect standard catering guidelines and remain in draft review until contract finalization.
-            </span>
-          </div>
         </div>
 
         {/* Category Tabs */}
@@ -117,18 +110,12 @@ export default function FAQPage() {
           <p className="text-xs text-muted-foreground max-w-lg mx-auto">
             Our catering director is always delighted to discuss custom floorplans, freight elevator dimensions, and power setups.
           </p>
-          <div className="pt-2 flex justify-center gap-3">
+          <div className="pt-2 flex justify-center">
             <Link
               href="/contact"
-              className="px-5 py-2.5 rounded-full border border-border hover:bg-muted text-xs font-semibold uppercase tracking-wider text-foreground transition-colors"
+              className="px-7 py-3 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground text-xs font-semibold uppercase tracking-wider shadow-xs transition-colors"
             >
-              Contact Us Directly
-            </Link>
-            <Link
-              href="/book"
-              className="px-6 py-2.5 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground text-xs font-semibold uppercase tracking-wider shadow-xs transition-colors"
-            >
-              Start Booking Wizard
+              Get in Touch
             </Link>
           </div>
         </div>

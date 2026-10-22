@@ -4,6 +4,7 @@ import {
   MealItem,
   GalleryItem,
   TestimonialItem,
+  DessertProduct,
 } from "@/types";
 
 export const BRAND_INFO = {
@@ -12,15 +13,11 @@ export const BRAND_INFO = {
   category: "Meal Prep + Catering",
   tagline: "Healthy • Home Made • High Quality",
   subTagline: "Luxury American Meal Preparation & Bespoke Event Catering",
-  promoBanner: "Meals of the Week — 5 for $65",
-  promoHighlight: "5 for $65",
-  phone: "(800) 555-0198",
-  email: "orders@divineanddelight.com",
-  serviceArea: "Fresh Local Doorstep Delivery & Nationwide Event Catering",
-  headquarters: "Available for Travel & Delivery Across the United States",
-  instagram: "@divineanddelight",
-  hours: "Mon – Sun: 8:00 AM – 8:00 PM EST",
-  deliveryDays: "Weekly Drops every Sunday & Wednesday",
+  promoBanner: "Chef-Crafted Weekly Meal Prep",
+  promoHighlight: "Artisan Kitchen",
+  email: "dnd.cater.events@gmail.com",
+  instagram: "@divineanddelight.cater",
+  instagramUrl: "https://www.instagram.com/divineanddelight.cater",
 };
 
 export const BRAND_PILLARS = [
@@ -79,35 +76,33 @@ export const MEAL_ITEMS: MealItem[] = [
   {
     id: "chicken-kabobs-salad",
     name: "Chicken Kabobs",
-    servingInfo: "With Salad",
+    servingInfo: "With Rice & Broccoli",
     category: "weekly-special",
     categoryLabel: "Weekly Special • Mediterranean",
     description:
-      "Flame-grilled chicken breast skewers marinated in lemon zest, extra virgin olive oil, garlic, and Mediterranean herbs, grilled with sweet peppers. Served over a bed of fluffy seasoned herb rice and paired with a crisp Greek garden salad featuring romaine, cherry tomatoes, cucumbers, kalamata olives, and crumbled feta cheese.",
+      "Flame-grilled marinated chicken breast skewers with appetizing char marks and Mediterranean herb seasoning. Served over fluffy seasoned steamed white rice with vibrant fresh steamed broccoli florets and charred sweet peppers.",
     ingredients: [
-      "Marinated grilled chicken breast",
+      "Marinated grilled chicken breast skewers",
       "Charred sweet bell peppers",
-      "Fluffy seasoned herb rice",
-      "Crisp romaine lettuce",
-      "Vine-ripened cherry tomatoes",
-      "English cucumbers",
-      "Kalamata olives & feta cheese",
-      "House lemon-oregano vinaigrette",
+      "Fluffy seasoned steamed white rice",
+      "Tender steamed fresh broccoli florets",
+      "Mediterranean lemon-herb rub",
+      "House vinaigrette seasoning",
     ],
-    dietary: ["High Protein", "Low Calorie", "Mediterranean Diet", "Gluten-Conscious"],
+    dietary: ["High Protein", "Clean Fuel", "Gluten-Conscious", "Gym Ready"],
     image: "/images/meals/chicken-kabobs.jpg",
     popular: true,
     isWeeklySpecial: true,
     macros: {
-      calories: 480,
-      protein: 46,
-      carbs: 36,
+      calories: 490,
+      protein: 48,
+      carbs: 38,
       fat: 14,
     },
     heatingInstructions:
-      "Microwave: Lift cold salad compartment or enjoy cold salad on the side; heat chicken and rice for 2 minutes on high.",
-    allergens: ["Dairy (feta in salad)"],
-    containerType: "BPA-Free Microwave & Freezer Safe Black 2-Compartment Tray",
+      "Microwave: Vent corner of lid and microwave on high for 2 minutes. Ready to enjoy immediately.",
+    allergens: ["None"],
+    containerType: "BPA-Free Microwave & Freezer Safe Black Multi-Compartment Tray",
   },
   {
     id: "shrimp-cajun-rice-veg",
@@ -173,6 +168,67 @@ export const MEAL_ITEMS: MealItem[] = [
     containerType: "BPA-Free Microwave & Freezer Safe Black 3-Compartment Tray",
   },
   {
+    id: "carne-mushroom-rice-veg",
+    name: "Carne Mushroom in White Sauce",
+    servingInfo: "With Rice & Broccoli",
+    category: "weekly-special",
+    categoryLabel: "Weekly Special • Creamy Mushroom Beef",
+    description:
+      "Tender sautéed choice beef steak strips generously smothered in a rich, velvety creamy white mushroom sauce with sliced button mushrooms, garlic, and fresh herbs. Served alongside a fluffy portion of seasoned white rice and fresh steamed broccoli florets.",
+    ingredients: [
+      "Choice beef steak strips",
+      "Creamy white mushroom demi-glace",
+      "Sliced sautéed button mushrooms",
+      "Fresh minced garlic & chopped herbs",
+      "Fluffy seasoned white rice",
+      "Tender steamed fresh broccoli florets",
+    ],
+    dietary: ["High Protein", "Chef Specialty", "Comfort Gourmet"],
+    image: "/images/meals/carne-mushroom.jpg",
+    popular: true,
+    isWeeklySpecial: true,
+    macros: {
+      calories: 560,
+      protein: 46,
+      carbs: 42,
+      fat: 20,
+    },
+    heatingInstructions:
+      "Microwave: Vent corner of lid and microwave on high for 2 to 2.5 minutes. Stir beef in cream sauce halfway through.",
+    allergens: ["Dairy (cream, butter)", "Soy"],
+    containerType: "BPA-Free Microwave & Freezer Safe Black Multi-Compartment Tray",
+  },
+  {
+    id: "tilapia-lemon-rice-veg",
+    name: "Tilapia Lemon",
+    servingInfo: "With Rice & Broccoli",
+    category: "weekly-special",
+    categoryLabel: "Weekly Special • Citrus Seared Seafood",
+    description:
+      "Delicate, tender tilapia fillet pan-seared to a golden finish with cracked black pepper, sea salt, garlic, and fresh herbs, topped with zesty fresh lemon slices. Served over fluffy seasoned long-grain rice with vibrant steamed broccoli florets.",
+    ingredients: [
+      "Pan-seared tender tilapia fillet",
+      "Fresh lemon slices & citrus herb butter",
+      "Cracked black pepper & sea salt crust",
+      "Fluffy seasoned long-grain rice",
+      "Vibrant steamed broccoli florets",
+    ],
+    dietary: ["High Protein", "Pescatarian", "Low Fat", "Omega-3 Rich"],
+    image: "/images/meals/tilapia-lemon.jpg",
+    popular: true,
+    isWeeklySpecial: true,
+    macros: {
+      calories: 420,
+      protein: 42,
+      carbs: 38,
+      fat: 10,
+    },
+    heatingInstructions:
+      "Microwave: Vent corner of lid and heat gently on medium-high for 1.5 to 2 minutes until hot.",
+    allergens: ["Fish (Tilapia)", "Dairy (citrus butter)"],
+    containerType: "BPA-Free Microwave & Freezer Safe Black Multi-Compartment Tray",
+  },
+  {
     id: "catering-buffet-spread",
     name: "Divine & Delight Grand Catering Buffet",
     servingInfo: "Buffet Style for 20+ Guests",
@@ -200,20 +256,17 @@ export const MEAL_ITEMS: MealItem[] = [
   },
 ];
 
-// Backward-compatible alias for any residual imports
-export const DESSERT_ITEMS = MEAL_ITEMS;
-
 export const PACKAGES: PackageItem[] = [
   {
     id: "the-weekly-5-meal-prep",
     title: "Weekly Meal Prep Routine",
-    price: "$65",
-    tagline: "Our #1 Signature Deal — 5 Chef-Prepared Fresh Meals for $65",
-    guestCount: "5 Complete Meals (5 for $65)",
+    price: "",
+    tagline: "Our Chef-Prepared Fresh Weekly Meals",
+    guestCount: "Chef-Prepared Meals",
     description:
-      "The ultimate lifestyle upgrade. Five freshly cooked, nutrient-dense gourmet meals delivered to your doorstep. Choose any mix of our 4 weekly signature dishes.",
+      "The ultimate lifestyle upgrade. Freshly cooked, nutrient-dense gourmet meals prepared for your week. Choose any mix of our signature dishes.",
     featured: true,
-    badge: "Most Popular • 5 for $65",
+    badge: "Most Popular",
     idealFor: [
       "Busy Professionals",
       "Fitness & Macro Tracking",
@@ -233,7 +286,7 @@ export const PACKAGES: PackageItem[] = [
       "Choice of Sunday or Wednesday delivery drops",
     ],
     addOns: [
-      "Extra 6th or 7th meal ($13 each)",
+      "Extra additional meal add-ons",
       "Artisan cold-pressed immunity juices",
       "Fresh family-style salad bowl",
     ],
@@ -241,7 +294,7 @@ export const PACKAGES: PackageItem[] = [
   {
     id: "the-family-performance-10",
     title: "Family & Performance Plan",
-    price: "$125",
+    price: "",
     tagline: "Double your weekly convenience — 10 Meals with Free Split Delivery",
     guestCount: "10 Complete Meals",
     description:
@@ -311,9 +364,9 @@ export const SERVICES: ServiceItem[] = [
     title: "Weekly Meal Prep Delivery",
     tagline: "Chef-prepared, wholesome meals delivered fresh to your door every week",
     shortDescription:
-      "Effortless clean eating with our signature 5 for $65 weekly meal bundle. Freshly prepared with lean meats, wild seafood, and fresh market produce.",
+      "Effortless clean eating with our weekly meal selections. Freshly prepared with lean meats, wild seafood, and fresh market produce.",
     longDescription:
-      "Say goodbye to grocery shopping, prepping, and hours standing over a hot stove. Divine & Delight crafts scratch-made, macro-balanced meals packaged in premium microwave-safe black containers. Delivered chilled to your home or office on Sundays and Wednesdays, our meals give you time back while elevating your daily nutrition.",
+      "Say goodbye to grocery shopping, prepping, and hours standing over a hot stove. Divine & Delight crafts scratch-made, wholesome meals packaged in premium microwave-safe black containers. Our meals give you time back while elevating your daily nutrition.",
     image: "/images/meals/hero-spread.jpg",
     galleryImages: [
       "/images/meals/lasagna.jpg",
@@ -321,8 +374,8 @@ export const SERVICES: ServiceItem[] = [
       "/images/meals/shrimp-cajun.jpg",
       "/images/meals/meat-della-casa.jpg",
     ],
-    startingGuests: "1 to 4 People (5, 10, or 15+ Meals)",
-    setupTime: "Delivered Chilled & Ready to Heat in 2 Mins",
+    startingGuests: "Individual & Family Servings",
+    setupTime: "Ready to Heat in 2 Mins",
     idealFor: [
       "Busy Executives & Professionals",
       "Fitness Enthusiasts & Macro Trackers",
@@ -330,14 +383,14 @@ export const SERVICES: ServiceItem[] = [
       "College Students & Parents",
     ],
     inclusions: [
-      "5 for $65 weekly signature meal deals",
+      "Weekly signature chef-prepared meal selections",
       "BPA-free airtight recyclable meal prep containers",
       "Detailed calorie, protein, carbohydrate, and fat counts on every dish",
       "Insulated thermal delivery packaging with gel ice packs",
       "Direct text message updates when your meals arrive",
     ],
     highlights: [
-      "5 for $65 unbeatable chef-quality value",
+      "Unbeatable chef-quality culinary craftsmanship",
       "Zero cooking, zero cleanup, ready in 120 seconds",
       "Flexible weekly subscription or one-time orders",
     ],
@@ -474,7 +527,7 @@ export const SERVICES: ServiceItem[] = [
       {
         question: "Can I customize the sides or request extra protein?",
         answer:
-          "Yes! We offer double-protein upgrades and customizable vegetable/grain pairings during checkout or via custom order.",
+          "Yes! We offer double-protein upgrades and customizable vegetable/grain pairings upon request when discussing your inquiry.",
       },
     ],
   },
@@ -523,7 +576,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "gal-5",
-    title: "Complete 5 for $65 Meal Prep Spread",
+    title: "Artisanal Meal Prep Lineup",
     category: "meal-prep",
     categoryLabel: "Weekly Routine",
     image: "/images/meals/hero-spread.jpg",
@@ -570,7 +623,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "CrossFit Coach & Athlete",
     eventType: "Weekly Meal Prep Customer",
     quote:
-      "The 5 for $65 deal is an absolute steal for this quality. The Meat Della Casa and Cajun Shrimp taste like meals you'd order at a $40 steakhouse. My macros are on point and I haven't cooked in two months.",
+      "The meal prep quality is an absolute standout. The Meat Della Casa and Cajun Shrimp taste like meals you'd order at a $40 steakhouse. My nutrition is effortless and I haven't cooked in two months.",
     date: "October 2026",
     location: "Atlanta, GA",
     rating: 5,
@@ -618,10 +671,10 @@ export interface FaqItem {
 
 export const FAQS: FaqItem[] = [
   {
-    question: "How does the 'Meals of the Week — 5 for $65' special work?",
-    category: "Meal Prep & Pricing",
+    question: "How does the weekly meal prep service work?",
+    category: "Meal Prep",
     answer:
-      "Every week, our chefs prepare a curated menu of four confirmed signature meals: Lasagna (with vegetables), Chicken Kabobs (with salad), Shrimp Cajun (with rice and vegetables), and Meat Della Casa (with rice and vegetables). You can choose any combination of 5 meals for just $65 total ($13 per gourmet meal!).",
+      "Every week, our chefs prepare a curated menu of confirmed signature meals: Lasagna, Chicken Kabobs, Shrimp Cajun, Meat Della Casa, Carne Mushroom in White Sauce, and Tilapia Lemon. Contact us directly to discuss your preferred selections and availability.",
   },
   {
     question: "When are meal prep orders placed and delivered?",
@@ -656,3 +709,67 @@ export const FAQS: FaqItem[] = [
 ];
 
 export const FAQ_ITEMS = FAQS;
+
+export const DESSERT_ITEMS: DessertProduct[] = [
+  {
+    id: "divine-mini-tiramisu",
+    name: "Divine Mini Tiramisu",
+    slug: "divine-mini-tiramisu",
+    shortDescription:
+      "Espresso-soaked ladyfingers layered with rich mascarpone and dark Dutch cocoa in a crystal cube.",
+    image: "/images/desserts/mini-tiramisu.jpg",
+    alt: "Divine Mini Tiramisu in crystal cube cup",
+    category: "cups",
+  },
+  {
+    id: "delight-dubai-eclair",
+    name: "Delight Dubai Chocolate Eclairs",
+    slug: "delight-dubai-eclair",
+    shortDescription:
+      "Petite choux eclairs with dark chocolate glaze, pistachio cream drizzle, and delicate gold shimmer.",
+    image: "/images/desserts/dubai-eclair.jpg",
+    alt: "Delight Dubai Chocolate Eclairs with pistachio drizzle",
+    category: "pastries",
+  },
+  {
+    id: "dnd-velvet-mousse-dome",
+    name: "D&D Velvet Mousse Dome",
+    slug: "dnd-velvet-mousse-dome",
+    shortDescription:
+      "Velvety cocoa-dusted cream mousse dome on spiced biscuit crumble with a petite wooden tasting spoon.",
+    image: "/images/desserts/velvet-mousse-dome.jpg",
+    alt: "D&D Velvet Mousse Dome with wooden tasting spoon",
+    category: "cups",
+  },
+  {
+    id: "divine-lotus-speculoos",
+    name: "Divine Lotus Speculoos Squares",
+    slug: "divine-lotus-speculoos",
+    shortDescription:
+      "Layered spiced biscuit crumble and whipped caramel cream in an individual acrylic tasting cube.",
+    image: "/images/desserts/lotus-speculoos.jpg",
+    alt: "Divine Lotus Speculoos Squares layered cup",
+    category: "cups",
+  },
+  {
+    id: "delight-chocolate-drizzle",
+    name: "Delight Chocolate Drizzle Bites",
+    slug: "delight-chocolate-drizzle",
+    shortDescription:
+      "Artisan choux pastry bites topped with rich dark cocoa glaze and fine ivory vanilla ribbons.",
+    image: "/images/desserts/chocolate-drizzle-bites.jpg",
+    alt: "Delight Chocolate Drizzle Bites on crystal platter",
+    category: "bites",
+  },
+  {
+    id: "dnd-golden-ganache-cups",
+    name: "D&D Golden Ganache Cups",
+    slug: "dnd-golden-ganache-cups",
+    shortDescription:
+      "Decadent dark chocolate fudge ganache cubes topped with cocoa dusting and delicate gold leaf.",
+    image: "/images/desserts/golden-ganache-cups.jpg",
+    alt: "D&D Golden Ganache Cups with gold leaf",
+    category: "cups",
+  },
+];
+
