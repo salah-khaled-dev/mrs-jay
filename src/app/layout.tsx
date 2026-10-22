@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         alt: "Divine & Delight - Premium Meal Prep & Catering",
       },
       {
-        url: "/images/brand/logo-original.png",
+        url: "/images/brand/logo-original.webp",
         width: 1024,
         height: 1024,
         alt: "Divine & Delight Official Brand Logo",

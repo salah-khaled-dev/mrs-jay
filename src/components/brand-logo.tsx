@@ -27,7 +27,7 @@ export function BrandLogo({
         <div className="relative flex items-center">
           {/* Dark mode version: radiant metallic gold */}
           <Image
-            src="/images/brand/logo-horizontal.png"
+            src="/images/brand/logo-horizontal.webp"
             alt="Divine & Delight — Meal Prep + Catering"
             width={240}
             height={48}
@@ -40,7 +40,7 @@ export function BrandLogo({
           />
           {/* Light mode version: deep rich gold for high contrast */}
           <Image
-            src="/images/brand/logo-horizontal-lightmode.png"
+            src="/images/brand/logo-horizontal-lightmode.webp"
             alt="Divine & Delight — Meal Prep + Catering"
             width={240}
             height={48}
@@ -57,7 +57,7 @@ export function BrandLogo({
       {variant === "full" && (
         <div className="relative flex items-center justify-center">
           <Image
-            src="/images/brand/logo-full-tight.png"
+            src="/images/brand/logo-full-tight.webp"
             alt="Divine & Delight — Meal Prep + Catering"
             width={280}
             height={220}
@@ -74,7 +74,7 @@ export function BrandLogo({
       {variant === "monogram" && (
         <div className="relative flex items-center">
           <Image
-            src="/images/brand/logo-monogram.png"
+            src="/images/brand/logo-monogram.webp"
             alt="D&D Monogram"
             width={64}
             height={52}

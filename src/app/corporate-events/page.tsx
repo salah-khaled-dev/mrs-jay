@@ -92,7 +92,7 @@ export default function CorporateEventsPage() {
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-card">
               <Image
-                src="/images/meals/corporate-catering.jpg"
+                src="/images/meals/corporate-catering.webp"
                 alt="Corporate luncheon and executive boardroom catering"
                 fill
                 priority

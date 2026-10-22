@@ -11,7 +11,7 @@ export function CateringSection() {
           <div className="lg:col-span-5 relative order-2 lg:order-1">
             <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden border border-border/80 shadow-lg group">
               <Image
-                src="/images/meals/catering-event.jpg"
+                src="/images/meals/catering-event.webp"
                 alt="Divine & Delight Luxury Event Catering & Celebrations"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"

@@ -65,7 +65,7 @@ export default function WeddingsPage() {
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-card">
               <Image
-                src="/images/meals/wedding-catering.jpg"
+                src="/images/meals/wedding-catering.webp"
                 alt="Luxury wedding reception dinner and catering by Divine & Delight"
                 fill
                 priority

@@ -8,32 +8,32 @@ const ROTATING_MEALS = [
   {
     name: "Lasagna",
     serving: "With Vegetables Only",
-    image: "/images/meals/lasagna.jpg",
+    image: "/images/meals/lasagna.webp",
   },
   {
     name: "Chicken Kabobs",
     serving: "With Rice & Broccoli",
-    image: "/images/meals/chicken-kabobs.jpg",
+    image: "/images/meals/chicken-kabobs.webp",
   },
   {
     name: "Shrimp Cajun",
     serving: "With Rice and Vegetables",
-    image: "/images/meals/shrimp-cajun.jpg",
+    image: "/images/meals/shrimp-cajun.webp",
   },
   {
     name: "Meat Della Casa",
     serving: "With Rice and Vegetables",
-    image: "/images/meals/meat-della-casa.jpg",
+    image: "/images/meals/meat-della-casa.webp",
   },
   {
     name: "Carne Mushroom in White Sauce",
     serving: "With Rice & Broccoli",
-    image: "/images/meals/carne-mushroom.jpg",
+    image: "/images/meals/carne-mushroom.webp",
   },
   {
     name: "Tilapia Lemon",
     serving: "With Rice & Broccoli",
-    image: "/images/meals/tilapia-lemon.jpg",
+    image: "/images/meals/tilapia-lemon.webp",
   },
 ];
 

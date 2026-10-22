@@ -32,7 +32,7 @@ export default function AboutPage() {
           <div className="lg:col-span-6 relative">
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-border">
               <Image
-                src="/images/meals/hero-spread.jpg"
+                src="/images/meals/hero-spread.webp"
                 alt="Divine & Delight artisan meal preparation and culinary presentation"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

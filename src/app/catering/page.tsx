@@ -87,7 +87,7 @@ export default function CateringPage() {
             <div className="lg:col-span-5">
               <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-border shadow-md">
                 <Image
-                  src="/images/meals/catering-event.jpg"
+                  src="/images/meals/catering-event.webp"
                   alt="Divine & Delight Catering Presentation"
                   fill
                   priority
