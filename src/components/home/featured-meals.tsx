@@ -58,7 +58,7 @@ export function FeaturedMeals() {
               onClick={() => setSelectedMeal(meal)}
               className="group rounded-2xl overflow-hidden bg-card border border-border shadow-xs hover:shadow-md transition-all duration-300 flex flex-col hover:border-primary/50 cursor-pointer"
             >
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+              <div className="relative aspect-[16/10] min-h-[160px] sm:min-h-[180px] w-full overflow-hidden bg-muted">
                 <Image
                   src={meal.image}
                   alt={meal.name}

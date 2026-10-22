@@ -64,7 +64,7 @@ export function MealDetailsModal({ meal, onClose }: MealDetailsModalProps) {
         </button>
 
         {/* Dish Image */}
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted rounded-t-3xl sm:rounded-t-3xl">
+        <div className="relative aspect-[16/10] min-h-[200px] sm:min-h-[240px] w-full overflow-hidden bg-muted rounded-t-3xl sm:rounded-t-3xl">
           <Image
             src={meal.image}
             alt={meal.name}

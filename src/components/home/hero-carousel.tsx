@@ -61,7 +61,7 @@ export function HeroCarousel() {
 
   return (
     <div
-      className="relative aspect-[4/3] sm:aspect-[4/3.4] w-full max-w-md mx-auto rounded-3xl overflow-hidden border border-border shadow-lg bg-card"
+      className="relative aspect-[4/3] sm:aspect-[4/3.4] min-h-[260px] sm:min-h-[300px] w-full max-w-md mx-auto rounded-3xl overflow-hidden border border-border shadow-lg bg-card"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
@@ -76,7 +76,7 @@ export function HeroCarousel() {
           <div
             key={meal.name}
             className={cn(
-              "absolute inset-0 transition-opacity duration-700 ease-in-out",
+              "absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out",
               isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
             )}
           >

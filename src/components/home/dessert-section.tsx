@@ -59,7 +59,7 @@ export function DessertSection() {
               key={dessert.id}
               className="group rounded-2xl overflow-hidden bg-card border border-border shadow-xs hover:shadow-md transition-all duration-300 flex flex-col hover:border-primary/40"
             >
-              <div className="relative aspect-[16/11] w-full overflow-hidden bg-muted">
+              <div className="relative aspect-[16/11] min-h-[170px] sm:min-h-[190px] w-full overflow-hidden bg-muted">
                 <Image
                   src={dessert.image}
                   alt={dessert.alt}

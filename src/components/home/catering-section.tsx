@@ -9,7 +9,7 @@ export function CateringSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: One elegant, appropriately sized catering/event image */}
           <div className="lg:col-span-5 relative order-2 lg:order-1">
-            <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden border border-border/80 shadow-lg group">
+            <div className="relative aspect-[4/3] min-h-[240px] sm:min-h-[280px] w-full rounded-3xl overflow-hidden border border-border/80 shadow-lg group">
               <Image
                 src="/images/meals/catering-event.webp"
                 alt="Divine & Delight Luxury Event Catering & Celebrations"
