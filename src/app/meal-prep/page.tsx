@@ -52,7 +52,7 @@ export default function MealPrepPage() {
 
         {/* 6 Confirmed Meal Cards: Display-Only Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {confirmedMeals.map((meal) => (
+          {confirmedMeals.map((meal, index) => (
             <div
               key={meal.id}
               className="group rounded-2xl overflow-hidden bg-card border border-border shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 flex flex-col"
@@ -63,6 +63,7 @@ export default function MealPrepPage() {
                   src={meal.image}
                   alt={meal.name}
                   fill
+                  priority={index < 3}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

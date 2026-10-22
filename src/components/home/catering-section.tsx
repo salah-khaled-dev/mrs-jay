@@ -14,6 +14,7 @@ export function CateringSection() {
                 src="/images/meals/catering-event.webp"
                 alt="Divine & Delight Luxury Event Catering & Celebrations"
                 fill
+                priority
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />

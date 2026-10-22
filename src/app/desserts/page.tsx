@@ -36,7 +36,7 @@ export default function DessertsPage() {
 
         {/* 6 Dessert Cards: Display-Only Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {DESSERT_ITEMS.map((dessert) => (
+          {DESSERT_ITEMS.map((dessert, index) => (
             <div
               key={dessert.id}
               className="group rounded-2xl overflow-hidden bg-card border border-border shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 flex flex-col"
@@ -47,6 +47,7 @@ export default function DessertsPage() {
                   src={dessert.image}
                   alt={dessert.alt}
                   fill
+                  priority={index < 3}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

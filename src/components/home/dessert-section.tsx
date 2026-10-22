@@ -64,6 +64,7 @@ export function DessertSection() {
                   src={dessert.image}
                   alt={dessert.alt}
                   fill
+                  priority
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

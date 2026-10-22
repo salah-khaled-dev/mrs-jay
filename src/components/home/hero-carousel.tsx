@@ -84,7 +84,7 @@ export function HeroCarousel() {
               src={meal.image}
               alt={`${meal.name} - ${meal.serving}`}
               fill
-              priority={index === 0}
+              priority={index < 2}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
               className="object-cover"
             />
