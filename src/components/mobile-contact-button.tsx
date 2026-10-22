@@ -46,7 +46,7 @@ export function MobileContactButton() {
   return (
     <div
       ref={containerRef}
-      className="fixed bottom-6 right-5 z-50 md:hidden flex flex-col items-end pointer-events-auto"
+      className="fixed bottom-20 right-4 z-40 md:hidden flex flex-col items-end pointer-events-auto"
       style={{
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}

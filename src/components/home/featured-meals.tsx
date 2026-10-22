@@ -1,9 +1,16 @@
+"use client";
+
+import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight, Calendar, Sparkles } from "lucide-react";
 import { MEAL_ITEMS } from "@/lib/data";
+import { MealItem } from "@/types";
+import { MealDetailsModal } from "@/components/meal-details-modal";
 
 export function FeaturedMeals() {
+  const [selectedMeal, setSelectedMeal] = React.useState<MealItem | null>(null);
+
   // Show only 3 featured meals from the existing 6-meal catalog
   const featured = MEAL_ITEMS.filter((item) =>
     [
@@ -48,7 +55,8 @@ export function FeaturedMeals() {
           {featured.map((meal) => (
             <div
               key={meal.id}
-              className="group rounded-2xl overflow-hidden bg-card border border-border shadow-xs hover:shadow-md transition-all duration-300 flex flex-col hover:border-primary/40"
+              onClick={() => setSelectedMeal(meal)}
+              className="group rounded-2xl overflow-hidden bg-card border border-border shadow-xs hover:shadow-md transition-all duration-300 flex flex-col hover:border-primary/50 cursor-pointer"
             >
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
                 <Image
@@ -59,15 +67,30 @@ export function FeaturedMeals() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase border border-white/10">
+                    View Details
+                  </span>
+                </div>
               </div>
 
-              <div className="p-5 space-y-2">
-                <h3 className="font-serif text-lg font-bold text-foreground">
-                  {meal.name}
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {meal.description}
-                </p>
+              <div className="p-5 space-y-2 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                    {meal.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed mt-1">
+                    {meal.description}
+                  </p>
+                </div>
+
+                <div className="pt-2 flex items-center justify-between text-[11px] text-primary font-medium border-t border-border/40">
+                  <span className="inline-flex items-center gap-1">
+                    <Sparkles className="w-3 h-3" />
+                    <span>Ingredients & Macros</span>
+                  </span>
+                  <span className="text-muted-foreground text-[10px]">Tap to inspect →</span>
+                </div>
               </div>
             </div>
           ))}
@@ -84,6 +107,10 @@ export function FeaturedMeals() {
           </Link>
         </div>
       </div>
+
+      {/* Dish Details Modal */}
+      <MealDetailsModal meal={selectedMeal} onClose={() => setSelectedMeal(null)} />
     </section>
   );
 }
+

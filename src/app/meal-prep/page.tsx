@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Mail, Calendar } from "lucide-react";
 import { MEAL_ITEMS } from "@/lib/data";
+import { MealPrepClient } from "@/components/meals/meal-prep-client";
 
 export const metadata: Metadata = {
   title: "Meal Prep | Divine & Delight",
@@ -50,37 +51,8 @@ export default function MealPrepPage() {
           </p>
         </div>
 
-        {/* 6 Confirmed Meal Cards: Display-Only Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {confirmedMeals.map((meal, index) => (
-            <div
-              key={meal.id}
-              className="group rounded-2xl overflow-hidden bg-card border border-border shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 flex flex-col"
-            >
-              {/* Professional Meal Image (Compact 160-180px height) */}
-              <div className="relative h-[160px] sm:h-[180px] w-full overflow-hidden bg-muted">
-                <Image
-                  src={meal.image}
-                  alt={meal.name}
-                  fill
-                  priority={index < 3}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Meal Name & Short Description Only */}
-              <div className="p-4 sm:p-5 space-y-1.5 flex flex-col flex-1">
-                <h2 className="font-serif text-lg font-bold text-foreground">
-                  {meal.name}
-                </h2>
-                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
-                  {meal.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* 6 Confirmed Meal Cards: Interactive Grid with Dish Details */}
+        <MealPrepClient meals={confirmedMeals} />
 
         {/* Small Direct Contact Section */}
         <div className="rounded-3xl bg-card border border-border p-8 sm:p-10 text-center max-w-2xl mx-auto space-y-4 shadow-xs">

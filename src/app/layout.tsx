@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { MobileContactButton } from "@/components/mobile-contact-button";
+import { MobileNavBar } from "@/components/layout/mobile-nav-bar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -82,9 +83,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="flex-1 w-full">{children}</main>
+          <main className="flex-1 w-full pb-16 md:pb-0">{children}</main>
           <Footer />
           <MobileContactButton />
+          <MobileNavBar />
         </ThemeProvider>
       </body>
     </html>
