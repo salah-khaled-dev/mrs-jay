@@ -7,8 +7,8 @@ const OFFICIAL_INSTAGRAM = "https://www.instagram.com/divineanddelight.cater";
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Meal Prep", href: "/meal-prep" },
   { label: "Catering", href: "/catering" },
+  { label: "Meal Prep", href: "/meal-prep" },
   { label: "Desserts", href: "/desserts" },
   { label: "Contact", href: "/contact" },
 ];
@@ -17,72 +17,76 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#08080A] text-foreground border-t border-border/60 transition-colors">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-border/40">
-          {/* Brand */}
-          <div className="space-y-2 max-w-sm">
-            <BrandLogo variant="horizontal" height={36} />
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              Thoughtfully prepared meals, desserts, and catering for special occasions.
-            </p>
-          </div>
+    <footer className="w-full bg-[#F7F4EE] dark:bg-[#08080A] text-foreground border-t border-border/70 transition-colors">
+      <div className="max-w-2xl mx-auto px-4 py-8 sm:py-10 text-center space-y-4 sm:space-y-5">
+        {/* Centered Brand Logo & Elegant Tagline */}
+        <div className="flex flex-col items-center justify-center space-y-1.5">
+          <BrandLogo variant="horizontal" height={32} />
+          <p className="text-xs text-muted-foreground tracking-wide">
+            Bespoke Catering & Elevated Food Experiences
+          </p>
+        </div>
 
-          {/* Quick Links: Only essential navigation */}
-          <nav aria-label="Footer Navigation" className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
-            {QUICK_LINKS.map((link) => (
+        {/* Clean, Centered Navigation with Subtle Dot Separators */}
+        <nav
+          aria-label="Footer Navigation"
+          className="flex flex-wrap items-center justify-center gap-x-3.5 gap-y-1.5 text-xs font-medium text-foreground/80"
+        >
+          {QUICK_LINKS.map((link, idx) => (
+            <div key={link.href} className="inline-flex items-center gap-3.5">
               <Link
-                key={link.href}
                 href={link.href}
-                className="hover:text-primary transition-colors"
+                className="hover:text-primary transition-colors cursor-pointer"
               >
                 {link.label}
               </Link>
-            ))}
-          </nav>
+              {idx < QUICK_LINKS.length - 1 && (
+                <span className="text-muted-foreground/40 text-[10px] select-none" aria-hidden="true">
+                  •
+                </span>
+              )}
+            </div>
+          ))}
+        </nav>
 
-          {/* Verified Contact Channels */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5 text-xs text-muted-foreground">
-            <a
-              href={`mailto:${OFFICIAL_EMAIL}?subject=Inquiry%20%E2%80%94%20Divine%20%26%20Delight`}
-              className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
-            >
-              <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
-              <span>{OFFICIAL_EMAIL}</span>
-            </a>
+        {/* Compact Contact Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-2.5 pt-0.5">
+          <a
+            href={`mailto:${OFFICIAL_EMAIL}?subject=Inquiry%20%E2%80%94%20Divine%20%26%20Delight`}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border/80 hover:border-primary/50 text-xs text-muted-foreground hover:text-foreground transition-all shadow-2xs"
+            aria-label="Email Divine & Delight"
+          >
+            <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
+            <span className="truncate max-w-[210px]">{OFFICIAL_EMAIL}</span>
+          </a>
 
-            <a
-              href={OFFICIAL_INSTAGRAM}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+          <a
+            href={OFFICIAL_INSTAGRAM}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border/80 hover:border-primary/50 text-xs text-muted-foreground hover:text-foreground transition-all shadow-2xs"
+            aria-label="Instagram Divine & Delight"
+          >
+            <svg
+              className="w-3.5 h-3.5 text-primary shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <svg
-                className="w-3.5 h-3.5 text-primary shrink-0"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-              </svg>
-              <span>@divineanddelight.cater</span>
-            </a>
-          </div>
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg>
+            <span>@divineanddelight.cater</span>
+          </a>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-muted-foreground">
+        {/* Minimal Copyright */}
+        <div className="pt-3 border-t border-border/40 text-[11px] text-muted-foreground">
           <p>© {currentYear} Divine & Delight. All Rights Reserved.</p>
-          <div className="flex items-center gap-4">
-            <Link href="/contact" className="hover:text-primary transition-colors">
-              Privacy & Inquiries
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

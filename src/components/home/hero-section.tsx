@@ -1,61 +1,52 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { HeroCarousel } from "./hero-carousel";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-8 pb-12 sm:pt-12 sm:pb-16 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Copy & Actions */}
-          <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
-            {/* Clean Eyebrow & Weekly Rotation Badge */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2.5">
-              <span className="text-xs uppercase tracking-[0.25em] text-primary font-semibold block">
-                DIVINE & DELIGHT
-              </span>
-              <span className="hidden sm:inline text-border">•</span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/25 text-primary text-[11px] font-medium tracking-wide">
-                New Dishes & Specials Every Week
-              </span>
-            </div>
+    <section className="relative overflow-hidden pt-6 pb-4 sm:pt-10 sm:pb-8 bg-background">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5 sm:space-y-6">
+        {/* Brand Eyebrow */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] sm:text-xs font-semibold tracking-wider uppercase">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>Bespoke Catering & Culinary Artistry</span>
+        </div>
 
-            {/* Headline */}
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.15] font-semibold text-foreground tracking-tight">
-              Exceptional Meals. <br />
-              <span className="italic font-normal text-primary">Made for You.</span>
-            </h1>
+        {/* Headline */}
+        <div className="space-y-2 sm:space-y-3">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground tracking-tight leading-[1.15]">
+            Artisan Catering for <br className="hidden sm:inline" />
+            <span className="italic font-normal text-primary">Every Occasion.</span>
+          </h1>
+          <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl mx-auto">
+            From special gatherings and private celebrations to workplace hospitality and artisanal desserts, we create unforgettable food experiences.
+          </p>
+        </div>
 
-            {/* Description */}
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Premium meal prep and catering for everyday dining and special occasions. Discover new chef-crafted dishes, seasonal menus, and unique specials refreshed every single week.
-            </p>
+        {/* The Balanced 5s Rotating Showcase Carousel */}
+        <div className="w-full pt-1">
+          <HeroCarousel />
+        </div>
 
-            {/* CTAs: Mobile-First, clearly visible */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
-              <Link
-                href="/meal-prep"
-                className="w-full sm:w-auto px-7 py-3 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-sm hover:shadow flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Explore Meals</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+        {/* Quick Actions: Direct & Clear */}
+        <div className="pt-1 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Link
+            href="/contact"
+            className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-xs hover:shadow flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <span>Inquire About Catering</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
 
-              <Link
-                href="/catering"
-                className="w-full sm:w-auto px-7 py-3 rounded-full border border-border bg-card hover:bg-muted text-foreground font-medium text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Explore Catering</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column: Rotating Meal Images (Crossfade Carousel) */}
-          <div className="lg:col-span-5 w-full">
-            <HeroCarousel />
-          </div>
+          <Link
+            href="/catering"
+            className="w-full sm:w-auto px-6 py-2.5 rounded-full border border-border bg-card hover:bg-muted text-foreground font-medium text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <span>Explore Catering Details</span>
+          </Link>
         </div>
       </div>
     </section>
   );
 }
+ 

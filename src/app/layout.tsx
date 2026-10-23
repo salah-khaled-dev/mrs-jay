@@ -74,12 +74,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang="en" dir="ltr" className="light" style={{ colorScheme: "light" }} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="font-sans antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-primary/30 selection:text-foreground">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
+          storageKey="divine-delight-theme-mode"
           disableTransitionOnChange
         >
           <Navbar />
