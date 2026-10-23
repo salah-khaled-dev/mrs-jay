@@ -6,6 +6,7 @@ import {
   Cake,
   Users,
   Utensils,
+  CakeSlice,
   Mail,
   ArrowRight,
 } from "lucide-react";
@@ -13,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "Catering | Divine & Delight",
   description:
-    "Made for every occasion. Discover bespoke catering for celebrations, birthdays, corporate gatherings, meals, and handcrafted desserts.",
+    "Made for every occasion. Discover bespoke catering for celebrations, birthdays, corporate gatherings, gourmet meals, and handcrafted desserts.",
 };
 
 const SERVICES = [
@@ -36,10 +37,16 @@ const SERVICES = [
     icon: Users,
   },
   {
-    title: "Meals & Desserts",
+    title: "Gourmet Meal Prep",
     description:
-      "Explore savory meals and handcrafted desserts for your occasion.",
+      "Chef-prepared savory dishes and meal preps for everyday wellness.",
     icon: Utensils,
+  },
+  {
+    title: "Artisanal Desserts",
+    description:
+      "Handcrafted dessert cups, luxury pastries, and sweet catering displays.",
+    icon: CakeSlice,
   },
 ];
 
@@ -99,8 +106,8 @@ export default function CateringPage() {
           </div>
         </div>
 
-        {/* PHASE 2: Exactly Four Compact Service Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        {/* PHASE 2: Five Distinct Service Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {SERVICES.map((service) => {
             const Icon = service.icon;
             return (

@@ -8,7 +8,7 @@ export default function HomePage() {
       {/* 1. Catering-centric Hero with Balanced 5-second Rotating Carousel */}
       <HeroSection />
 
-      {/* 2. The 4 Core Service Cards (Events & Celebrations, Birthdays, Corporate, Meals & Desserts) */}
+      {/* 2. The 4 Core Service Cards (Events & Celebrations, Corporate, Meal Prep, Artisanal Desserts) */}
       <CateringCards />
 
       {/* 3. Direct Inquiries & Contact Channels */}

@@ -16,19 +16,14 @@ const SHOWCASE_SECTIONS = [
     image: "/images/meals/corporate-catering.webp",
   },
   {
-    category: "Birthdays & Private Parties",
-    title: "Lavish Dining for Unforgettable Gatherings",
-    image: "/images/meals/wedding-catering.webp",
+    category: "Gourmet Meal Prep",
+    title: "Chef-Prepared Fresh Savory Creations",
+    image: "/images/meals/hero-spread.webp",
   },
   {
     category: "Artisanal Desserts",
     title: "Handcrafted Pastries & Sweet Delights",
     image: "/images/desserts/dubai-eclair.webp",
-  },
-  {
-    category: "Gourmet Meals",
-    title: "Chef-Prepared Fresh Savory Creations",
-    image: "/images/meals/hero-spread.webp",
   },
 ];
 
