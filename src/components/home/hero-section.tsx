@@ -1,15 +1,31 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Star } from "lucide-react";
 import { HeroCarousel } from "./hero-carousel";
 
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden pt-6 pb-4 sm:pt-10 sm:pb-8 bg-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5 sm:space-y-6">
-        {/* Brand Eyebrow */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] sm:text-xs font-semibold tracking-wider uppercase">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Bespoke Catering & Culinary Artistry</span>
+        {/* Brand Eyebrow & Mobile QR Quick Review Access */}
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] sm:text-xs font-semibold tracking-wider uppercase">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Bespoke Catering & Culinary Artistry</span>
+          </div>
+
+          <Link
+            href="/reviews"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary hover:bg-muted border border-border/80 text-foreground text-[11px] sm:text-xs font-medium transition-all shadow-2xs group cursor-pointer"
+            aria-label="View guest reviews and ratings"
+          >
+            <div className="flex items-center gap-1 text-primary">
+              <Star className="w-3 h-3 fill-primary text-primary" />
+              <span className="font-bold">5.0</span>
+            </div>
+            <span className="text-muted-foreground group-hover:text-primary transition-colors">
+              • Guest Reviews
+            </span>
+          </Link>
         </div>
 
         {/* Headline */}

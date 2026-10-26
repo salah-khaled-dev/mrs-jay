@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { BrandLogo } from "@/components/brand-logo";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "/meal-prep", label: "Meal Prep" },
   { href: "/catering", label: "Catering" },
   { href: "/desserts", label: "Desserts" },
+  { href: "/reviews", label: "Reviews" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -88,8 +89,18 @@ export function Navbar() {
               })}
             </nav>
 
-            {/* Right Actions: Theme Toggle & Desktop CTA / Mobile Hamburger */}
+            {/* Right Actions: Reviews Pill & Theme Toggle & Desktop CTA / Mobile Hamburger */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              {/* Mobile 1-Tap Reviews Pill for QR code visitors */}
+              <Link
+                href="/reviews"
+                className="md:hidden inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-full bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 active:scale-95 transition-all shadow-2xs cursor-pointer"
+                aria-label="Reviews and Ratings"
+              >
+                <Star className="w-3.5 h-3.5 fill-primary text-primary" />
+                <span>Reviews</span>
+              </Link>
+
               <ThemeToggle />
 
               {/* Desktop CTA: VIEW MENU (Hidden on mobile/tablet) */}
@@ -149,6 +160,16 @@ export function Navbar() {
           </div>
 
           <div className="pt-6 border-t border-border mt-8 flex flex-col gap-3">
+            {/* Quick 1-Tap Review Action */}
+            <Link
+              href="/reviews"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 px-4 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 text-center font-semibold text-xs flex items-center justify-center gap-2 shadow-2xs cursor-pointer active:scale-98 transition-all"
+            >
+              <Star className="w-4 h-4 fill-primary text-primary" />
+              <span>Leave a Review • شاركنا برأيك</span>
+            </Link>
+
             <Link
               href="/meal-prep"
               onClick={() => setMobileMenuOpen(false)}

@@ -10,6 +10,7 @@ const QUICK_LINKS = [
   { label: "Catering", href: "/catering" },
   { label: "Meal Prep", href: "/meal-prep" },
   { label: "Desserts", href: "/desserts" },
+  { label: "Reviews", href: "/reviews" },
   { label: "Contact", href: "/contact" },
 ];
 
