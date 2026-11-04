@@ -1,12 +1,13 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { BrandLogo } from "@/components/brand-logo";
 import { Menu, X, ArrowRight, Star } from "lucide-react";
-import { cn, withBasePath } from "@/lib/utils";
-import { releaseMedia } from "@/components/layout/mobile-nav-bar";
+import { cn } from "@/lib/utils";
+import { onNavLinkClick } from "@/lib/navigation";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -77,10 +78,10 @@ export function Navbar() {
               {NAV_LINKS.map((link) => {
                 const isActive = activePath === link.href;
                 return (
-                  <a
+                  <Link
                     key={link.href}
-                    href={withBasePath(link.href)}
-                    onClick={() => { setOptimisticPath(link.href); releaseMedia(); }}
+                    href={link.href}
+                    onClick={() => { setOptimisticPath(link.href); onNavLinkClick(link.href); }}
                     className={cn(
                       "px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-150",
                       isActive
@@ -89,7 +90,7 @@ export function Navbar() {
                     )}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
@@ -97,25 +98,25 @@ export function Navbar() {
             {/* Right Actions: Reviews Pill & Theme Toggle & Desktop CTA / Mobile Hamburger */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               {/* Mobile 1-Tap Reviews Pill for QR code visitors */}
-              <a
-                href={withBasePath("/reviews")}
+              <Link
+                href="/reviews"
                 className="md:hidden inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-full bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 active:scale-95 transition-all shadow-2xs cursor-pointer"
                 aria-label="Reviews and Ratings"
               >
                 <Star className="w-3.5 h-3.5 fill-primary text-primary" />
                 <span>Reviews</span>
-              </a>
+              </Link>
 
               <ThemeToggle />
 
               {/* Desktop CTA: VIEW MENU (Hidden on mobile/tablet) */}
-              <a
-                href={withBasePath("/meal-prep")}
+              <Link
+                href="/meal-prep"
                 className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-xs sm:text-sm font-semibold tracking-wide uppercase rounded-full bg-primary text-primary-foreground hover:bg-primary-hover active:scale-[0.98] transition-all shadow-xs hover:shadow cursor-pointer"
               >
                 <span>View Menu</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              </Link>
 
               {/* Mobile Menu Trigger: Touch-friendly 40x40 circle */}
               <button
@@ -146,13 +147,12 @@ export function Navbar() {
             {NAV_LINKS.map((link) => {
               const isActive = activePath === link.href;
               return (
-                <a
+                <Link
                   key={link.href}
-                  href={withBasePath(link.href)}
+                  href={link.href}
                   onClick={() => {
                     setOptimisticPath(link.href);
-                    setMobileMenuOpen(false);
-                    releaseMedia();
+                    setMobileMenuOpen(false); onNavLinkClick(link.href);
                   }}
                   className={cn(
                     "flex items-center justify-between px-4 py-3.5 text-base font-serif rounded-xl transition-colors",
@@ -163,30 +163,30 @@ export function Navbar() {
                 >
                   <span>{link.label}</span>
                   <ArrowRight className="w-4 h-4 text-muted-foreground" />
-                </a>
+                </Link>
               );
             })}
           </div>
 
           <div className="pt-6 border-t border-border mt-8 flex flex-col gap-3">
             {/* Quick 1-Tap Review Action */}
-            <a
-              href={withBasePath("/reviews")}
+            <Link
+              href="/reviews"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full py-3 px-4 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 text-center font-semibold text-xs flex items-center justify-center gap-2 shadow-2xs cursor-pointer active:scale-98 transition-all"
             >
               <Star className="w-4 h-4 fill-primary text-primary" />
               <span>Leave a Review • شاركنا برأيك</span>
-            </a>
+            </Link>
 
-            <a
-              href={withBasePath("/meal-prep")}
+            <Link
+              href="/meal-prep"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full py-3.5 px-4 rounded-xl bg-primary text-primary-foreground text-center font-semibold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-md cursor-pointer"
             >
               <span>View Menu</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
             <p className="text-center text-xs text-muted-foreground pt-1">
               Divine & Delight • Premium Meal Prep & Catering
             </p>

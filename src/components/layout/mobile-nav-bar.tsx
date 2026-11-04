@@ -1,9 +1,11 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Utensils, CakeSlice, Sparkles, MessageCircle } from "lucide-react";
-import { cn, withBasePath } from "@/lib/utils";
+import { cn } from "@/lib/utils";
+import { onNavLinkClick } from "@/lib/navigation";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home", icon: Home },
@@ -12,23 +14,6 @@ const NAV_ITEMS = [
   { href: "/catering", label: "Catering", icon: Sparkles },
   { href: "/contact", label: "Contact", icon: MessageCircle },
 ];
-
-/**
- * Stops every <video> on the current page and aborts its network download,
- * so the next page gets the full connection pool and decoder immediately.
- */
-function releaseMedia() {
-  if (typeof document === "undefined") return;
-  document.querySelectorAll("video").forEach((v) => {
-    try {
-      v.pause();
-      v.removeAttribute("src");
-      v.load();
-    } catch {
-      // ignore
-    }
-  });
-}
 
 export function MobileNavBar() {
   const pathname = usePathname();
@@ -59,9 +44,9 @@ export function MobileNavBar() {
               : activePath.startsWith(item.href);
 
           return (
-            <a
+            <Link
               key={item.href}
-              href={withBasePath(item.href)}
+              href={item.href}
               onClick={(e) => {
                 if (item.href === pathname) {
                   e.preventDefault();
@@ -69,7 +54,7 @@ export function MobileNavBar() {
                   return;
                 }
                 setOptimisticPath(item.href);
-                releaseMedia();
+                onNavLinkClick(item.href);
               }}
               className={cn(
                 "flex-1 flex flex-col items-center justify-center py-1.5 px-1 rounded-full transition-all duration-150 relative select-none active:scale-95",
@@ -82,12 +67,10 @@ export function MobileNavBar() {
               <span className="text-[10px] tracking-tight leading-none truncate">
                 {item.label}
               </span>
-            </a>
+            </Link>
           );
         })}
       </div>
     </nav>
   );
 }
-
-export { releaseMedia };
