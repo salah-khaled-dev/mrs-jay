@@ -94,11 +94,13 @@ function doPost(e) {
           file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
           imageUrl = "https://lh3.googleusercontent.com/d/" + file.getId();
         } catch (imgErr) {
-          // Fallback to storing string if Drive permission is not enabled
-          imageUrl = data.image;
+          // Never store huge base64 string in cell: Google Sheets cells have a strict 50,000 character limit!
+          imageUrl = "[Image upload error: " + imgErr.toString().substring(0, 100) + "]";
         }
-      } else {
+      } else if (data.image.length < 1000) {
         imageUrl = data.image;
+      } else {
+        imageUrl = "";
       }
     }
 

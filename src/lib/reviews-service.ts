@@ -32,8 +32,8 @@ export async function fetchAllReviews(): Promise<Review[]> {
       if (res.ok) {
         const data = await res.json();
         if (Array.isArray(data) && data.length > 0) {
-          // Merge with any instant local submissions that might not have refreshed yet
-          const combined = [...localSubmissions, ...data];
+          // Merge local submissions + Google Sheets data + default starter reviews
+          const combined = [...localSubmissions, ...data, ...INITIAL_REVIEWS];
           // Deduplicate by id
           const seen = new Set<string>();
           return combined.filter((r) => {
@@ -74,12 +74,12 @@ export async function submitReviewToSheet(review: Omit<Review, "id" | "date">): 
 
   if (scriptUrl) {
     try {
-      // Google Apps Script requires text/plain or URLSearchParams for smooth CORS without OPTIONS preflight
+      // Google Apps Script requires text/plain for smooth CORS in no-cors mode without preflight failure
       await fetch(scriptUrl, {
         method: "POST",
-        mode: "no-cors", // Standard mode for Google Apps Script Web App form posts
+        mode: "no-cors",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "text/plain;charset=utf-8",
         },
         body: JSON.stringify(newReview),
       });
