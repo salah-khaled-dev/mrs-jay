@@ -259,13 +259,15 @@ export function ThreeFoodAssembly() {
     );
     camera.position.set(0, 0, 10);
 
+    const isMobile = window.innerWidth < 768;
+
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: true,
+      antialias: !isMobile,
       powerPreference: "high-performance",
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
     mount.innerHTML = "";
     mount.appendChild(renderer.domElement);
 
@@ -464,9 +466,15 @@ export function ThreeFoodAssembly() {
     };
     window.addEventListener("resize", handleResize);
 
+    const currentVideo = videoRef.current;
+
     return () => {
       cancelAnimationFrame(animFrameId);
       window.removeEventListener("resize", handleResize);
+      if (currentVideo) {
+        currentVideo.pause();
+      }
+      renderer.forceContextLoss();
       renderer.dispose();
       spiceGeometry.dispose();
       spiceMaterial.dispose();
@@ -504,7 +512,6 @@ export function ThreeFoodAssembly() {
             preload="auto"
             onLoadedData={() => {
               if (videoRef.current) {
-                videoRef.current.currentTime = 0;
                 videoRef.current.play().catch(() => {});
               }
             }}

@@ -2,20 +2,85 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Home, Utensils, CakeSlice, Sparkles, MessageCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, withBasePath } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/meal-prep", label: "Meals", icon: Utensils },
-  { href: "/desserts", label: "Desserts", icon: CakeSlice },
-  { href: "/catering", label: "Catering", icon: Sparkles },
-  { href: "/contact", label: "Contact", icon: MessageCircle },
+  {
+    href: "/",
+    label: "Home",
+    icon: Home,
+    video: "/videos/food-assembly.mp4",
+  },
+  {
+    href: "/meal-prep",
+    label: "Meals",
+    icon: Utensils,
+    video: "/videos/Luxury_dessert_showcase_display_0ed66c12_1080p.mp4",
+  },
+  {
+    href: "/desserts",
+    label: "Desserts",
+    icon: CakeSlice,
+    video: "/videos/Luxury_dessert_showcase_display_848f58e6_1080p.mp4",
+  },
+  {
+    href: "/catering",
+    label: "Catering",
+    icon: Sparkles,
+    video: "/videos/Luxury_dessert_showcase_display_6ddc102a_1080p%20(1).mp4",
+  },
+  {
+    href: "/contact",
+    label: "Contact",
+    icon: MessageCircle,
+  },
 ];
+
+const prewarmedVideos = new Set<string>();
+
+function prewarmVideo(videoPath?: string) {
+  if (!videoPath || typeof document === "undefined") return;
+  const fullSrc = withBasePath(videoPath);
+  if (prewarmedVideos.has(fullSrc)) return;
+  prewarmedVideos.add(fullSrc);
+
+  // Fetch the first 256KB (ftyp + moov + first keyframes) into browser HTTP cache
+  fetch(fullSrc, {
+    headers: { Range: "bytes=0-262143" },
+    priority: "low" as RequestPriority,
+  }).catch(() => {});
+}
 
 export function MobileNavBar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const [optimisticPath, setOptimisticPath] = React.useState<string | null>(null);
+  const [prevPathname, setPrevPathname] = React.useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setOptimisticPath(null);
+  }
+
+  // Prefetch all mobile routes and pre-warm video headers during idle time
+  React.useEffect(() => {
+    NAV_ITEMS.forEach((item) => {
+      router.prefetch(item.href);
+    });
+
+    const timer = window.setTimeout(() => {
+      NAV_ITEMS.forEach((item) => {
+        if (item.href !== pathname && item.video) {
+          prewarmVideo(item.video);
+        }
+      });
+    }, 1200);
+
+    return () => window.clearTimeout(timer);
+  }, [router, pathname]);
+
+  const activePath = optimisticPath ?? pathname;
 
   return (
     <nav
@@ -29,14 +94,23 @@ export function MobileNavBar() {
         {NAV_ITEMS.map((item) => {
           const Icon = item.icon;
           const isActive =
-            item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            item.href === "/"
+              ? activePath === "/"
+              : activePath.startsWith(item.href);
 
           return (
             <Link
               key={item.href}
               href={item.href}
+              prefetch={true}
+              onTouchStart={() => {
+                if (item.video) prewarmVideo(item.video);
+              }}
+              onClick={() => {
+                setOptimisticPath(item.href);
+              }}
               className={cn(
-                "flex-1 flex flex-col items-center justify-center py-1.5 px-1 rounded-full transition-all duration-200 relative select-none",
+                "flex-1 flex flex-col items-center justify-center py-1.5 px-1 rounded-full transition-all duration-150 relative select-none active:scale-95",
                 isActive
                   ? "bg-primary text-primary-foreground shadow-sm font-semibold scale-[1.02]"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/60 font-medium"

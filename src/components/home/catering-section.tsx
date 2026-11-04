@@ -489,9 +489,15 @@ export function CateringSection({ id = "catering" }: CateringSectionProps) {
     };
     window.addEventListener("resize", handleResize);
 
+    const currentVideo = videoRef.current;
+
     return () => {
       cancelAnimationFrame(animFrameId);
       window.removeEventListener("resize", handleResize);
+      if (currentVideo) {
+        currentVideo.pause();
+      }
+      renderer.forceContextLoss();
       renderer.dispose();
       goldGeometry.dispose();
       goldMaterial.dispose();
@@ -528,7 +534,6 @@ export function CateringSection({ id = "catering" }: CateringSectionProps) {
             preload="auto"
             onLoadedData={() => {
               if (videoRef.current) {
-                videoRef.current.currentTime = 0;
                 videoRef.current.play().catch(() => {});
               }
             }}

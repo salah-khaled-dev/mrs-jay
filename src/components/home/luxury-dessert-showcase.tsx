@@ -401,13 +401,15 @@ export function LuxuryDessertShowcase({
     );
     camera.position.set(0, 0, 10);
 
+    const isMobile = window.innerWidth < 768;
+
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: true,
+      antialias: !isMobile,
       powerPreference: "high-performance",
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2));
     mount.innerHTML = "";
     mount.appendChild(renderer.domElement);
 
@@ -563,9 +565,15 @@ export function LuxuryDessertShowcase({
     };
     window.addEventListener("resize", handleResize);
 
+    const currentVid1 = video1Ref.current;
+    const currentVid2 = video2Ref.current;
+
     return () => {
       cancelAnimationFrame(animFrameId);
       window.removeEventListener("resize", handleResize);
+      if (currentVid1) currentVid1.pause();
+      if (currentVid2) currentVid2.pause();
+      renderer.forceContextLoss();
       renderer.dispose();
       goldGeometry.dispose();
       goldMaterial.dispose();
@@ -608,8 +616,10 @@ export function LuxuryDessertShowcase({
               preload="auto"
               onLoadedData={() => {
                 if (video1Ref.current && activeChapterRef.current < 3) {
-                  video1Ref.current.currentTime = 0;
                   video1Ref.current.play().catch(() => {});
+                }
+                if (video2Ref.current && video2Ref.current.preload !== "auto") {
+                  video2Ref.current.preload = "auto";
                 }
               }}
               className="w-full h-full object-cover object-center lg:object-[50%_50%] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_7%,black_100%)] select-none"
@@ -626,7 +636,7 @@ export function LuxuryDessertShowcase({
               src={VIDEO_2_SRC}
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               className="w-full h-full object-cover object-center lg:object-[50%_50%] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_7%,black_100%)] select-none"
             />
           </div>

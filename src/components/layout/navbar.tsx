@@ -19,6 +19,7 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const [optimisticPath, setOptimisticPath] = React.useState<string | null>(null);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
@@ -30,12 +31,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Reset mobile menu during render if pathname changes
+  // Reset mobile menu and optimistic state during render if pathname changes
   const [prevPathname, setPrevPathname] = React.useState(pathname);
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
     setMobileMenuOpen(false);
+    setOptimisticPath(null);
   }
+
+  const activePath = optimisticPath ?? pathname;
 
   // Lock scroll when mobile menu is open
   React.useEffect(() => {
@@ -71,13 +75,15 @@ export function Navbar() {
             {/* Desktop Navigation Links */}
             <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
               {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
+                const isActive = activePath === link.href;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
+                    prefetch={true}
+                    onClick={() => setOptimisticPath(link.href)}
                     className={cn(
-                      "px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-200",
+                      "px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-150",
                       isActive
                         ? "text-primary bg-primary/10 font-semibold"
                         : "text-foreground/80 hover:text-foreground hover:bg-muted/60"
@@ -139,12 +145,16 @@ export function Navbar() {
               Menu Navigation
             </span>
             {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = activePath === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  prefetch={true}
+                  onClick={() => {
+                    setOptimisticPath(link.href);
+                    setMobileMenuOpen(false);
+                  }}
                   className={cn(
                     "flex items-center justify-between px-4 py-3.5 text-base font-serif rounded-xl transition-colors",
                     isActive

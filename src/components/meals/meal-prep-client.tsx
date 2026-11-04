@@ -353,13 +353,15 @@ export function MealPrepClient({ meals }: MealPrepClientProps) {
     );
     camera.position.set(0, 0, 7);
 
+    const isMobile = window.innerWidth < 768;
+
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: true,
+      antialias: !isMobile,
       powerPreference: "high-performance",
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000, 0);
 
     while (particleMount.firstChild) {
@@ -539,9 +541,15 @@ export function MealPrepClient({ meals }: MealPrepClientProps) {
     };
     window.addEventListener("resize", handleResize);
 
+    const currentVideo = videoRef.current;
+
     return () => {
       cancelAnimationFrame(animFrameId);
       window.removeEventListener("resize", handleResize);
+      if (currentVideo) {
+        currentVideo.pause();
+      }
+      renderer.forceContextLoss();
       renderer.dispose();
       goldGeometry.dispose();
       goldMaterial.dispose();
@@ -578,7 +586,6 @@ export function MealPrepClient({ meals }: MealPrepClientProps) {
             preload="auto"
             onLoadedData={() => {
               if (videoRef.current && activeChapterRef.current === 0) {
-                videoRef.current.currentTime = 0;
                 videoRef.current.play().catch(() => {});
               }
             }}
