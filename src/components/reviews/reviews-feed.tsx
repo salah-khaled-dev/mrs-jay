@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Star, CheckCircle, Calendar, Quote, Filter, ZoomIn, X } from "lucide-react";
 import { Review } from "@/types/review";
-import { cn } from "@/lib/utils";
+import { cn, withBasePath } from "@/lib/utils";
 
 interface ReviewsFeedProps {
   reviews: Review[];
@@ -172,12 +172,12 @@ export function ReviewsFeed({ reviews }: ReviewsFeedProps) {
                   <div className="relative pt-1">
                     <button
                       type="button"
-                      onClick={() => setSelectedImage(review.image || null)}
+                      onClick={() => setSelectedImage(review.image ? withBasePath(review.image) : null)}
                       className="group/img relative block w-full h-40 rounded-2xl overflow-hidden border border-border/70 bg-secondary focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={review.image}
+                        src={withBasePath(review.image)}
                         alt={`Photo by ${review.name}`}
                         loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105"

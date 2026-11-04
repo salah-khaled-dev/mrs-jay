@@ -48,8 +48,8 @@ export default async function ServiceDetailPage({ params }: Props) {
             Home
           </Link>
           <span>/</span>
-          <Link href="/services" className="hover:text-foreground transition-colors">
-            Services
+          <Link href="/catering" className="hover:text-foreground transition-colors">
+            Catering
           </Link>
           <span>/</span>
           <span className="text-foreground font-medium">{service.title}</span>
@@ -95,10 +95,10 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/dessert-menu"
+                href="/desserts"
                 className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-border bg-card hover:bg-muted text-foreground text-xs uppercase tracking-wider font-medium flex items-center justify-center gap-2 transition-colors"
               >
-                <span>View Dessert Menu</span>
+                <span>View Desserts</span>
               </Link>
             </div>
           </div>

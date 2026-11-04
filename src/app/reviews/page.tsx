@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MessageSquare, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { INITIAL_REVIEWS } from "@/lib/reviews-data";
 import { ReviewsContainer } from "@/components/reviews/reviews-container";
 

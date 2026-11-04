@@ -1,4 +1,3 @@
-
 export interface MacroInfo {
   calories: number;
   protein: number;
@@ -34,7 +33,6 @@ export interface DessertProduct {
   category: "cups" | "pastries" | "bites";
 }
 
-// Backward-compatible alias
 export type DessertItem = DessertProduct | MealItem;
 
 export interface ServiceItem {
@@ -90,4 +88,3 @@ export interface TestimonialItem {
   location: string;
   rating?: number;
 }
-

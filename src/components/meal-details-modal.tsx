@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { MealItem } from "@/types";
-import { X, Flame, ShieldAlert, Utensils, Mail, Check, Sparkles } from "lucide-react";
+import { X, Flame, ShieldAlert, Utensils, Mail, Check } from "lucide-react";
 
 interface MealDetailsModalProps {
   meal: MealItem | null;

@@ -135,8 +135,8 @@ export default function WeddingsPage() {
             <div className="rounded-2xl overflow-hidden bg-card border border-border shadow-xs">
               <div className="relative aspect-[4/3] bg-muted">
                 <Image
-                  src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=600&q=80"
-                  alt="Wedding macarons"
+                  src="/images/desserts/mini-tiramisu.webp"
+                  alt="Divine Mini Tiramisu"
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
                   className="object-cover"
@@ -144,10 +144,10 @@ export default function WeddingsPage() {
               </div>
               <div className="p-4 space-y-1">
                 <h3 className="font-serif text-base font-bold text-foreground">
-                  Parisian Macaron Towers
+                  Divine Mini Tiramisu
                 </h3>
                 <p className="text-[11px] text-muted-foreground">
-                  Rose raspberry, pistachio, and champagne infused shells.
+                  Espresso-soaked ladyfingers layered with mascarpone and Dutch cocoa.
                 </p>
               </div>
             </div>
@@ -155,8 +155,8 @@ export default function WeddingsPage() {
             <div className="rounded-2xl overflow-hidden bg-card border border-border shadow-xs">
               <div className="relative aspect-[4/3] bg-muted">
                 <Image
-                  src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80"
-                  alt="Petite wedding tarts"
+                  src="/images/desserts/dubai-eclair.webp"
+                  alt="Delight Dubai Chocolate Eclairs"
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
                   className="object-cover"
@@ -164,10 +164,10 @@ export default function WeddingsPage() {
               </div>
               <div className="p-4 space-y-1">
                 <h3 className="font-serif text-base font-bold text-foreground">
-                  Petite Berry Sablés
+                  Dubai Pistachio Eclairs
                 </h3>
                 <p className="text-[11px] text-muted-foreground">
-                  Madagascar vanilla bean curd crowned with seasonal blackberries.
+                  Petite choux eclairs with dark chocolate glaze and pistachio drizzle.
                 </p>
               </div>
             </div>
@@ -175,8 +175,8 @@ export default function WeddingsPage() {
             <div className="rounded-2xl overflow-hidden bg-card border border-border shadow-xs">
               <div className="relative aspect-[4/3] bg-muted">
                 <Image
-                  src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80"
-                  alt="Mini cupcakes"
+                  src="/images/desserts/velvet-mousse-dome.webp"
+                  alt="D&D Velvet Mousse Dome"
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
                   className="object-cover"
@@ -184,10 +184,10 @@ export default function WeddingsPage() {
               </div>
               <div className="p-4 space-y-1">
                 <h3 className="font-serif text-base font-bold text-foreground">
-                  Floral Mini Cupcakes
+                  Velvet Mousse Domes
                 </h3>
                 <p className="text-[11px] text-muted-foreground">
-                  Swiss meringue buttercream dusted with 24k edible gold leaf.
+                  Cocoa-dusted cream mousse dome on spiced biscuit crumble.
                 </p>
               </div>
             </div>
@@ -195,8 +195,8 @@ export default function WeddingsPage() {
             <div className="rounded-2xl overflow-hidden bg-card border border-border shadow-xs">
               <div className="relative aspect-[4/3] bg-muted">
                 <Image
-                  src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
-                  alt="Wedding favors"
+                  src="/images/desserts/golden-ganache-cups.webp"
+                  alt="D&D Golden Ganache Cups"
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
                   className="object-cover"
@@ -204,10 +204,10 @@ export default function WeddingsPage() {
               </div>
               <div className="p-4 space-y-1">
                 <h3 className="font-serif text-base font-bold text-foreground">
-                  Monogrammed Favors
+                  Golden Ganache Cups
                 </h3>
                 <p className="text-[11px] text-muted-foreground">
-                  Wax-sealed ballotin boxes for guests to cherish at home.
+                  Dark chocolate fudge ganache cubes topped with 24k edible gold leaf.
                 </p>
               </div>
             </div>
@@ -218,7 +218,7 @@ export default function WeddingsPage() {
         <div className="p-8 sm:p-12 rounded-3xl bg-secondary/80 border border-border flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-foreground">
-              Are you planning your 2025 – 2026 Wedding?
+              Are you planning your 2026 – 2027 Wedding?
             </h3>
             <p className="text-xs text-muted-foreground">
               Our calendar reserves peak spring and autumn dates months in advance. Inquire today to check your date.

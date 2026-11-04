@@ -8,8 +8,14 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (isGitHubPages ? "/mrs-jay
 const nextConfig: NextConfig = {
   output: "export",
   basePath,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   images: {
     unoptimized: true,
+  },
+  experimental: {
+    cpus: 1,
   },
   turbopack: {
     rules: {
