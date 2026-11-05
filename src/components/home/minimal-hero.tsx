@@ -2,10 +2,34 @@
 
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { withBasePath } from "@/lib/utils";
+import { ArrowRight, Sparkles, Utensils, CakeSlice } from "lucide-react";
+import { cn, withBasePath } from "@/lib/utils";
 
 const DESSERT_VIDEO_SRC = withBasePath("/videos/dessert-hero.mp4");
+
+const HERO_SERVICES = [
+  {
+    title: "CATERING",
+    subtitle: "Weddings & Bespoke Events",
+    href: "/catering",
+    icon: Sparkles,
+    badge: "Events",
+  },
+  {
+    title: "MEAL PREP",
+    subtitle: "Chef-Prepared Weekly Delivery",
+    href: "/meal-prep",
+    icon: Utensils,
+    badge: "Weekly",
+  },
+  {
+    title: "DESSERTS",
+    subtitle: "Artisanal Luxury Patisserie",
+    href: "/desserts",
+    icon: CakeSlice,
+    badge: "Sweets",
+  },
+];
 
 function setupAndPlayVideo(video: HTMLVideoElement | null) {
   if (!video) return;
@@ -197,66 +221,76 @@ export function MinimalHero() {
           {/* Center 100% Open Window: Pure Unobstructed View of the 3D Dessert */}
           <div className="flex-1 pointer-events-none" />
 
-          {/* Bottom Section: Buttons Directly Integrated Over Video (NO BOXY FLOATING CARD) */}
-          <div className="w-full max-w-sm mx-auto pointer-events-auto space-y-3 flex flex-col items-center">
-            {/* Supporting Sentence - Elevated Editorial Luxury Tag */}
+          {/* Bottom Section: 3 Luxury Vertical Service Navigation Buttons (Compact & Sleek) */}
+          <div className="w-full max-w-[330px] sm:max-w-xs mx-auto pointer-events-auto space-y-1.5 flex flex-col items-center pb-2">
+            {/* Supporting Tagline */}
             <div className="w-full flex justify-center">
-              <div className="inline-flex flex-col items-center justify-center px-4 py-2 rounded-2xl bg-black/50 backdrop-blur-md border border-white/15 shadow-md max-w-xs text-center">
-                <p className="font-serif italic text-xs sm:text-[13px] text-[#FAF8F5] leading-snug">
+              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 shadow-xs text-center">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <p className="font-serif italic text-[11px] text-[#FAF8F5] leading-snug">
                   Thoughtfully prepared. Beautifully presented.
                 </p>
-                <span className="font-sans text-[9.5px] sm:text-[10px] tracking-[0.2em] uppercase font-semibold text-[#E5B56A] mt-0.5">
-                  Made for every occasion
-                </span>
               </div>
             </div>
 
-            {/* Primary CTA Button */}
-            <Link
-              href="/desserts"
-              className="w-full py-3.5 px-6 rounded-full bg-primary hover:bg-primary-hover active:scale-[0.98] text-primary-foreground font-semibold text-xs sm:text-sm tracking-wider uppercase shadow-xl shadow-black/50 flex items-center justify-center gap-2 transition-all cursor-pointer border border-primary-hover/50 text-center"
-            >
-              <span>EXPLORE OUR MENU</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            {/* 3 Prominent Vertical Navigation Buttons (Catering -> Meal Prep -> Desserts) */}
+            <div className="w-full flex flex-col gap-1.5 pt-0.5">
+              {HERO_SERVICES.map((service, idx) => {
+                const Icon = service.icon;
+                const isFirst = idx === 0;
+                return (
+                  <Link
+                    key={service.title}
+                    href={service.href}
+                    className={cn(
+                      "group relative w-full flex items-center justify-between px-3 py-2 rounded-xl transition-all duration-200 active:scale-[0.98] cursor-pointer shadow-md",
+                      "bg-black/65 hover:bg-black/85 backdrop-blur-xl border border-white/20 hover:border-primary/70",
+                      isFirst
+                        ? "border-primary/50 bg-black/75 shadow-primary/10"
+                        : "border-white/15"
+                    )}
+                  >
+                    {/* Subtle Gold Hover Glow */}
+                    <div
+                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                      aria-hidden="true"
+                    />
 
-            {/* Three Frosted Glass Interactive Navigation Pills */}
-            <div className="grid grid-cols-3 gap-2 pt-0.5 w-full">
-              <Link
-                href="/meal-prep"
-                className="group py-2 px-1.5 rounded-xl bg-black/45 hover:bg-black/70 active:scale-95 backdrop-blur-md border border-white/15 hover:border-primary/50 text-center transition-all shadow-xs cursor-pointer"
-              >
-                <span className="block text-[10px] font-semibold tracking-wider text-white group-hover:text-primary transition-colors">
-                  MEAL PREP
-                </span>
-                <span className="text-[9px] text-[#E5B56A] font-medium flex items-center justify-center gap-0.5 mt-0.5">
-                  Menu →
-                </span>
-              </Link>
+                    {/* Left: Icon & Typography */}
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div
+                        className={cn(
+                          "w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border transition-colors",
+                          isFirst
+                            ? "bg-primary/20 border-primary/40 text-primary"
+                            : "bg-white/10 group-hover:bg-primary/20 border-white/15 group-hover:border-primary/40 text-primary"
+                        )}
+                      >
+                        <Icon className="w-3.5 h-3.5 transition-transform group-hover:scale-110" />
+                      </div>
 
-              <Link
-                href="/catering"
-                className="group py-2 px-1.5 rounded-xl bg-black/45 hover:bg-black/70 active:scale-95 backdrop-blur-md border border-white/15 hover:border-primary/50 text-center transition-all shadow-xs cursor-pointer"
-              >
-                <span className="block text-[10px] font-semibold tracking-wider text-white group-hover:text-primary transition-colors">
-                  CATERING
-                </span>
-                <span className="text-[9px] text-[#E5B56A] font-medium flex items-center justify-center gap-0.5 mt-0.5">
-                  Events →
-                </span>
-              </Link>
+                      <div className="flex flex-col text-left min-w-0">
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-sans text-[11px] sm:text-xs font-bold tracking-[0.14em] uppercase text-white group-hover:text-primary transition-colors truncate">
+                            {service.title}
+                          </span>
+                          <span className="text-[8px] uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-primary/20 text-[#E5B56A] border border-primary/30 font-semibold">
+                            {service.badge}
+                          </span>
+                        </div>
+                        <span className="text-[9.5px] sm:text-[10px] text-white/70 group-hover:text-white/90 font-light truncate">
+                          {service.subtitle}
+                        </span>
+                      </div>
+                    </div>
 
-              <Link
-                href="/desserts"
-                className="group py-2 px-1.5 rounded-xl bg-black/45 hover:bg-black/70 active:scale-95 backdrop-blur-md border border-white/15 hover:border-primary/50 text-center transition-all shadow-xs cursor-pointer"
-              >
-                <span className="block text-[10px] font-semibold tracking-wider text-white group-hover:text-primary transition-colors">
-                  DESSERTS
-                </span>
-                <span className="text-[9px] text-[#E5B56A] font-medium flex items-center justify-center gap-0.5 mt-0.5">
-                  Sweets →
-                </span>
-              </Link>
+                    {/* Right: Gold Circular Action Arrow */}
+                    <div className="w-6.5 h-6.5 rounded-full bg-white/10 group-hover:bg-primary group-hover:text-primary-foreground border border-white/15 group-hover:border-primary flex items-center justify-center shrink-0 text-primary transition-all ml-1.5">
+                      <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -288,17 +322,59 @@ export function MinimalHero() {
                 A Little Taste of Something Extraordinary.
               </h1>
 
-              <p className="font-sans text-base text-muted-foreground font-light leading-relaxed max-w-md mb-8 text-balance">
+              <p className="font-sans text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-md mb-6 text-balance">
                 Thoughtfully prepared. Beautifully presented. Made for every occasion.
               </p>
 
-              <Link
-                href="/desserts"
-                className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-medium text-sm tracking-wider uppercase shadow-xs hover:bg-primary-hover active:scale-[0.98] transition-all cursor-pointer"
-              >
-                <span>EXPLORE OUR MENU</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
+              {/* 3 Prominent Vertical Navigation Buttons (Desktop) */}
+              <div className="w-full max-w-sm flex flex-col gap-2">
+                {HERO_SERVICES.map((service, idx) => {
+                  const Icon = service.icon;
+                  const isFirst = idx === 0;
+                  return (
+                    <Link
+                      key={service.title}
+                      href={service.href}
+                      className={cn(
+                        "group relative flex items-center justify-between px-3.5 py-2 rounded-xl border transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-md",
+                        isFirst
+                          ? "bg-primary/5 hover:bg-primary/10 border-primary/40 hover:border-primary text-foreground"
+                          : "bg-card/70 hover:bg-card border-border/80 hover:border-primary/50 text-foreground"
+                      )}
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <div
+                          className={cn(
+                            "w-7.5 h-7.5 rounded-lg flex items-center justify-center shrink-0 border transition-colors",
+                            isFirst
+                              ? "bg-primary text-primary-foreground border-primary"
+                              : "bg-primary/10 text-primary border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground"
+                          )}
+                        >
+                          <Icon className="w-3.5 h-3.5 transition-transform group-hover:scale-110" />
+                        </div>
+                        <div className="flex flex-col text-left min-w-0">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-xs font-bold tracking-wider uppercase group-hover:text-primary transition-colors">
+                              {service.title}
+                            </span>
+                            <span className="text-[8.5px] uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-primary/10 text-primary border border-primary/20 font-semibold">
+                              {service.badge}
+                            </span>
+                          </div>
+                          <span className="text-[10px] text-muted-foreground font-light truncate">
+                            {service.subtitle}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="w-7 h-7 rounded-full bg-muted/60 group-hover:bg-primary group-hover:text-primary-foreground border border-border group-hover:border-primary flex items-center justify-center shrink-0 text-muted-foreground transition-all ml-1.5">
+                        <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
 
             {/* RIGHT COLUMN: 58% (col-span-7) - GPU Accelerated, Buttery Smooth */}

@@ -5,8 +5,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const SERVICE_LINKS = [
-  { label: "MEAL PREP", href: "/meal-prep" },
   { label: "CATERING", href: "/catering" },
+  { label: "MEAL PREP", href: "/meal-prep" },
   { label: "DESSERTS", href: "/desserts" },
 ];
 

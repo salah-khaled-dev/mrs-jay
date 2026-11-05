@@ -9,9 +9,9 @@ import { onNavLinkClick } from "@/lib/navigation";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home", icon: Home },
+  { href: "/catering", label: "Catering", icon: Sparkles },
   { href: "/meal-prep", label: "Meals", icon: Utensils },
   { href: "/desserts", label: "Desserts", icon: CakeSlice },
-  { href: "/catering", label: "Catering", icon: Sparkles },
   { href: "/contact", label: "Contact", icon: MessageCircle },
 ];
 

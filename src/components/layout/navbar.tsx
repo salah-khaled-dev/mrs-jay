@@ -11,8 +11,8 @@ import { onNavLinkClick } from "@/lib/navigation";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/meal-prep", label: "Meal Prep" },
   { href: "/catering", label: "Catering" },
+  { href: "/meal-prep", label: "Meal Prep" },
   { href: "/desserts", label: "Desserts" },
   { href: "/reviews", label: "Reviews" },
   { href: "/contact", label: "Contact" },
