@@ -31,9 +31,15 @@ let fallbackTimer: number | undefined;
  */
 export function onNavLinkClick(href: string) {
   if (typeof window === "undefined") return;
-  releaseMedia();
 
   const target = normalizePath(withBasePath(href));
+  const current = normalizePath(window.location.pathname);
+  if (current === target) {
+    return;
+  }
+
+  releaseMedia();
+
   window.clearTimeout(fallbackTimer);
   fallbackTimer = window.setTimeout(() => {
     if (normalizePath(window.location.pathname) !== target) {

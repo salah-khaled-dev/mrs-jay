@@ -5,9 +5,55 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { withBasePath } from "@/lib/utils";
 
-const DESSERT_VIDEO_SRC = withBasePath(
-  "/videos/Dessert_commercial_animation_seq\u2026_367e3088_1080p.mp4"
-);
+const DESSERT_VIDEO_SRC = withBasePath("/videos/dessert-hero.mp4");
+
+function setupAndPlayVideo(video: HTMLVideoElement | null) {
+  if (!video) return;
+
+  // Strict property bindings required by iOS Safari (WebKit) and Android Chrome
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.setAttribute("x5-playsinline", "");
+  video.setAttribute("muted", "");
+
+  const attemptPlay = () => {
+    if (!video) return;
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay policy prevented playback (e.g. iOS Low Power Mode / Battery Saver)
+        // Resume video on the very first user interaction anywhere on screen
+        const unlock = () => {
+          if (video && video.paused) {
+            video.muted = true;
+            video.play().catch(() => {});
+          }
+          window.removeEventListener("touchstart", unlock);
+          window.removeEventListener("touchend", unlock);
+          window.removeEventListener("click", unlock);
+          window.removeEventListener("scroll", unlock);
+        };
+        window.addEventListener("touchstart", unlock, { once: true, passive: true });
+        window.addEventListener("touchend", unlock, { once: true, passive: true });
+        window.addEventListener("click", unlock, { once: true, passive: true });
+        window.addEventListener("scroll", unlock, { once: true, passive: true });
+      });
+    }
+  };
+
+  // If already ready, start playing immediately
+  if (video.readyState >= 2) {
+    attemptPlay();
+  } else {
+    video.addEventListener("canplay", attemptPlay, { once: true });
+    video.addEventListener("loadeddata", attemptPlay, { once: true });
+    attemptPlay();
+  }
+}
 
 export function MinimalHero() {
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
@@ -16,26 +62,56 @@ export function MinimalHero() {
   // Responsive video playback optimization:
   // Decodes only ONE 1080p video stream matching the device screen, preventing dual-stream GPU lag.
   useEffect(() => {
-    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
-    if (isDesktop) {
-      if (mobileVideoRef.current) {
-        mobileVideoRef.current.pause();
-        mobileVideoRef.current.removeAttribute("src");
-        mobileVideoRef.current.load();
+    const handleDevicePlayback = () => {
+      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+      if (isDesktop) {
+        if (mobileVideoRef.current) {
+          mobileVideoRef.current.pause();
+          mobileVideoRef.current.removeAttribute("src");
+          mobileVideoRef.current.load();
+        }
+        if (desktopVideoRef.current) {
+          if (!desktopVideoRef.current.getAttribute("src")) {
+            desktopVideoRef.current.src = DESSERT_VIDEO_SRC;
+          }
+          setupAndPlayVideo(desktopVideoRef.current);
+        }
+      } else {
+        if (desktopVideoRef.current) {
+          desktopVideoRef.current.pause();
+          desktopVideoRef.current.removeAttribute("src");
+          desktopVideoRef.current.load();
+        }
+        if (mobileVideoRef.current) {
+          if (!mobileVideoRef.current.getAttribute("src")) {
+            mobileVideoRef.current.src = DESSERT_VIDEO_SRC;
+          }
+          setupAndPlayVideo(mobileVideoRef.current);
+        }
       }
-      if (desktopVideoRef.current) {
-        desktopVideoRef.current.play().catch(() => {});
+    };
+
+    handleDevicePlayback();
+
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const onMediaChange = () => handleDevicePlayback();
+    mql.addEventListener("change", onMediaChange);
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+        const activeVideo = isDesktop ? desktopVideoRef.current : mobileVideoRef.current;
+        if (activeVideo && activeVideo.paused) {
+          activeVideo.play().catch(() => {});
+        }
       }
-    } else {
-      if (desktopVideoRef.current) {
-        desktopVideoRef.current.pause();
-        desktopVideoRef.current.removeAttribute("src");
-        desktopVideoRef.current.load();
-      }
-      if (mobileVideoRef.current) {
-        mobileVideoRef.current.play().catch(() => {});
-      }
-    }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      mql.removeEventListener("change", onMediaChange);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
   }, []);
 
   return (
@@ -55,13 +131,20 @@ export function MinimalHero() {
         {/* Full-Screen Seamless Background Video */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none">
           <video
-            ref={mobileVideoRef}
+            ref={(el) => {
+              mobileVideoRef.current = el;
+              if (el) {
+                el.muted = true;
+                el.defaultMuted = true;
+              }
+            }}
             src={DESSERT_VIDEO_SRC}
+            poster={withBasePath("/og-image.jpg")}
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             className="w-full h-full object-cover object-center"
           />
 
@@ -228,13 +311,19 @@ export function MinimalHero() {
                 />
 
                 <video
-                  ref={desktopVideoRef}
-                  src={DESSERT_VIDEO_SRC}
+                  ref={(el) => {
+                    desktopVideoRef.current = el;
+                    if (el) {
+                      el.muted = true;
+                      el.defaultMuted = true;
+                    }
+                  }}
+                  poster={withBasePath("/og-image.jpg")}
                   autoPlay
                   muted
                   loop
                   playsInline
-                  preload="auto"
+                  preload="none"
                   className="w-full h-full object-cover object-[center_48%] select-none pointer-events-none transform-gpu will-change-transform"
                 />
 

@@ -97,6 +97,9 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => {
+                      if (pathname === link.href) {
+                        return;
+                      }
                       setOptimisticPath(link.href);
                       onNavLinkClick(link.href);
                     }}
@@ -194,8 +197,11 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => {
-                      setOptimisticPath(link.href);
                       setMobileMenuOpen(false);
+                      if (pathname === link.href) {
+                        return;
+                      }
+                      setOptimisticPath(link.href);
                       onNavLinkClick(link.href);
                     }}
                     className={cn(
