@@ -3,9 +3,32 @@ import { INITIAL_REVIEWS } from "./reviews-data";
 
 const LOCAL_STORAGE_KEY = "divine_delight_user_reviews";
 
+// Live Google Apps Script Web App connected to the Google Sheet backend
+export const DEFAULT_GOOGLE_SHEET_URL =
+  "https://script.google.com/macros/s/AKfycbw4-lEseUvu0Bg2dJV7bTA0pX5w9iRYBjuTvEtGVMsBKuqKJhOAaK1FmtMwZX7f_ySNtQ/exec";
+
 export const getGoogleSheetUrl = (): string => {
-  return process.env.NEXT_PUBLIC_GOOGLE_SHEET_SCRIPT_URL || "";
+  return (
+    process.env.NEXT_PUBLIC_GOOGLE_SHEET_SCRIPT_URL?.trim() ||
+    DEFAULT_GOOGLE_SHEET_URL
+  );
 };
+
+// Normalize dates from Google Apps Script (e.g. verbose localized strings) into clean ISO dates (YYYY-MM-DD)
+function normalizeReviewDate(raw: string): string {
+  if (!raw) return new Date().toISOString().split("T")[0];
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+  try {
+    const clean = raw.replace(/\s*\([^)]*\)$/, "");
+    const d = new Date(clean);
+    if (!isNaN(d.getTime())) {
+      return d.toISOString().split("T")[0];
+    }
+  } catch {
+    // fallback
+  }
+  return raw;
+}
 
 export async function fetchAllReviews(): Promise<Review[]> {
   const scriptUrl = getGoogleSheetUrl();
@@ -25,16 +48,34 @@ export async function fetchAllReviews(): Promise<Review[]> {
 
   if (scriptUrl) {
     try {
-      const res = await fetch(scriptUrl, {
+      const targetUrl = scriptUrl.includes("?")
+        ? `${scriptUrl}&_t=${Date.now()}`
+        : `${scriptUrl}?_t=${Date.now()}`;
+
+      const res = await fetch(targetUrl, {
         method: "GET",
+        cache: "no-store",
       });
 
       if (res.ok) {
         const data = await res.json();
-        if (Array.isArray(data) && data.length > 0) {
-          // Merge local submissions + Google Sheets data + default starter reviews
-          const combined = [...localSubmissions, ...data, ...INITIAL_REVIEWS];
-          // Deduplicate by id
+        if (Array.isArray(data)) {
+          // Normalize server reviews
+          const serverReviews: Review[] = data.map((item) => ({
+            id: String(item.id || `rev-${Date.now()}`),
+            name: String(item.name || "Anonymous Guest"),
+            rating: Number(item.rating) || 5,
+            service: String(item.service || "General"),
+            comment: String(item.comment || ""),
+            date: normalizeReviewDate(String(item.date || "")),
+            approved: item.approved !== false,
+            image: item.image ? String(item.image) : undefined,
+          }));
+
+          // Merge: Server reviews take priority as global truth + local un-synced + initial starter reviews
+          const combined = [...serverReviews, ...localSubmissions, ...INITIAL_REVIEWS];
+
+          // Deduplicate by ID
           const seen = new Set<string>();
           return combined.filter((r) => {
             if (seen.has(r.id)) return false;
@@ -44,7 +85,7 @@ export async function fetchAllReviews(): Promise<Review[]> {
         }
       }
     } catch (err) {
-      console.warn("Could not fetch reviews from Google Sheets, using defaults.", err);
+      console.warn("Could not fetch reviews from Google Sheets, using fallback.", err);
     }
   }
 
@@ -73,28 +114,51 @@ export async function submitReviewToSheet(review: Omit<Review, "id" | "date">): 
   const scriptUrl = getGoogleSheetUrl();
 
   if (scriptUrl) {
+    let sentSuccessfully = false;
+
+    // 1. Try standard CORS POST first
     try {
-      // Google Apps Script requires text/plain for smooth CORS in no-cors mode without preflight failure
-      await fetch(scriptUrl, {
+      const response = await fetch(scriptUrl, {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "text/plain;charset=utf-8",
         },
         body: JSON.stringify(newReview),
       });
+      if (response.ok) {
+        sentSuccessfully = true;
+      }
     } catch (err) {
-      console.error("Failed to post review to Google Sheet:", err);
+      console.warn("Standard POST to Google Sheet failed, trying no-cors fallback:", err);
+    }
+
+    // 2. If standard fetch failed or was blocked by browser CORS redirect policy, send via no-cors mode
+    if (!sentSuccessfully) {
+      try {
+        await fetch(scriptUrl, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify(newReview),
+        });
+        sentSuccessfully = true;
+      } catch (err) {
+        console.error("Failed to post review to Google Sheet via no-cors fallback:", err);
+      }
     }
   }
 
-  // Save to localStorage for instant client reflection
+  // Save to localStorage for instant client reflection on current device
   if (typeof window !== "undefined") {
     try {
       const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
       const existing: Review[] = stored ? JSON.parse(stored) : [];
-      existing.unshift(newReview);
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(existing));
+      // Deduplicate in localStorage
+      const filtered = existing.filter((r) => r.id !== newReview.id);
+      filtered.unshift(newReview);
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(filtered));
     } catch {
       // ignore
     }

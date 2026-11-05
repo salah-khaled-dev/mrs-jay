@@ -37,6 +37,18 @@ export function ReviewsContainer({ initialReviews }: ReviewsContainerProps) {
 
   const handleReviewAdded = (newReview: Review) => {
     setReviews((prev) => [newReview, ...prev]);
+
+    // Re-sync with Google Sheet in background after 3.5 seconds
+    setTimeout(async () => {
+      try {
+        const fresh = await fetchAllReviews();
+        if (Array.isArray(fresh) && fresh.length > 0) {
+          setReviews(fresh);
+        }
+      } catch {
+        // ignore
+      }
+    }, 3500);
   };
 
   return (

@@ -2,10 +2,10 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { BrandLogo } from "@/components/brand-logo";
-import { Menu, X, ArrowRight, Star } from "lucide-react";
+import { Menu, X, ArrowRight, Star, ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { onNavLinkClick } from "@/lib/navigation";
 
@@ -20,6 +20,7 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [optimisticPath, setOptimisticPath] = React.useState<string | null>(null);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -66,14 +67,28 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-3">
-            {/* Brand Logo: Compact on mobile, prevents overflow */}
-            <BrandLogo
-              variant="horizontal"
-              priority
-              imageClassName="h-8 sm:h-10 w-auto"
-            />
+            <div className="flex items-center gap-2 shrink-0">
+              {/* Mobile Back Button (on non-home pages) */}
+              {pathname !== "/" && (
+                <button
+                  type="button"
+                  onClick={() => router.back()}
+                  className="md:hidden inline-flex items-center justify-center w-8 h-8 rounded-full border border-border bg-card text-foreground hover:bg-muted active:scale-95 transition-all cursor-pointer shadow-2xs"
+                  aria-label="رجوع • Go back"
+                >
+                  <ArrowLeft className="w-4 h-4 text-primary" />
+                </button>
+              )}
 
-            {/* Desktop Navigation Links */}
+              {/* Brand Logo: Preserved exact brand identity */}
+              <BrandLogo
+                variant="horizontal"
+                priority
+                imageClassName="h-8 sm:h-10 w-auto"
+              />
+            </div>
+
+            {/* Desktop Navigation Links: Minimal, Elegant Uppercase */}
             <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
               {NAV_LINKS.map((link) => {
                 const isActive = activePath === link.href;
@@ -81,9 +96,12 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    onClick={() => { setOptimisticPath(link.href); onNavLinkClick(link.href); }}
+                    onClick={() => {
+                      setOptimisticPath(link.href);
+                      onNavLinkClick(link.href);
+                    }}
                     className={cn(
-                      "px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-150",
+                      "px-3.5 py-1.5 text-xs font-medium uppercase tracking-wider rounded-full transition-all duration-150",
                       isActive
                         ? "text-primary bg-primary/10 font-semibold"
                         : "text-foreground/80 hover:text-foreground hover:bg-muted/60"
@@ -95,12 +113,12 @@ export function Navbar() {
               })}
             </nav>
 
-            {/* Right Actions: Reviews Pill & Theme Toggle & Desktop CTA / Mobile Hamburger */}
+            {/* Right Actions: Reviews Pill & Theme Toggle & Primary CTA / Mobile Hamburger */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-              {/* Mobile 1-Tap Reviews Pill for QR code visitors */}
+              {/* 1-Tap Reviews Pill Button (As in reference screenshot) */}
               <Link
                 href="/reviews"
-                className="md:hidden inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-full bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 active:scale-95 transition-all shadow-2xs cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 active:scale-95 transition-all shadow-2xs cursor-pointer"
                 aria-label="Reviews and Ratings"
               >
                 <Star className="w-3.5 h-3.5 fill-primary text-primary" />
@@ -109,10 +127,10 @@ export function Navbar() {
 
               <ThemeToggle />
 
-              {/* Desktop CTA: VIEW MENU (Hidden on mobile/tablet) */}
+              {/* Desktop Single Primary CTA: VIEW MENU */}
               <Link
                 href="/meal-prep"
-                className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-xs sm:text-sm font-semibold tracking-wide uppercase rounded-full bg-primary text-primary-foreground hover:bg-primary-hover active:scale-[0.98] transition-all shadow-xs hover:shadow cursor-pointer"
+                className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-xs font-semibold tracking-wider uppercase rounded-full bg-primary text-primary-foreground hover:bg-primary-hover active:scale-[0.98] transition-all shadow-xs hover:shadow cursor-pointer"
               >
                 <span>View Menu</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -137,57 +155,87 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer Navigation (Optimized for QR Code Visitors) */}
+      {/* Mobile Drawer Navigation: Compact, Clean, Luxury */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden flex flex-col justify-between bg-background/98 backdrop-blur-xl border-b border-border pt-20 pb-8 px-6 overflow-y-auto animate-in fade-in duration-200">
-          <div className="flex flex-col space-y-3">
-            <span className="text-[11px] uppercase tracking-widest text-muted-foreground font-semibold px-3 mb-1">
-              Menu Navigation
-            </span>
-            {NAV_LINKS.map((link) => {
-              const isActive = activePath === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => {
-                    setOptimisticPath(link.href);
-                    setMobileMenuOpen(false); onNavLinkClick(link.href);
-                  }}
-                  className={cn(
-                    "flex items-center justify-between px-4 py-3.5 text-base font-serif rounded-xl transition-colors",
-                    isActive
-                      ? "text-primary bg-primary/10 font-semibold"
-                      : "text-foreground hover:bg-card"
-                  )}
-                >
-                  <span>{link.label}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground" />
-                </Link>
-              );
-            })}
+        <div className="fixed inset-0 z-50 md:hidden flex flex-col justify-between bg-background/98 backdrop-blur-2xl border-b border-border pt-4 pb-6 px-4 overflow-y-auto animate-in fade-in duration-200">
+          <div className="flex flex-col">
+            {/* Top Bar with Clear Back Button and Close Button */}
+            <div className="flex items-center justify-between pb-3 mb-2.5 border-b border-border/60">
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card hover:bg-muted border border-border text-foreground text-xs font-medium active:scale-95 transition-all cursor-pointer shadow-2xs"
+                aria-label=" Back"
+              >
+                <ArrowLeft className="w-3.5 h-3.5 text-primary" />
+                <span> Back</span>
+              </button>
+
+              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-semibold">
+                Menu Navigation
+              </span>
+
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-8 h-8 rounded-full border border-border bg-card text-foreground hover:bg-muted flex items-center justify-center active:scale-95 transition-all cursor-pointer shadow-2xs"
+                aria-label="Close menu"
+              >
+                <X className="w-4 h-4 text-primary" />
+              </button>
+            </div>
+
+            {/* Compact Nav Items */}
+            <div className="space-y-1">
+              {NAV_LINKS.map((link) => {
+                const isActive = activePath === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => {
+                      setOptimisticPath(link.href);
+                      setMobileMenuOpen(false);
+                      onNavLinkClick(link.href);
+                    }}
+                    className={cn(
+                      "flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-lg transition-all",
+                      isActive
+                        ? "text-primary bg-primary/10 font-semibold border border-primary/20"
+                        : "text-foreground hover:bg-card active:bg-muted/70"
+                    )}
+                  >
+                    <span>{link.label}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-muted-foreground" />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="pt-6 border-t border-border mt-8 flex flex-col gap-3">
-            {/* Quick 1-Tap Review Action */}
+          {/* Compact Bottom Section */}
+          <div className="pt-3 border-t border-border mt-3 flex flex-col gap-2">
+            {/* Quick Review Link inside drawer */}
             <Link
               href="/reviews"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 px-4 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 text-center font-semibold text-xs flex items-center justify-center gap-2 shadow-2xs cursor-pointer active:scale-98 transition-all"
+              className="w-full py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 text-center font-semibold text-xs flex items-center justify-center gap-2 shadow-2xs cursor-pointer active:scale-98 transition-all"
             >
-              <Star className="w-4 h-4 fill-primary text-primary" />
-              <span>Leave a Review • شاركنا برأيك</span>
+              <Star className="w-3.5 h-3.5 fill-primary text-primary" />
+              <span>Leave a Review </span>
             </Link>
 
+            {/* Primary CTA: VIEW MENU */}
             <Link
               href="/meal-prep"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 px-4 rounded-xl bg-primary text-primary-foreground text-center font-semibold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-md cursor-pointer"
+              className="w-full py-2.5 px-3 rounded-lg bg-primary text-primary-foreground text-center font-semibold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-md cursor-pointer active:scale-98 transition-all"
             >
               <span>View Menu</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
-            <p className="text-center text-xs text-muted-foreground pt-1">
+
+            <p className="text-center text-[10px] text-muted-foreground pt-0.5 tracking-wider uppercase">
               Divine & Delight • Premium Meal Prep & Catering
             </p>
           </div>
