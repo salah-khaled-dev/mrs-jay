@@ -65,18 +65,18 @@ export function Navbar() {
             : "bg-background/80 backdrop-blur-xs border-b border-border/50 py-3 sm:py-4"
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2 shrink-0">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
+          <div className="flex items-center justify-between gap-1.5 sm:gap-3 w-full">
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               {/* Mobile Back Button (on non-home pages) */}
               {pathname !== "/" && (
                 <button
                   type="button"
                   onClick={() => router.back()}
-                  className="md:hidden inline-flex items-center justify-center w-8 h-8 rounded-full border border-border bg-card text-foreground hover:bg-muted active:scale-95 transition-all cursor-pointer shadow-2xs"
-                  aria-label="رجوع • Go back"
+                  className="md:hidden inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-border bg-card text-foreground hover:bg-muted active:scale-95 transition-all cursor-pointer shadow-2xs"
+                  aria-label="Back"
                 >
-                  <ArrowLeft className="w-4 h-4 text-primary" />
+                  <ArrowLeft className="w-3.5 h-3.5 text-primary" />
                 </button>
               )}
 
@@ -84,7 +84,7 @@ export function Navbar() {
               <BrandLogo
                 variant="horizontal"
                 priority
-                imageClassName="h-8 sm:h-10 w-auto"
+                imageClassName="h-7 sm:h-10 w-auto max-w-[130px] sm:max-w-none object-contain"
               />
             </div>
 
@@ -114,14 +114,14 @@ export function Navbar() {
             </nav>
 
             {/* Right Actions: Reviews Pill & Theme Toggle & Primary CTA / Mobile Hamburger */}
-            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
               {/* 1-Tap Reviews Pill Button (As in reference screenshot) */}
               <Link
                 href="/reviews"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 active:scale-95 transition-all shadow-2xs cursor-pointer"
+                className="inline-flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-semibold rounded-full bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 active:scale-95 transition-all shadow-2xs cursor-pointer"
                 aria-label="Reviews and Ratings"
               >
-                <Star className="w-3.5 h-3.5 fill-primary text-primary" />
+                <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-primary text-primary" />
                 <span>Reviews</span>
               </Link>
 
@@ -136,11 +136,11 @@ export function Navbar() {
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
-              {/* Mobile Menu Trigger: Touch-friendly 40x40 circle */}
+              {/* Mobile Menu Trigger: Touch-friendly circle */}
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden w-10 h-10 rounded-full border border-border bg-card text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary flex items-center justify-center transition-colors cursor-pointer"
+                className="md:hidden w-8.5 h-8.5 sm:w-10 sm:h-10 rounded-full border border-border bg-card text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary flex items-center justify-center transition-colors cursor-pointer"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
               >
