@@ -127,12 +127,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, .font-serif {
-  font-family: var(--font-serif);
-}
+@layer base {
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+  }
 
-h1, h2, h3, h4 {
-  color: var(--heading);
+  h1, h2, h3, h4 {
+    color: var(--heading);
+  }
 }
 
 ::-webkit-scrollbar {

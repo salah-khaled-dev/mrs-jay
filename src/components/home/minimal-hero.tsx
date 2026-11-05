@@ -205,14 +205,15 @@ export function MinimalHero() {
 
             {/* Headline overlaid directly on video - High Contrast Luxury Typography */}
             <h1
-              className="font-serif text-2xl sm:text-[1.75rem] font-medium text-white tracking-tight leading-[1.2] max-w-xs mx-auto text-balance"
+              className="font-serif text-2xl sm:text-[1.75rem] font-medium tracking-tight leading-[1.2] max-w-xs mx-auto text-balance !text-white"
               style={{
+                color: "#FFFFFF",
                 textShadow:
                   "0 2px 10px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.9)",
               }}
             >
-              A Little Taste of{" "}
-              <span className="italic font-normal text-white block mt-0.5">
+              <span className="!text-white text-white block">A Little Taste of</span>
+              <span className="italic font-normal !text-white text-white block mt-0.5">
                 Something Extraordinary<span className="text-primary not-italic">.</span>
               </span>
             </h1>
@@ -317,7 +318,7 @@ export function MinimalHero() {
 
               <h1
                 style={{ fontSize: "clamp(2rem, 3.2vw, 3.6rem)" }}
-                className="font-serif font-medium leading-[1.12] tracking-tight text-heading mb-4 text-balance max-w-lg"
+                className="font-serif font-medium leading-[1.12] tracking-tight text-foreground dark:text-heading mb-4 text-balance max-w-lg"
               >
                 A Little Taste of Something Extraordinary.
               </h1>
